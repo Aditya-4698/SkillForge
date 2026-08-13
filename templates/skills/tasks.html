@@ -1,0 +1,602 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Tasks - SkillForge
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- ==========================================
+     PAGE HEADER
+========================================== -->
+
+<div class="tasks-header mb-5">
+
+    <h2>
+        Tasks
+    </h2>
+
+    <p>
+        Manage your learning tasks.
+    </p>
+
+</div>
+
+
+<!-- ==========================================
+     FILTER
+========================================== -->
+
+<div class="card filter-card mb-4">
+
+    <div class="card-body">
+
+
+        <!-- ==================================
+             SEARCH
+        =================================== -->
+
+        <form
+            method="GET"
+            class="task-search-form mb-4"
+        >
+
+            <div class="input-group">
+
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+
+
+                <input
+                    type="text"
+                    name="search"
+                    value="{{ search }}"
+                    class="form-control"
+                    placeholder="Search tasks..."
+                >
+
+
+                <input
+                    type="hidden"
+                    name="status"
+                    value="{{ current_status }}"
+                >
+
+
+                <input
+                    type="hidden"
+                    name="sort"
+                    value="{{ current_sort }}"
+                >
+
+
+                <button
+                    type="submit"
+                    class="btn btn-dark"
+                >
+                    Search
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- ==================================
+             STATUS FILTER
+        =================================== -->
+
+        <div class="task-filter">
+
+
+            <a
+                href="{% url 'tasks' %}?status=all&sort={{ current_sort }}&search={{ search|urlencode }}"
+                class="filter-btn {% if current_status == 'all' %}active{% endif %}"
+            >
+
+                All
+
+            </a>
+
+
+            <a
+                href="{% url 'tasks' %}?status=pending&sort={{ current_sort }}&search={{ search|urlencode }}"
+                class="filter-btn {% if current_status == 'pending' %}active{% endif %}"
+            >
+
+                Pending
+
+            </a>
+
+
+            <a
+                href="{% url 'tasks' %}?status=completed&sort={{ current_sort }}&search={{ search|urlencode }}"
+                class="filter-btn {% if current_status == 'completed' %}active{% endif %}"
+            >
+
+                Completed
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     SORT
+========================================== -->
+
+<div class="sort-wrapper mb-4">
+
+
+    <form
+        method="GET"
+        class="sort-form"
+    >
+
+
+        <input
+            type="hidden"
+            name="status"
+            value="{{ current_status }}"
+        >
+
+
+        <input
+            type="hidden"
+            name="search"
+            value="{{ search }}"
+        >
+
+
+        <label>
+
+            <i class="bi bi-funnel"></i>
+
+            Sort By
+
+        </label>
+
+
+        <select
+            name="sort"
+            onchange="this.form.submit()"
+        >
+
+
+            <option
+                value="latest"
+                {% if current_sort == "latest" %}selected{% endif %}
+            >
+
+                Latest
+
+            </option>
+
+
+            <option
+                value="oldest"
+                {% if current_sort == "oldest" %}selected{% endif %}
+            >
+
+                Oldest
+
+            </option>
+
+
+            <option
+                value="completed"
+                {% if current_sort == "completed" %}selected{% endif %}
+            >
+
+                Completed First
+
+            </option>
+
+
+            <option
+                value="pending"
+                {% if current_sort == "pending" %}selected{% endif %}
+            >
+
+                Pending First
+
+            </option>
+
+
+        </select>
+
+
+    </form>
+
+</div>
+
+
+<!-- ==========================================
+     STATISTICS
+========================================== -->
+
+<div class="row g-4 mb-5">
+
+
+    <!-- TOTAL -->
+
+    <div class="col-md-4">
+
+        <div class="card task-stat-card">
+
+            <div class="card-body">
+
+                <p>
+                    Total Tasks
+                </p>
+
+                <h2>
+                    {{ total_tasks }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- COMPLETED -->
+
+    <div class="col-md-4">
+
+        <div class="card task-stat-card">
+
+            <div class="card-body">
+
+                <p>
+                    Completed
+                </p>
+
+                <h2>
+                    {{ completed_tasks }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PENDING -->
+
+    <div class="col-md-4">
+
+        <div class="card task-stat-card">
+
+            <div class="card-body">
+
+                <p>
+                    Pending
+                </p>
+
+                <h2>
+                    {{ pending_tasks }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- ==========================================
+     TASK LIST
+========================================== -->
+
+<div class="card tasks-card">
+
+
+    <div class="card-body">
+
+
+        <h4 class="mb-4">
+
+            {% if search %}
+
+                Search Results
+
+            {% elif current_status == "completed" %}
+
+                Completed Tasks
+
+            {% elif current_status == "pending" %}
+
+                Pending Tasks
+
+            {% else %}
+
+                All Tasks
+
+            {% endif %}
+
+        </h4>
+
+
+        <!-- ==================================
+             TASK LOOP
+        =================================== -->
+
+
+        {% for task in tasks %}
+
+
+        <div
+            class="task-item {% if task.completed %}completed{% endif %}"
+        >
+
+
+            <!-- ==================================
+                 TOP
+            =================================== -->
+
+            <div class="d-flex align-items-start">
+
+
+                <!-- ==================================
+                     STATUS
+                =================================== -->
+
+                <div class="task-status">
+
+
+                    {% if task.completed %}
+
+                        <i class="bi bi-check2-circle"></i>
+
+                    {% else %}
+
+                        <i class="bi bi-circle"></i>
+
+                    {% endif %}
+
+
+                </div>
+
+
+                <!-- ==================================
+                     INFO
+                =================================== -->
+
+                <div class="task-info ms-3">
+
+
+                    <h5>
+
+                        {{ task.title }}
+
+                    </h5>
+
+
+                    <p>
+
+                        Skill :
+
+                        <strong>
+
+                            {{ task.goal.skill.name }}
+
+                        </strong>
+
+                    </p>
+
+
+                    <p>
+
+                        Goal :
+
+                        <strong>
+
+                            {{ task.goal.title }}
+
+                        </strong>
+
+                    </p>
+
+
+                </div>
+
+
+                <!-- ==================================
+                     COMPLETE / UNDO
+                =================================== -->
+
+                <div class="ms-auto">
+
+
+                    {% if task.completed %}
+
+
+                        <a
+                            href="{% url 'undo_task' task.goal.skill.id task.goal.id task.id %}"
+                            class="btn task-btn task-btn-warning"
+                        >
+
+                            <i class="bi bi-arrow-counterclockwise me-1"></i>
+
+                            Undo
+
+                        </a>
+
+
+                    {% else %}
+
+
+                        <a
+                            href="{% url 'complete_task' task.goal.skill.id task.goal.id task.id %}"
+                            class="btn task-btn task-btn-success"
+                        >
+
+                            <i class="bi bi-check-circle me-1"></i>
+
+                            Complete
+
+                        </a>
+
+
+                    {% endif %}
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ==================================
+                 BUTTONS
+            =================================== -->
+
+            <div class="task-actions">
+
+
+                <!-- EDIT -->
+
+                <a
+                    href="{% url 'edit_task' task.goal.skill.id task.goal.id task.id %}"
+                    class="btn task-btn task-btn-dark"
+                >
+
+                    <i class="bi bi-pencil-square me-1"></i>
+
+                    Edit
+
+                </a>
+
+
+                <!-- DELETE -->
+
+                <a
+                    href="{% url 'delete_task' task.goal.skill.id task.goal.id task.id %}"
+                    class="btn task-btn task-btn-danger"
+                    onclick="return confirm('Are you sure you want to delete this task?');"
+                >
+
+                    <i class="bi bi-trash me-1"></i>
+
+                    Delete
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+        {% empty %}
+
+
+        <!-- ==================================
+             EMPTY
+        =================================== -->
+
+        <div class="tasks-empty">
+
+
+            <i class="bi bi-list-task display-2 text-primary"></i>
+
+
+            {% if search %}
+
+                <h5 class="mt-3">
+
+                    No Tasks Found
+
+                </h5>
+
+
+                <p>
+
+                    No task matches "{{ search }}".
+
+                </p>
+
+
+            {% elif current_status == "completed" %}
+
+                <h5 class="mt-3">
+
+                    No Completed Tasks
+
+                </h5>
+
+
+                <p>
+
+                    You have not completed any tasks yet.
+
+                </p>
+
+
+            {% elif current_status == "pending" %}
+
+                <h5 class="mt-3">
+
+                    No Pending Tasks
+
+                </h5>
+
+
+                <p>
+
+                    All your tasks are completed.
+
+                </p>
+
+
+            {% else %}
+
+                <h5 class="mt-3">
+
+                    No Tasks Yet
+
+                </h5>
+
+
+                <p>
+
+                    Create tasks from your learning goals.
+
+                </p>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

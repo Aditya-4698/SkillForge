@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}
+Delete Note - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-delete-note-page">
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <div class="sf-delete-note-header">
+
+        <div class="sf-delete-note-heading">
+
+            <div class="sf-delete-note-icon">
+                <i class="bi bi-trash3"></i>
+            </div>
+
+            <div>
+
+                <span class="sf-delete-note-label">
+                    Learning Note
+                </span>
+
+                <h2 class="sf-delete-note-title">
+                    Delete Note
+                </h2>
+
+                <p class="sf-delete-note-subtitle">
+                    Permanently remove this note from your learning workspace.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         DELETE CARD
+    ====================================================== -->
+
+    <div class="sf-delete-note-card">
+
+        <div class="sf-delete-note-card-body">
+
+            <!-- WARNING ICON -->
+
+            <div class="sf-delete-warning-icon">
+                <i class="bi bi-exclamation-triangle"></i>
+            </div>
+
+
+            <!-- TITLE -->
+
+            <h3 class="sf-delete-question">
+                Delete Note?
+            </h3>
+
+
+            <p class="sf-delete-description">
+                Are you sure you want to delete this note?
+                This action cannot be undone.
+            </p>
+
+
+            <!-- =================================================
+                 NOTE PREVIEW
+            ================================================== -->
+
+            <div class="sf-delete-note-preview">
+
+                <div class="sf-delete-preview-icon">
+                    <i class="bi bi-journal-text"></i>
+                </div>
+
+                <div class="sf-delete-preview-content">
+
+                    <span class="sf-delete-preview-label">
+                        Note
+                    </span>
+
+                    <h5>
+                        {{ note.title }}
+                    </h5>
+
+                    <p>
+                        This note will be permanently deleted.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ACTIONS
+            ================================================== -->
+
+            <form
+                method="POST"
+                class="sf-delete-note-form"
+            >
+
+                {% csrf_token %}
+
+                <button
+                    type="submit"
+                    class="sf-delete-confirm-btn"
+                >
+                    <i class="bi bi-trash3"></i>
+                    <span>Yes, Delete Note</span>
+                </button>
+
+
+                <a
+                    href="{% url 'note_detail' note.id %}"
+                    class="sf-delete-cancel-btn"
+                >
+                    <i class="bi bi-arrow-left"></i>
+                    <span>Cancel</span>
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

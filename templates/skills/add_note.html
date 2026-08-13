@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Note - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="add-note-page">
+
+    <!-- =========================================
+         PAGE HEADER
+    ========================================== -->
+
+    <div class="add-note-header">
+
+        <div class="add-note-heading">
+
+            <div class="add-note-icon">
+                <i class="bi bi-journal-plus"></i>
+            </div>
+
+            <div>
+
+                <h2>
+                    Add Note
+                </h2>
+
+                <p>
+                    Write down something useful from your learning.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="{% url 'notes' %}"
+            class="add-note-back"
+        >
+
+            <i class="bi bi-arrow-left"></i>
+
+            <span>
+                Back to Notes
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <!-- =========================================
+         FORM CARD
+    ========================================== -->
+
+    <div class="add-note-card">
+
+        <!-- Bubble decorations -->
+
+        <div class="add-note-bubble bubble-one"></div>
+        <div class="add-note-bubble bubble-two"></div>
+
+
+        <div class="add-note-card-inner">
+
+            <!-- CARD HEADER -->
+
+            <div class="add-note-card-header">
+
+                <div>
+
+                    <h4>
+                        Create a New Note
+                    </h4>
+
+                    <p>
+                        Save important concepts, ideas and learning points.
+                    </p>
+
+                </div>
+
+
+                <div class="add-note-card-symbol">
+
+                    <i class="bi bi-pencil-square"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="add-note-divider"></div>
+
+
+            <!-- FORM -->
+
+            <form
+                method="POST" enctype="multipart/form-data"
+                class="add-note-form"
+            >
+
+                {% csrf_token %}
+
+
+                <!-- TITLE -->
+
+                <div class="add-note-field">
+
+                    <label
+                        for="{{ form.title.id_for_label }}"
+                        class="add-note-label"
+                    >
+                        <i class="bi bi-type"></i>
+                        Title
+                    </label>
+
+
+                    {{ form.title }}
+
+
+                    {% if form.title.errors %}
+
+                        <div class="add-note-error">
+
+                            <i class="bi bi-exclamation-circle"></i>
+
+                            {{ form.title.errors }}
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- CONTENT -->
+
+                <div class="add-note-field">
+
+                    <label
+                        for="{{ form.content.id_for_label }}"
+                        class="add-note-label"
+                    >
+                        <i class="bi bi-text-paragraph"></i>
+                        Content
+                    </label>
+
+
+                    {{ form.content }}
+
+
+                    {% if form.content.errors %}
+
+                        <div class="add-note-error">
+
+                            <i class="bi bi-exclamation-circle"></i>
+
+                            {{ form.content.errors }}
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- ATTACHMENT -->
+
+                <div class="add-note-field">
+
+                    <label
+                        for="{{ form.attachment.id_for_label }}"
+                        class="add-note-label"
+                    >
+                        <i class="bi bi-paperclip"></i>
+                        Attachment
+                    </label>
+
+                    {{ form.attachment }}
+
+                    <div class="form-text">
+                        Attach a PDF or other useful file with this note.
+                    </div>
+
+                    {% if form.attachment.errors %}
+
+                        <div class="add-note-error">
+
+                            <i class="bi bi-exclamation-circle"></i>
+
+                            {{ form.attachment.errors }}
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="add-note-actions">
+
+                    <button
+                        type="submit"
+                        class="add-note-save-btn"
+                    >
+
+                        <i class="bi bi-check-lg"></i>
+
+                        <span>
+                            Save Note
+                        </span>
+
+                    </button>
+
+
+                    <a
+                        href="{% url 'notes' %}"
+                        class="add-note-cancel-btn"
+                    >
+
+                        <i class="bi bi-x-lg"></i>
+
+                        <span>
+                            Cancel
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+SkillForge - Add Skill
+{% endblock %}
+
+{% block content %}
+
+<div class="add-skill-page">
+
+    <div class="add-skill-wrapper">
+
+        <div class="card add-skill-card">
+
+            <div class="card-body">
+
+                <!-- Header -->
+
+                <div class="add-skill-header">
+
+                    <div class="add-skill-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <div>
+                        <h3>Add New Skill</h3>
+
+                        <p>
+                            Add a skill you are currently learning.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Form -->
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <div class="add-skill-actions">
+
+                        <button type="submit" class="btn btn-dark">
+                            <i class="bi bi-check2-circle"></i>
+                            Save Skill
+                        </button>
+
+                        <a href="/skills/" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i>
+                            Cancel
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

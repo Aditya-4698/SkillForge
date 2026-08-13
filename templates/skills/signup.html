@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create Account - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-signup-page">
+
+    <div class="sf-signup-overlay"></div>
+
+    <div class="sf-signup-glow sf-signup-glow-1"></div>
+    <div class="sf-signup-glow sf-signup-glow-2"></div>
+    <div class="sf-signup-glow sf-signup-glow-3"></div>
+
+
+    <div class="sf-signup-card">
+
+        <div class="sf-signup-body">
+
+            <!-- HEADER -->
+
+            <div class="sf-signup-header">
+
+                <div class="sf-signup-icon">
+                    <i class="bi bi-person-plus"></i>
+                </div>
+
+                <h2>
+                    Create Account
+                </h2>
+
+                <p>
+                    Start your SkillForge journey.
+                </p>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                {% if form.non_field_errors %}
+
+                    <div class="sf-signup-error">
+                        {{ form.non_field_errors }}
+                    </div>
+
+                {% endif %}
+
+
+                <!-- USERNAME -->
+
+                <div class="sf-signup-field">
+
+                    <label>
+                        Username
+                    </label>
+
+                    <div class="sf-input-wrapper">
+
+                        <i class="bi bi-person"></i>
+
+                        {{ form.username }}
+
+                    </div>
+
+                    {% for error in form.username.errors %}
+
+                        <div class="sf-field-error">
+                            {{ error }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="sf-signup-field">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <div class="sf-input-wrapper">
+
+                        <i class="bi bi-envelope"></i>
+
+                        {{ form.email }}
+
+                    </div>
+
+                    {% for error in form.email.errors %}
+
+                        <div class="sf-field-error">
+                            {{ error }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="sf-signup-field">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <div class="sf-input-wrapper">
+
+                        <i class="bi bi-lock"></i>
+
+                        {{ form.password }}
+
+                    </div>
+
+                    {% for error in form.password.errors %}
+
+                        <div class="sf-field-error">
+                            {{ error }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="sf-signup-field">
+
+                    <label>
+                        Confirm Password
+                    </label>
+
+                    <div class="sf-input-wrapper">
+
+                        <i class="bi bi-shield-lock"></i>
+
+                        {{ form.confirm_password }}
+
+                    </div>
+
+                    {% for error in form.confirm_password.errors %}
+
+                        <div class="sf-field-error">
+                            {{ error }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="sf-signup-btn">
+
+                    <i class="bi bi-person-plus"></i>
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN -->
+
+            <div class="sf-signup-login">
+
+                <p>
+
+                    Already have an account?
+
+                    <a href="{% url 'login' %}">
+                        Login
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

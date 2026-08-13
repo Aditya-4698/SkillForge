@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Challenge - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="challenge-form-page">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4">
+
+                    <!-- HEADER -->
+
+                    <div class="mb-4">
+
+                        <h2 class="mb-1">
+                            Add Challenge
+                        </h2>
+
+                        <p class="text-muted mb-0">
+                            Create a challenge to practice your skills.
+                        </p>
+
+                    </div>
+
+
+                    <!-- FORM -->
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <!-- NON FIELD ERRORS -->
+
+                        {% if form.non_field_errors %}
+
+                            <div class="alert alert-danger">
+
+                                {{ form.non_field_errors }}
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- SKILL -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Skill
+                            </label>
+
+                            {{ form.skill }}
+
+                            {% if form.skill.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ form.skill.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- TITLE -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Challenge Title
+                            </label>
+
+                            {{ form.title }}
+
+                            {% if form.title.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ form.title.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Description
+                            </label>
+
+                            {{ form.description }}
+
+                            {% if form.description.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ form.description.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- DIFFICULTY -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Difficulty
+                            </label>
+
+                            {{ form.difficulty }}
+
+                            {% if form.difficulty.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ form.difficulty.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- TARGET -->
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Target
+                            </label>
+
+                            {{ form.target }}
+
+                            {% if form.target.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ form.target.errors }}
+                                </div>
+
+                            {% endif %}
+
+                            <div class="form-text">
+                                Set the target you want to achieve for this challenge.
+                            </div>
+
+                        </div>
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="d-flex align-items-center">
+
+                            <button
+                                type="submit"
+                                class="btn btn-dark"
+                            >
+
+                                <i class="bi bi-plus-circle me-1"></i>
+
+                                Add Challenge
+
+                            </button>
+
+
+                            <a
+                                href="{% url 'challenges' %}"
+                                class="btn btn-outline-secondary ms-2"
+                            >
+
+                                Cancel
+
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

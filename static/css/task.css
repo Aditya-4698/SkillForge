@@ -1,0 +1,526 @@
+/* =====================================================
+   TASKS PAGE
+===================================================== */
+
+/* Header */
+
+.tasks-header h2{
+    font-size:32px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.tasks-header p{
+    color:#64748b;
+    font-size:15px;
+}
+
+
+/* =====================================================
+   STAT CARDS
+===================================================== */
+
+.task-stat-card{
+    border:none;
+    border-radius:20px;
+    background:#fff;
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+    overflow:hidden;
+    position:relative;
+    transition:.3s ease;
+}
+
+.task-stat-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:5px;
+    background:linear-gradient(90deg,#6366f1,#8b5cf6);
+}
+
+.task-stat-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 45px rgba(99,102,241,.15);
+}
+
+.task-stat-card .card-body{
+    padding:28px;
+}
+
+.task-stat-card p{
+    margin-bottom:8px;
+    color:#64748b;
+    font-size:14px;
+    font-weight:600;
+}
+
+.task-stat-card h2{
+    margin:0;
+    font-size:34px;
+    font-weight:800;
+    color:#0f172a;
+}
+
+
+/* =====================================================
+   TASK CONTAINER
+===================================================== */
+
+.tasks-card{
+    border:none;
+    border-radius:22px;
+    box-shadow:0 12px 35px rgba(15,23,42,.06);
+    overflow:hidden;
+}
+
+.tasks-card .card-body{
+    padding:30px;
+}
+
+.tasks-card h4{
+    font-size:24px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+
+/* =====================================================
+   TASK ITEM
+===================================================== */
+
+.task-item{
+    background:#fff;
+    border:1px solid #edf2f7;
+    border-radius:16px;
+    padding:16px 18px;
+    margin-bottom:14px;
+
+    transition:.25s ease;
+
+    box-shadow:
+        0 4px 18px rgba(15,23,42,.05);
+}
+
+.task-item:hover{
+    transform:translateY(-3px);
+    border-color:#6366f1;
+    box-shadow:
+        0 15px 35px rgba(99,102,241,.12);
+}
+
+
+/* =====================================================
+   STATUS ICON
+===================================================== */
+
+.task-status{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#eef2ff;
+
+    color:#6366f1;
+
+    font-size:18px;
+
+    flex-shrink:0;
+}
+
+.task-item.completed .task-status{
+
+    background:#dcfce7;
+    color:#16a34a;
+
+}
+
+
+/* =====================================================
+   TASK INFO
+===================================================== */
+
+.task-info{
+    flex:1;
+}
+
+.task-info h5{
+
+    font-size:17px;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+    color:#0f172a;
+
+}
+
+.task-info p{
+
+    margin:2px 0;
+
+    font-size:13px;
+
+    color:#64748b;
+
+}
+
+.task-info strong{
+    color:#1e293b;
+}
+
+.task-item.completed h5{
+    text-decoration:line-through;
+    color:#94a3b8;
+}
+
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.task-actions{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:14px;
+
+    flex-wrap:wrap;
+
+}
+
+.task-btn{
+
+    height:38px;
+
+    min-width:105px;
+
+    padding:0 16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    transition:all .25s ease;
+}
+
+.task-btn:hover{
+    transform:translateY(-2px);
+}
+
+.task-btn-success{
+
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        #22c55e,
+        #16a34a
+    );
+
+    box-shadow:
+        0 6px 18px rgba(34,197,94,.22);
+
+}
+
+.task-btn-success:hover{
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(34,197,94,.35);
+
+}
+
+.task-btn-warning{
+
+    background:#fff8e6;
+
+    color:#ca8a04;
+
+    border:1px solid #fde68a;
+
+}
+
+.task-btn-warning:hover{
+
+    background:#facc15;
+
+    color:#fff;
+
+}
+
+.task-btn-dark{
+
+    color:#334155;
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+
+}
+
+.task-btn-dark:hover{
+
+    background:#111827;
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+}
+
+.task-btn-danger{
+
+    color:#dc2626;
+
+    background:#fef2f2;
+
+    border:1px solid #fecaca;
+
+}
+
+.task-btn-danger:hover{
+
+    background:#dc2626;
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.tasks-empty{
+    padding:70px 20px;
+    text-align:center;
+}
+
+.tasks-empty h5{
+    font-size:24px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.tasks-empty p{
+    color:#64748b;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:768px){
+
+    .task-actions{
+
+        flex-direction:column;
+
+    }
+
+    .task-btn{
+
+        width:100%;
+
+    }
+
+}
+
+/* ===========================
+   FILTER CARD
+=========================== */
+
+.filter-card{
+    border:none;
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
+}
+
+.task-filter{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+/* Filter Button */
+
+.filter-btn{
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    font-size:14px;
+
+    color:#6366f1;
+
+    background:#eef2ff;
+
+    transition:.3s;
+
+    border:1px solid transparent;
+}
+
+.filter-btn:hover{
+
+    background:#6366f1;
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(99,102,241,.25);
+}
+
+.filter-btn.active{
+
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+
+    color:#fff;
+
+    box-shadow:0 10px 25px rgba(99,102,241,.30);
+}
+
+/* ===========================
+   SORT
+=========================== */
+
+.sort-wrapper{
+
+    display:flex;
+
+    justify-content:flex-end;
+}
+
+.sort-form{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#fff;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    box-shadow:0 10px 25px rgba(15,23,42,.05);
+}
+
+.sort-form label{
+
+    margin:0;
+
+    font-weight:600;
+
+    color:#475569;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+}
+
+.sort-form select{
+
+    width:220px;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:10px;
+
+    padding:10px 14px;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    background:#fff;
+
+    transition:.3s;
+}
+
+.sort-form select:focus{
+
+    outline:none;
+
+    border-color:#6366f1;
+
+    box-shadow:0 0 0 4px rgba(99,102,241,.12);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+    .task-filter{
+
+        justify-content:center;
+    }
+
+    .filter-btn{
+
+        flex:1;
+
+        text-align:center;
+    }
+
+    .sort-wrapper{
+
+        justify-content:center;
+    }
+
+    .sort-form{
+
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .sort-form select{
+
+        width:100%;
+    }
+
+}

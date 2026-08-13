@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ note.title }} - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-note-detail-page">
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <div class="sf-note-detail-header">
+
+        <div class="sf-note-heading">
+
+            <div class="sf-note-icon">
+                <i class="bi bi-journal-text"></i>
+            </div>
+
+            <div class="sf-note-heading-content">
+
+                <span class="sf-note-label">
+                    Learning Note
+                </span>
+
+                <h2 class="sf-note-title">
+                    {{ note.title }}
+                </h2>
+
+                <p class="sf-note-meta">
+                    <i class="bi bi-clock me-1"></i>
+                    Last updated:
+                    {{ note.updated_at|date:"d M Y, h:i A" }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- HEADER BACK BUTTON -->
+
+        <a
+            href="{% url 'notes' %}"
+            class="sf-note-header-back"
+        >
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to Notes</span>
+        </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         NOTE CARD
+    ====================================================== -->
+
+    <div class="sf-note-card">
+
+        <!-- NOTE CONTENT HEADER -->
+
+        <div class="sf-note-card-header">
+
+            <div class="sf-note-card-heading">
+
+                <div class="sf-note-card-icon">
+                    <i class="bi bi-file-text"></i>
+                </div>
+
+                <div>
+
+                    <h5>
+                        Note Content
+                    </h5>
+
+                    <p>
+                        Your learning notes
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DIVIDER -->
+
+        <div class="sf-note-divider"></div>
+
+
+        <!-- NOTE CONTENT -->
+
+        <div class="sf-note-content">
+
+            {{ note.content|linebreaks }}
+
+        </div>
+
+        {% if note.attachment %}
+
+            <div class="note-attachment-section mt-4">
+
+                <div class="note-attachment-header">
+
+                    <div>
+                        <i class="bi bi-paperclip"></i>
+
+                        <strong>
+                            Attachment
+                        </strong>
+                    </div>
+
+                </div>
+
+                <div class="note-attachment-file">
+
+                    <div class="note-attachment-info">
+
+                        <i class="bi bi-file-earmark-pdf"></i>
+
+                        <span>
+                            {{ note.attachment.name|cut:"notes/" }}
+                        </span>
+
+                    </div>
+
+                    <a
+                        href="{{ note.attachment.url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        <i class="bi bi-box-arrow-up-right"></i>
+                        Open File
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- =================================================
+             NOTE ACTIONS
+        ================================================== -->
+
+        <div class="sf-note-actions">
+
+            <a
+                href="{% url 'edit_note' note.id %}"
+                class="sf-note-action sf-note-edit"
+            >
+                <i class="bi bi-pencil-square"></i>
+                <span>Edit Note</span>
+            </a>
+
+
+            <a
+                href="{% url 'delete_note' note.id %}"
+                class="sf-note-action sf-note-delete"
+            >
+                <i class="bi bi-trash"></i>
+                <span>Delete Note</span>
+            </a>
+
+
+            <a
+                href="{% url 'notes' %}"
+                class="sf-note-action sf-note-back"
+            >
+                <i class="bi bi-arrow-left"></i>
+                <span>Back to Notes</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}
+Create Project - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="justify-content-between">
+    <div class="col-md-8 project-form-wrapper">
+        <div class="card">
+            <div class="card-body p-4">
+                <div class="mb-4">
+                    <h2 class="mb-1">Create Project</h2>
+                    <p class="text-muted mb-0">
+                        Turn your learning into a real project.
+                    </p>
+                </div>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            Create Project
+                        </button>
+
+                        <a href="{% url 'projects' %}" class="btn btn-outline-secondary ms-2">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

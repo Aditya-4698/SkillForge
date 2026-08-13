@@ -1,0 +1,1523 @@
+/* =========================================================
+   SKILLFORGE - GOAL DETAIL
+   FINAL CLEAN PROJECT STYLE
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+body {
+    background: #f5f7fb;
+}
+
+.sf-goal-detail-page {
+    width: 100%;
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    padding: 10px 0 45px;
+}
+
+
+/* =========================================================
+   MAIN GOAL CARD
+   ========================================================= */
+
+.sf-goal-detail-card {
+    position: relative;
+
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e7eaf0;
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.05);
+}
+
+/* =========================================================
+   TOP BLUE → PURPLE ACCENT
+   ========================================================= */
+
+.sf-goal-detail-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #5865f2 0%,
+        #6366f1 45%,
+        #8b5cf6 100%
+    );
+
+    z-index: 2;
+}
+
+.sf-goal-detail-body {
+    padding: 30px;
+}
+
+
+/* =========================================================
+   GOAL HEADER
+   ========================================================= */
+
+.sf-goal-detail-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.sf-goal-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    min-width: 0;
+}
+
+.sf-goal-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(13, 110, 253, 0.08);
+
+    border-radius: 12px;
+
+    color: #0d6efd;
+
+    font-size: 21px;
+}
+
+.sf-goal-title {
+    margin: 0 0 5px;
+
+    color: #172033;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    word-break: break-word;
+}
+
+.sf-goal-skill {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin: 0;
+
+    color: #7b8494;
+
+    font-size: 13px;
+}
+
+.sf-goal-skill i {
+    color: #667085;
+}
+
+.sf-goal-skill strong {
+    color: #475467;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   GOAL STATUS
+   ========================================================= */
+
+.sf-goal-status {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    flex-shrink: 0;
+
+    padding: 7px 12px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.sf-goal-status--completed {
+    background: rgba(25, 135, 84, 0.08);
+    color: #198754;
+}
+
+.sf-goal-status--progress {
+    background: rgba(255, 193, 7, 0.11);
+    color: #9a6700;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.sf-goal-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 26px 0;
+
+    background: #edf0f4;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.sf-goal-description {
+    margin-bottom: 24px;
+}
+
+.sf-goal-description h5 {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 0 0 9px;
+
+    color: #263143;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.sf-goal-description h5 i {
+    color: #667085;
+}
+
+.sf-goal-description p {
+    margin: 0;
+
+    color: #667085;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   GOAL STATS
+   ========================================================= */
+
+.sf-goal-stats {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-top: 22px;
+}
+
+.sf-goal-stat-box {
+    padding: 18px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e8ebf0;
+    border-radius: 11px;
+}
+
+.sf-goal-stat-box--current {
+    background: rgba(13, 110, 253, 0.035);
+
+    border-color: rgba(13, 110, 253, 0.11);
+}
+
+.sf-goal-stat-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #7b8494;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sf-goal-stat-value {
+    display: block;
+
+    color: #1f2937;
+
+    font-size: 23px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   GOAL PROGRESS
+   ========================================================= */
+
+.sf-goal-progress-section {
+    margin-top: 26px;
+}
+
+.sf-goal-progress-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+    color: #475467;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.sf-goal-progress-heading span {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+.sf-goal-progress-heading i {
+    color: #0d6efd;
+}
+
+.sf-goal-progress-heading strong {
+    color: #1f2937;
+}
+
+.sf-goal-progress-track {
+    width: 100%;
+    height: 8px;
+
+    overflow: hidden;
+
+    background: #edf1f5;
+
+    border-radius: 999px;
+}
+
+.sf-goal-progress-bar {
+    height: 100%;
+    min-width: 0;
+
+    background: #0d6efd;
+
+    border-radius: inherit;
+
+    transition: width 0.4s ease;
+}
+
+
+/* =========================================================
+   TASK HEADER
+   ========================================================= */
+
+.sf-goal-tasks-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    margin-top: 28px;
+    margin-bottom: 16px;
+
+    padding: 17px 19px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7eaf0;
+    border-radius: 11px;
+}
+
+.sf-goal-tasks-heading h4 {
+    margin: 0 0 4px;
+
+    color: #1f2937;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.sf-goal-tasks-heading p {
+    margin: 0;
+
+    color: #7b8494;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ADD TASK BUTTON
+   ========================================================= */
+
+.sf-add-task-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    min-height: 37px;
+
+    padding: 0 14px;
+
+    background: #0d6efd;
+
+    border: 1px solid #0d6efd;
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: 0.2s ease;
+}
+
+.sf-add-task-btn:hover {
+    background: #0b5ed7;
+    border-color: #0b5ed7;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   TASK PROGRESS
+   ========================================================= */
+
+.sf-task-progress {
+    margin-top: 20px;
+
+    padding: 14px 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e8edf3;
+    border-radius: 10px;
+}
+
+.sf-task-progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+}
+
+.sf-task-progress-label {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #475467;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sf-task-progress-label i {
+    color: #0d6efd;
+}
+
+.sf-task-progress-value {
+    color: #344054;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.sf-task-progress-track {
+    width: 100%;
+    height: 7px;
+
+    overflow: hidden;
+
+    background: #e9eef5;
+
+    border-radius: 999px;
+}
+
+.sf-task-progress-bar {
+    height: 100%;
+    min-width: 0;
+
+    background: #0d6efd;
+
+    border-radius: inherit;
+
+    transition: width 0.4s ease;
+}
+
+
+/* =========================================================
+   TASK GRID
+   ========================================================= */
+
+.sf-goal-tasks-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-top: 15px;
+}
+
+.sf-task-col {
+    width: 100%;
+}
+
+
+/* =========================================================
+   TASK CARD
+   ========================================================= */
+
+.sf-task-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e7eaf0;
+    border-radius: 11px;
+
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.sf-task-card:hover {
+    border-color: #d5dce6;
+
+    box-shadow: 0 5px 15px rgba(15, 23, 42, 0.045);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TASK CARD BODY
+   ========================================================= */
+
+.sf-task-card-body {
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+
+    padding: 16px;
+}
+
+
+/* =========================================================
+   TASK CONTENT
+   ========================================================= */
+
+.sf-task-content {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+}
+
+.sf-task-check {
+    width: 33px;
+    height: 33px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+}
+
+.sf-task-check--done {
+    background: rgba(25, 135, 84, 0.09);
+
+    color: #198754;
+}
+
+.sf-task-check--pending {
+    background: #f2f4f7;
+
+    color: #98a2b3;
+}
+
+
+/* =========================================================
+   TASK INFO
+   ========================================================= */
+
+.sf-task-info {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.sf-task-title {
+    margin: 0;
+
+    color: #344054;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+.sf-task-check--done + .sf-task-info .sf-task-title {
+    color: #667085;
+}
+
+
+/* =========================================================
+   COMPLETED TIME
+   ========================================================= */
+
+.sf-task-completed-time {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 5px;
+
+    margin: 5px 0 0;
+
+    color: #98a2b3;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+.sf-task-completed-time i {
+    flex-shrink: 0;
+
+    color: #198754;
+}
+
+
+/* =========================================================
+   TASK ACTIONS
+   ========================================================= */
+
+.sf-task-actions {
+    display: flex;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    width: 100%;
+
+    padding-top: 11px;
+
+    border-top: 1px solid #edf0f4;
+}
+
+
+/* =========================================================
+   TASK STATUS
+   ========================================================= */
+
+.sf-task-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    min-height: 30px;
+
+    padding: 0 9px;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.sf-task-status--done {
+    background: rgba(25, 135, 84, 0.08);
+
+    border: 1px solid rgba(25, 135, 84, 0.13);
+
+    color: #198754;
+}
+
+.sf-task-status--pending {
+    background: rgba(245, 158, 11, 0.08);
+
+    border: 1px solid rgba(245, 158, 11, 0.13);
+
+    color: #b77900;
+}
+
+
+/* =========================================================
+   EDIT BUTTON
+   ========================================================= */
+
+.sf-task-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    min-height: 30px;
+
+    padding: 0 10px;
+
+    background: #ffffff;
+
+    border: 1px solid #d9dee7;
+    border-radius: 7px;
+
+    color: #667085;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.sf-task-edit-btn:hover {
+    background: #f8fafc;
+
+    border-color: #0d6efd;
+
+    color: #0d6efd;
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+   ========================================================= */
+
+.sf-task-delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    min-height: 30px;
+
+    padding: 0 10px;
+
+    background: #ffffff;
+
+    border: 1px solid #efc3c6;
+    border-radius: 7px;
+
+    color: #dc3545;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.sf-task-delete-btn:hover {
+    background: #fff5f5;
+
+    border-color: #dc3545;
+
+    color: #dc3545;
+}
+
+
+/* =========================================================
+   TOGGLE FORM
+   ========================================================= */
+
+.sf-task-toggle-form {
+    display: inline-flex;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   COMPLETE / UNDO BUTTON
+   ========================================================= */
+
+.sf-task-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    min-height: 30px;
+
+    padding: 0 10px;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.sf-task-complete-btn {
+    background: #0d6efd;
+
+    border: 1px solid #0d6efd;
+
+    color: #ffffff;
+}
+
+.sf-task-complete-btn:hover {
+    background: #0b5ed7;
+
+    border-color: #0b5ed7;
+
+    color: #ffffff;
+}
+
+.sf-task-undo-btn {
+    background: #ffffff;
+
+    border: 1px solid #d9dee7;
+
+    color: #667085;
+}
+
+.sf-task-undo-btn:hover {
+    background: #f8fafc;
+
+    border-color: #c5ccd7;
+
+    color: #344054;
+}
+
+
+/* =========================================================
+   EMPTY TASK
+   ========================================================= */
+
+.sf-task-empty {
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    padding: 36px 20px;
+
+    text-align: center;
+
+    background: #fafbfc;
+
+    border: 1px dashed #d9dee7;
+    border-radius: 11px;
+}
+
+.sf-task-empty-icon {
+    width: 43px;
+    height: 43px;
+
+    margin: 0 auto 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(13, 110, 253, 0.08);
+
+    border-radius: 10px;
+
+    color: #0d6efd;
+
+    font-size: 17px;
+}
+
+.sf-task-empty h6 {
+    margin: 0 0 4px;
+
+    color: #344054;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.sf-task-empty p {
+    max-width: 400px;
+
+    margin: 0 auto;
+
+    color: #98a2b3;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   GOAL MESSAGE
+   ========================================================= */
+
+.sf-goal-message {
+    margin-top: 23px;
+}
+
+.sf-goal-success-message,
+.sf-goal-info-message {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+}
+
+.sf-goal-success-message {
+    background: rgba(25, 135, 84, 0.06);
+
+    border: 1px solid rgba(25, 135, 84, 0.14);
+}
+
+.sf-goal-info-message {
+    background: #f8fafc;
+
+    border: 1px solid #e7eaf0;
+}
+
+.sf-goal-message-icon {
+    width: 33px;
+    height: 33px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+}
+
+.sf-goal-success-message .sf-goal-message-icon {
+    background: rgba(25, 135, 84, 0.11);
+
+    color: #198754;
+}
+
+.sf-goal-info-message .sf-goal-message-icon {
+    background: rgba(13, 110, 253, 0.08);
+
+    color: #0d6efd;
+}
+
+.sf-goal-success-message strong,
+.sf-goal-info-message strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #344054;
+
+    font-size: 13px;
+}
+
+.sf-goal-success-message span,
+.sf-goal-info-message span {
+    display: block;
+
+    color: #7b8494;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.sf-goal-detail-actions {
+    display: flex;
+    align-items: center;
+
+    margin-top: 26px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #edf0f4;
+}
+
+.sf-goal-back-btn {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    min-height: 39px;
+
+    padding: 0 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+
+    color: #667085;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.sf-goal-back-btn:hover {
+    background: #f8fafc;
+
+    border-color: #cbd2da;
+
+    color: #344054;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .sf-goal-detail-page {
+        padding: 5px 0 35px;
+    }
+
+    .sf-goal-detail-body {
+        padding: 24px;
+    }
+
+    .sf-goal-detail-header {
+        flex-direction: column;
+    }
+
+    .sf-goal-status {
+        align-self: flex-start;
+    }
+
+    .sf-goal-title {
+        font-size: 22px;
+    }
+
+    .sf-goal-tasks-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    .sf-goal-detail-body {
+        padding: 18px;
+    }
+
+    .sf-goal-heading {
+        align-items: flex-start;
+    }
+
+    .sf-goal-icon {
+        width: 43px;
+        height: 43px;
+
+        font-size: 18px;
+    }
+
+    .sf-goal-title {
+        font-size: 19px;
+    }
+
+    .sf-goal-skill {
+        font-size: 12px;
+    }
+
+    .sf-goal-stats {
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+    }
+
+    .sf-goal-stat-box {
+        padding: 15px;
+    }
+
+    .sf-goal-stat-value {
+        font-size: 21px;
+    }
+
+    .sf-goal-tasks-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 16px;
+    }
+
+    .sf-add-task-btn {
+        width: 100%;
+    }
+
+    .sf-task-actions {
+        gap: 6px;
+    }
+
+    .sf-task-status,
+    .sf-task-edit-btn,
+    .sf-task-delete-btn {
+        flex: 1;
+    }
+
+    .sf-task-toggle-form {
+        flex: 1;
+    }
+
+    .sf-task-toggle-form .sf-task-action-btn {
+        width: 100%;
+    }
+
+    .sf-goal-success-message,
+    .sf-goal-info-message {
+        align-items: flex-start;
+    }
+
+}
+
+/* =========================================================
+   SKILLFORGE - GOAL META
+   DEADLINE + STATUS
+   ========================================================= */
+
+.sf-goal-meta-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-top: 24px;
+}
+
+
+/* =========================================================
+   META CARD
+   ========================================================= */
+
+.sf-goal-meta-card {
+    min-width: 0;
+
+    padding: 18px 20px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e8ebf0;
+
+    border-radius: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.sf-goal-meta-card:hover {
+    border-color: #dce2ea;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.035);
+}
+
+
+/* =========================================================
+   META LABEL
+   ========================================================= */
+
+.sf-goal-meta-label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 8px;
+
+    color: #7b8494;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.sf-goal-meta-label i {
+    color: #667085;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   META VALUE
+   ========================================================= */
+
+.sf-goal-meta-value {
+    display: block;
+
+    color: #1f2937;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    word-break: break-word;
+}
+
+.sf-goal-meta-value--muted {
+    color: #98a2b3;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SMART STATUS
+   ========================================================= */
+
+.sf-goal-smart-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    min-height: 29px;
+
+    padding: 5px 10px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   COMPLETED
+   ========================================================= */
+
+.sf-goal-smart-status--completed {
+    background: rgba(25, 135, 84, 0.09);
+
+    border: 1px solid rgba(25, 135, 84, 0.14);
+
+    color: #198754;
+}
+
+
+/* =========================================================
+   OVERDUE
+   ========================================================= */
+
+.sf-goal-smart-status--overdue {
+    background: rgba(220, 53, 69, 0.08);
+
+    border: 1px solid rgba(220, 53, 69, 0.14);
+
+    color: #dc3545;
+}
+
+
+/* =========================================================
+   DEADLINE SOON
+   ========================================================= */
+
+.sf-goal-smart-status--soon {
+    background: rgba(245, 158, 11, 0.09);
+
+    border: 1px solid rgba(245, 158, 11, 0.15);
+
+    color: #b77900;
+}
+
+
+/* =========================================================
+   ON TRACK
+   ========================================================= */
+
+.sf-goal-smart-status--on-track {
+    background: rgba(13, 110, 253, 0.08);
+
+    border: 1px solid rgba(13, 110, 253, 0.13);
+
+    color: #0d6efd;
+}
+
+.sf-goal-smart-status--on-track i {
+    font-size: 7px;
+}
+
+
+/* =========================================================
+   NO DEADLINE
+   ========================================================= */
+
+.sf-goal-smart-status--none {
+    background: #f2f4f7;
+
+    border: 1px solid #e4e7ec;
+
+    color: #7b8494;
+}
+
+
+/* =========================================================
+   DEADLINE MESSAGE WRAPPER
+   ========================================================= */
+
+.sf-goal-deadline-message {
+    margin-top: 16px;
+}
+
+
+/* =========================================================
+   DEADLINE ALERT
+   ========================================================= */
+
+.sf-goal-deadline-alert {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border-radius: 11px;
+}
+
+
+/* =========================================================
+   DANGER
+   ========================================================= */
+
+.sf-goal-deadline-alert--danger {
+    background: rgba(220, 53, 69, 0.055);
+
+    border: 1px solid rgba(220, 53, 69, 0.14);
+}
+
+.sf-goal-deadline-alert--danger
+.sf-goal-deadline-icon {
+    background: rgba(220, 53, 69, 0.10);
+
+    color: #dc3545;
+}
+
+
+/* =========================================================
+   WARNING
+   ========================================================= */
+
+.sf-goal-deadline-alert--warning {
+    background: rgba(245, 158, 11, 0.055);
+
+    border: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+.sf-goal-deadline-alert--warning
+.sf-goal-deadline-icon {
+    background: rgba(245, 158, 11, 0.10);
+
+    color: #b77900;
+}
+
+
+/* =========================================================
+   NORMAL
+   ========================================================= */
+
+.sf-goal-deadline-alert--normal {
+    background: #f8fafc;
+
+    border: 1px solid #e7eaf0;
+}
+
+.sf-goal-deadline-alert--normal
+.sf-goal-deadline-icon {
+    background: rgba(13, 110, 253, 0.08);
+
+    color: #0d6efd;
+}
+
+
+/* =========================================================
+   ALERT ICON
+   ========================================================= */
+
+.sf-goal-deadline-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ALERT CONTENT
+   ========================================================= */
+
+.sf-goal-deadline-content {
+    min-width: 0;
+}
+
+.sf-goal-deadline-content strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #344054;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.sf-goal-deadline-content span {
+    display: block;
+
+    color: #7b8494;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+.sf-goal-deadline-content b {
+    color: #344054;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   OVERDUE EXTRA ALERT
+   ========================================================= */
+
+.sf-goal-overdue-alert {
+    margin-top: 16px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    .sf-goal-meta-grid {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-top: 20px;
+    }
+
+    .sf-goal-meta-card {
+        padding: 16px;
+    }
+
+    .sf-goal-meta-value {
+        font-size: 16px;
+    }
+
+    .sf-goal-deadline-alert {
+        padding: 13px 14px;
+    }
+
+}

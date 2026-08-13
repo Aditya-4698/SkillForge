@@ -1,0 +1,721 @@
+/* =========================================================
+   SKILLFORGE - EDIT NOTE
+========================================================= */
+
+.sf-edit-note-page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.sf-edit-note-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 28px;
+}
+
+
+.sf-edit-note-heading {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    min-width: 0;
+}
+
+
+.sf-edit-note-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #eef2ff;
+    color: #6366f1;
+
+    font-size: 21px;
+}
+
+
+.sf-edit-note-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #6366f1;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.sf-edit-note-title {
+    margin: 0;
+
+    color: #1f2937;
+
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+
+.sf-edit-note-subtitle {
+    margin: 7px 0 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.sf-edit-note-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+
+    min-height: 42px;
+
+    padding: 10px 16px;
+
+    border: 1px solid #dfe3ea;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #4b5563;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+
+.sf-edit-note-back:hover {
+    background: #f8f9fc;
+    border-color: #cbd1da;
+
+    color: #1f2937;
+
+    transform: translateX(-2px);
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.sf-edit-note-card {
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e7e9ee;
+    border-radius: 16px;
+
+    box-shadow:
+        0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.sf-edit-note-card-header {
+    padding: 20px 26px;
+}
+
+
+.sf-edit-note-card-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.sf-edit-note-card-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #f3f4f6;
+    color: #6366f1;
+
+    font-size: 17px;
+}
+
+
+.sf-edit-note-card-heading h5 {
+    margin: 0;
+
+    color: #1f2937;
+
+    font-size: 16px;
+    font-weight: 650;
+}
+
+
+.sf-edit-note-card-heading p {
+    margin: 2px 0 0;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.sf-edit-note-divider {
+    width: 100%;
+    height: 1px;
+
+    background: #eceef2;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.sf-edit-note-form {
+    padding: 28px 30px;
+}
+
+
+/* =========================================================
+   FORM FIELD
+========================================================= */
+
+.sf-edit-note-field {
+    margin-bottom: 23px;
+}
+
+
+.sf-edit-note-label-form {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #374151;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.sf-edit-note-form input[type="text"],
+.sf-edit-note-form input[type="email"],
+.sf-edit-note-form input[type="number"],
+.sf-edit-note-form textarea,
+.sf-edit-note-form select {
+
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid #dfe3ea;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #1f2937;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+    box-sizing: border-box;
+}
+
+
+.sf-edit-note-form input[type="text"]:focus,
+.sf-edit-note-form input[type="email"]:focus,
+.sf-edit-note-form input[type="number"]:focus,
+.sf-edit-note-form textarea:focus,
+.sf-edit-note-form select:focus {
+
+    border-color: #6366f1;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.10);
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+.sf-edit-note-form textarea {
+    min-height: 220px;
+
+    resize: vertical;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.sf-edit-note-form input::placeholder,
+.sf-edit-note-form textarea::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.sf-edit-note-error {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 6px;
+
+    margin-top: 7px;
+
+    color: #dc3545;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+.sf-edit-note-error i {
+    margin-top: 2px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.sf-edit-note-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+    padding-top: 22px;
+
+    border-top: 1px solid #eceef2;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+.sf-edit-note-save {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 42px;
+
+    padding: 10px 18px;
+
+    border: 1px solid #6366f1;
+    border-radius: 9px;
+
+    background: #6366f1;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+.sf-edit-note-save:hover {
+    background: #5558d9;
+    border-color: #5558d9;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 10px rgba(99, 102, 241, 0.18);
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.sf-edit-note-cancel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 42px;
+
+    padding: 10px 17px;
+
+    border: 1px solid #dfe3ea;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #4b5563;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+
+.sf-edit-note-cancel:hover {
+    background: #f8f9fc;
+    border-color: #cbd1da;
+
+    color: #1f2937;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .sf-edit-note-header {
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    .sf-edit-note-back {
+        width: 100%;
+    }
+
+
+    .sf-edit-note-title {
+        font-size: 24px;
+    }
+
+
+    .sf-edit-note-form {
+        padding: 24px 22px;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .sf-edit-note-heading {
+        gap: 12px;
+    }
+
+
+    .sf-edit-note-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+
+        border-radius: 11px;
+
+        font-size: 19px;
+    }
+
+
+    .sf-edit-note-title {
+        font-size: 21px;
+    }
+
+
+    .sf-edit-note-subtitle {
+        font-size: 13px;
+    }
+
+
+    .sf-edit-note-card {
+        border-radius: 13px;
+    }
+
+
+    .sf-edit-note-card-header {
+        padding: 17px 18px;
+    }
+
+
+    .sf-edit-note-form {
+        padding: 22px 18px;
+    }
+
+
+    .sf-edit-note-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+
+    .sf-edit-note-save,
+    .sf-edit-note-cancel {
+        width: 100%;
+    }
+
+}
+
+/* =========================================================
+   EDIT NOTE - ATTACHMENT
+========================================================= */
+
+.sf-edit-note-field {
+    margin-bottom: 24px;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.sf-edit-note-label-form {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 9px;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.sf-edit-note-label-form i {
+    color: #6366f1;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   FILE INPUT WRAPPER
+========================================================= */
+
+.sf-file-wrapper {
+    position: relative;
+}
+
+
+/* =========================================================
+   FILE INPUT
+========================================================= */
+
+.sf-file-input {
+    display: block;
+
+    width: 100%;
+    min-height: 48px;
+
+    padding: 7px;
+
+    border: 1px solid #dbe2ea;
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    color: #475569;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* =========================================================
+   FILE BUTTON
+========================================================= */
+
+.sf-file-input::file-selector-button {
+    margin-right: 12px;
+
+    padding: 9px 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.sf-file-input::file-selector-button:hover {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.sf-file-input:hover {
+    border-color: #c7d2fe;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.sf-file-input:focus {
+    outline: none;
+
+    border-color: #6366f1;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.10);
+}
+
+
+/* =========================================================
+   HELP TEXT
+========================================================= */
+
+.sf-file-help {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-top: 8px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+.sf-file-help i {
+    color: #ef4444;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.sf-edit-note-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+
+    margin-top: 8px;
+
+    color: #dc2626;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.sf-edit-note-error i {
+    margin-top: 1px;
+
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .sf-file-input {
+        min-height: 46px;
+        font-size: 12px;
+    }
+
+    .sf-file-input::file-selector-button {
+        padding: 8px 12px;
+        margin-right: 8px;
+        font-size: 12px;
+    }
+
+}

@@ -1,0 +1,493 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ skill.name }} - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card skill-detail-card">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+
+                        <h2>
+                            {{ skill.name }}
+                        </h2>
+
+                        <p class="text-muted mb-0">
+                            {{ skill.description }}
+                        </p>
+
+                    </div>
+
+                    <span class="badge bg-dark">
+                        {{ skill.level }}
+                    </span>
+
+                </div>
+
+                <hr>
+
+                <h6>
+                    Skill Progress
+                </h6>
+
+                <div class="progress skill-detail-progress mb-3">
+
+                    <div class="progress-bar" style="width: {{ skill.progress }}%;">
+                        {{ skill.progress }}%
+                    </div>
+
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-6">
+
+                        <p class="text-muted mb-1">
+                            Current Level
+                        </p>
+
+                        <h5>
+                            {{ skill.level }}
+                        </h5>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p class="text-muted mb-1">
+                            Added On
+                        </p>
+
+                        <h5>
+                            {{ skill.created_at|date:"d M Y" }}
+                        </h5>
+
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="{% url 'edit_skill' skill.id%}" class="btn skill-edit-btn">
+                        Edit Skill
+                    </a>
+
+                    <a href="{% url 'skills_home' %}" class="btn skill-back-btn ms-2">
+                        Back to Skills
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+            <div>
+
+                <h4 class="mb-1">
+                    Learning Goals
+                </h4>
+
+                <p class="text-muted mb-0">
+                    Goals connected to this skill.
+                </p>
+
+            </div>
+
+
+            <a href="{% url 'add_goal' skill.id %}" class="btn btn-dark">
+
+                + Add Goal
+
+            </a>
+
+        </div>
+
+
+        <div class="row g-3">
+
+            {% for goal in skill.goals.all %}
+
+            <div class="col-md-6">
+
+                <div class="card h-100 goal-card">
+
+                    <div class="card-body">
+
+                        <!-- Header -->
+
+                        <div class="d-flex justify-content-between align-items-start">
+
+                            <h5 class="mb-0">
+                                {{ goal.title }}
+                            </h5>
+
+                            {% if goal.status == "Completed" %}
+
+                                <span class="badge bg-success">Completed</span>
+
+                            {% elif goal.status == "Overdue" %}
+
+                                <span class="badge bg-danger">Overdue</span>
+
+                            {% elif goal.status == "Deadline Soon" %}
+
+                                <span class="badge bg-warning text-dark">Deadline Soon</span>
+
+                            {% elif goal.status == "On Track" %}
+
+                                <span class="badge bg-primary">On Track</span>
+
+                            {% else %}
+
+                                <span class="badge bg-secondary">No Deadline</span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Description -->
+
+                        <p class="text-muted mt-3">
+                            {{ goal.description }}
+                        </p>
+
+
+
+                        <!-- Goal Progress -->
+
+                    <div class="mb-4">
+
+                        <div class="d-flex justify-content-between mb-2">
+
+                            <strong>
+                                Goal Progress
+                                </strong>
+
+                                <strong>
+                                    {{ goal.current_progress }}%
+                                    /
+                                    {{ goal.target_progress }}%
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="progress"
+                                style="height: 12px;">
+
+                                <div
+                                    class="progress-bar"
+                                    style="width: {{ goal.current_progress }}%;">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Deadline -->
+
+                        {% if goal.deadline %}
+
+                            <p class="mb-2">
+
+                                Deadline:
+                                <strong>{{ goal.deadline|date:"d M Y" }}</strong>
+
+                            </p>
+
+                        {% endif %}
+
+
+                        <!-- Remaining Days -->
+
+                        {% if goal.completed %}
+
+                            <p class="text-success fw-semibold mb-2">
+                                🎉 Goal Completed
+                            </p>
+
+                        {% elif goal.days_remaining is not None and goal.days_remaining < 0 %}
+
+                            <p class="text-danger mb-2">
+                                {{ goal.days_remaining|stringformat:"d" }} days overdue
+                            </p>
+
+                        {% elif goal.days_remaining is not None %}
+
+                            <p class="text-muted mb-2">
+                                {{ goal.days_remaining }} days remaining
+                            </p>
+
+                        {% endif %}
+
+
+                        <p class="text-muted mb-3">
+
+                            Status:
+                            <strong>{{ goal.status }}</strong>
+
+                        </p>
+
+
+                        <!-- Buttons -->
+
+                        <div class="goal-actions">
+
+                            {% if not goal.completed %}
+
+                                <a href="{% url 'complete_goal' skill.id goal.id %}"
+                                    class="btn btn-success btn-action">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    Mark Complete
+
+                                </a>
+
+                            {% endif %}
+
+
+                            <a href="{% url 'edit_goal' skill.id goal.id %}"
+                                class="btn btn-outline-dark btn-action">
+
+                                <i class="bi bi-pencil-square"></i>
+
+                                Edit
+
+                            </a>
+
+
+                            <a href="{% url 'delete_goal' skill.id goal.id %}"
+                                class="btn btn-outline-danger btn-action"
+                                onclick="return confirm('Are you sure you want to delete this goal?');">
+
+                                <i class="bi bi-trash"></i>
+
+                                Delete
+
+                            </a>
+
+                        </div>
+
+                        <hr class="my-4">
+
+
+                        <!-- Tasks Header -->
+
+                        <div class="task-header">
+
+                            <h6>📋 Tasks</h6>
+
+                            <a href="{% url 'add_task' skill.id goal.id %}"
+                            class="btn task-add-btn">
+
+                                <i class="bi bi-plus-circle"></i>
+
+                                Add Task
+
+                            </a>
+
+                        </div>
+
+                            <!-- Task Statistics -->
+
+                            <div class="row g-3 mb-4">
+
+                                <div class="col-md-4">
+
+                                    <div class="border rounded p-3 h-100">
+
+                                        <small class="text-muted">
+                                            Total Tasks
+                                        </small>
+
+                                        <h3 class="mb-0">
+                                            {{ goal.total_tasks }}
+                                        </h3>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-4">
+
+                                    <div class="border rounded p-3 h-100">
+
+                                        <small class="text-muted">
+                                            Completed
+                                        </small>
+
+                                        <h3 class="mb-0">
+                                            {{ goal.completed_tasks }}
+                                        </h3>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-4">
+
+                                    <div class="border rounded p-3 h-100">
+
+                                        <small class="text-muted">
+                                            Progress
+                                        </small>
+
+                                        <h3 class="mb-0">
+                                            {{ goal.task_progress }}%
+                                        </h3>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        <!-- Task List -->
+
+                        <div class="task-list">
+
+                            {% for task in goal.tasks.all %}
+
+                            <div class="task-item {% if task.completed %}task-completed{% endif %}">
+
+                                    <div class="task-top">
+
+                                        {% if task.completed %}
+
+                                            <div class="task-icon">
+                                                <i class="bi bi-check2-circle"></i>
+                                            </div>
+
+                                        {% else %}
+
+                                            <a href="{% url 'complete_task' skill.id goal.id task.id %}"
+                                            class="task-icon task-check">
+
+                                                <i class="bi bi-circle"></i>
+
+                                            </a>
+
+                                        {% endif %}
+
+                                        <span class="task-title">
+
+                                            {{ task.title }}
+
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="task-actions">
+
+                                        {% if task.completed %}
+
+                                            <a href="{% url 'undo_task' skill.id goal.id task.id %}"
+                                            class="btn task-btn btn-warning">
+
+                                                Undo
+
+                                            </a>
+
+                                        {% else %}
+
+                                            <a href="{% url 'complete_task' skill.id goal.id task.id %}"
+                                            class="btn task-btn btn-success">
+
+                                                Complete
+
+                                            </a>
+
+                                        {% endif %}
+
+
+                                        <a href="{% url 'edit_task' skill.id goal.id task.id %}"
+                                        class="btn task-btn btn-dark">
+
+                                            Edit
+
+                                        </a>
+
+
+                                        <a href="{% url 'delete_task' skill.id goal.id task.id %}"
+                                        class="btn task-btn btn-danger">
+
+                                            Delete
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            {% empty %}
+
+                                <div class="empty-task-state">
+
+                                    <div class="empty-task-icon">
+                                        <i class="bi bi-list-check"></i>
+                                    </div>
+
+                                    <h6>
+                                        No Tasks Added Yet
+                                    </h6>
+
+                                    <p>
+                                        Break this goal into smaller tasks
+                                        to track your progress.
+                                    </p>
+
+                                    <a href="{% url 'add_task' skill.id goal.id %}"
+                                    class="empty-task-btn">
+
+                                        <i class="bi bi-plus-circle"></i>
+                                        Add Your First Task
+
+                                    </a>
+
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="alert alert-light">
+
+                    No learning goals added for this skill yet.
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

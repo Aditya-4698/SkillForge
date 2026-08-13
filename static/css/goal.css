@@ -1,0 +1,374 @@
+/* ============================
+   FILTER CARD
+============================ */
+
+.filter-card{
+    border:none;
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 12px 35px rgba(15,23,42,.06);
+}
+
+.goal-filter{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+
+/* ============================
+   FILTER BUTTON
+============================ */
+
+.filter-btn{
+    text-decoration:none;
+    padding:11px 22px;
+    border-radius:30px;
+    background:#f5f7fb;
+    color:#64748b;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+    border:1px solid transparent;
+}
+
+.filter-btn:hover{
+    background:#eef2ff;
+    color:#4f46e5;
+    transform:translateY(-2px);
+}
+
+.filter-btn.active{
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+    color:#fff;
+    box-shadow:0 10px 25px rgba(99,102,241,.25);
+}
+
+
+/* ============================
+   SORT BOX
+============================ */
+
+.sort-box{
+    display:flex;
+    justify-content:flex-end;
+}
+
+.sort-form{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#fff;
+    padding:14px 20px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
+}
+
+.sort-form label{
+    font-size:14px;
+    font-weight:700;
+    color:#475569;
+    margin:0;
+}
+
+.sort-form select{
+    width:190px;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:10px 15px;
+    font-size:14px;
+    font-weight:600;
+    color:#334155;
+    background:#fff;
+    transition:.3s;
+}
+
+.sort-form select:focus{
+    border-color:#6366f1;
+    box-shadow:0 0 0 4px rgba(99,102,241,.12);
+    outline:none;
+}
+
+
+/* ============================
+   MOBILE
+============================ */
+
+@media(max-width:768px){
+
+    .goal-filter{
+        justify-content:center;
+    }
+
+    .sort-box{
+        justify-content:center;
+    }
+
+    .sort-form{
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .sort-form select{
+        width:100%;
+    }
+
+}
+
+/* =========================================
+   GOALS SECTION
+========================================= */
+
+.goals-section{
+    margin-top:40px;
+}
+
+/* =========================================
+   GOAL CARD
+========================================= */
+
+.goals-section .card{
+    border:none;
+    border-radius:22px;
+    overflow:hidden;
+    background:#ffffff;
+    box-shadow:0 10px 35px rgba(15,23,42,.08);
+    transition:.35s ease;
+    position:relative;
+}
+
+.goals-section .card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:linear-gradient(90deg,#4f46e5,#8b5cf6);
+}
+
+.goals-section .card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(15,23,42,.15);
+}
+
+.goals-section .card-body{
+    padding:24px;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.goals-section h5{
+    font-size:20px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.goals-section p{
+    margin-bottom:0;
+}
+
+/* =========================================
+   BADGES
+========================================= */
+
+.goals-section .badge{
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.4px;
+}
+
+.bg-success{
+    background:#16a34a!important;
+}
+
+.bg-danger{
+    background:#dc2626!important;
+}
+
+.bg-warning{
+    background:#facc15!important;
+    color:#111827!important;
+}
+
+.bg-primary{
+    background:#4f46e5!important;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.goals-section .text-muted{
+    color:#64748b!important;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.goals-section .progress{
+    height:11px;
+    border-radius:50px;
+    overflow:hidden;
+    background:#eef2ff;
+    margin-top:8px;
+}
+
+.goals-section .progress-bar{
+    border-radius:50px;
+    background:linear-gradient(90deg,#4f46e5,#8b5cf6);
+    box-shadow:0 4px 12px rgba(79,70,229,.35);
+}
+
+/* =========================================
+   SMALL TEXT
+========================================= */
+
+.goals-section small{
+    font-size:13px;
+    color:#64748b;
+}
+
+/* =========================================
+   INFO BOX
+========================================= */
+
+.goals-section .mt-3{
+    border-top:1px solid #eef2f7;
+    padding-top:15px;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.goals-section .btn{
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+    padding:8px 16px;
+    transition:.3s;
+    margin-right:6px;
+}
+
+.goals-section .btn-success{
+    background:#22c55e;
+    border:none;
+}
+
+.goals-section .btn-success:hover{
+    background:#16a34a;
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(34,197,94,.25);
+}
+
+.goals-section .btn-outline-dark:hover{
+    background:#0f172a;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+.goals-section .btn-outline-danger:hover{
+    background:#dc2626;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+/* =========================================
+   EMPTY CARD
+========================================= */
+
+.goals-section .card.text-center{
+    border:2px dashed #dbe4ff;
+    background:#fafbff;
+}
+
+.goals-section .card.text-center h4{
+    color:#334155;
+    font-weight:700;
+}
+
+.goals-section .card.text-center p{
+    color:#64748b;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+    .goals-section .btn{
+        width:100%;
+        margin-bottom:10px;
+    }
+
+    .goals-section h5{
+        font-size:18px;
+    }
+
+}
+
+/* ================================
+   VIEW GOAL BUTTON
+   ================================ */
+
+.sf-view-goal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 20px;
+    min-height: 38px;
+    padding: 0 14px;
+
+    border: 1px solid #dbe3ef;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #344054;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.sf-view-goal-btn i {
+    font-size: 13px;
+
+    transition: transform 0.2s ease;
+}
+
+.sf-view-goal-btn:hover {
+    background: #f5f8fc;
+    border-color: #bfcde0;
+    color: #0d6efd;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.07);
+}
+
+.sf-view-goal-btn:hover i {
+    transform: translateX(3px);
+}
+
+.sf-view-goal-btn:active {
+    transform: translateY(0);
+}

@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+{{ challenge.title }} - SkillForge
+{% endblock %}
+
+
+{% block content %}
+
+<div class="challenge-detail-page">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-9">
+
+            <div class="challenge-detail-card">
+
+                <div class="challenge-detail-body">
+
+
+                    <!-- HEADER -->
+
+                    <div class="challenge-detail-header">
+
+                        <div>
+
+                            <span class="challenge-detail-skill">
+                                {{ challenge.skill.name }}
+                            </span>
+
+                            <h2 class="challenge-detail-title">
+                                {{ challenge.title }}
+                            </h2>
+
+                        </div>
+
+
+                        {% if challenge.completed %}
+
+                            <span class="challenge-status completed">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Completed
+                            </span>
+
+                        {% else %}
+
+                            <span class="challenge-status pending">
+                                <i class="bi bi-clock-fill"></i>
+                                Pending
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="challenge-detail-divider"></div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="challenge-detail-section">
+
+                        <h5>
+                            <i class="bi bi-file-text"></i>
+                            Description
+                        </h5>
+
+                        <p>
+                            {{ challenge.description|default:"No description provided." }}
+                        </p>
+
+                    </div>
+
+
+                    <!-- DIFFICULTY -->
+
+                    <div class="challenge-detail-section">
+
+                        <h6>
+                            Difficulty
+                        </h6>
+
+                        <span class="challenge-difficulty">
+                            <i class="bi bi-bar-chart-fill"></i>
+                            {{ challenge.difficulty }}
+                        </span>
+
+                    </div>
+
+
+                    <!-- CREATED -->
+
+                    <div class="challenge-detail-section">
+
+                        <h6>
+                            Created
+                        </h6>
+
+                        <p class="challenge-created">
+                            <i class="bi bi-calendar3"></i>
+                            {{ challenge.created_at|date:"d M Y, h:i A" }}
+                        </p>
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="challenge-detail-actions">
+
+                        <a
+                            href="{% url 'challenges' %}"
+                            class="challenge-btn challenge-btn-back"
+                        >
+
+                            <i class="bi bi-arrow-left"></i>
+
+                            Back
+
+                        </a>
+
+
+                        <a
+                            href="{% url 'edit_challenge' challenge.id %}"
+                            class="challenge-btn challenge-btn-edit"
+                        >
+
+                            <i class="bi bi-pencil-square"></i>
+
+                            Edit
+
+                        </a>
+
+
+                        {% if challenge.completed %}
+
+<form
+    method="POST"
+    action="{% url 'undo_challenge' challenge.id %}"
+    class="challenge-status-form"
+>
+
+    {% csrf_token %}
+
+    <button
+        type="submit"
+        class="challenge-status-btn challenge-undo-btn"
+    >
+
+        <i class="bi bi-arrow-counterclockwise"></i>
+
+        <span>
+            Undo
+        </span>
+
+    </button>
+
+</form>
+
+{% else %}
+
+<form
+    method="POST"
+    action="{% url 'complete_challenge' challenge.id %}"
+    class="challenge-status-form"
+>
+
+    {% csrf_token %}
+
+    <button
+        type="submit"
+        class="challenge-status-btn challenge-complete-btn"
+    >
+
+        <i class="bi bi-check-circle"></i>
+
+        <span>
+            Complete
+        </span>
+
+    </button>
+
+</form>
+
+{% endif %}
+
+
+                        <a
+                            href="{% url 'delete_challenge' challenge.id %}"
+                            class="challenge-btn challenge-btn-delete"
+                        >
+
+                            <i class="bi bi-trash"></i>
+
+                            Delete
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

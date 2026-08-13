@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Profile - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-edit-profile-page">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8 col-xl-7">
+
+            <div class="sf-profile-edit-card">
+
+                <!-- HEADER -->
+
+                <div class="sf-profile-edit-header">
+
+                    <div class="sf-profile-edit-icon">
+                        <i class="bi bi-person-gear"></i>
+                    </div>
+
+                    <div>
+                        <span class="sf-profile-edit-label">
+                            PROFILE SETTINGS
+                        </span>
+
+                        <h2 class="sf-profile-edit-title">
+                            Edit Profile
+                        </h2>
+
+                        <p class="sf-profile-edit-subtitle">
+                            Update your profile information and personalize your account.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- DIVIDER -->
+
+                <div class="sf-profile-divider"></div>
+
+
+                <!-- FORM -->
+
+                <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="sf-profile-form"
+                >
+
+                    {% csrf_token %}
+
+
+                    <!-- PROFILE IMAGE -->
+
+                    <div class="sf-profile-section">
+
+                        <div class="sf-section-heading">
+
+                            <div class="sf-section-icon">
+                                <i class="bi bi-camera"></i>
+                            </div>
+
+                            <div>
+                                <h5>
+                                    Profile Image
+                                </h5>
+
+                                <p>
+                                    Choose an image that represents you.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="sf-image-upload">
+
+                            {% if form.instance.profile_image %}
+
+                                <div class="sf-current-image">
+
+                                    <img
+                                        src="{{ form.instance.profile_image.url }}"
+                                        alt="Current Profile Image"
+                                    >
+
+                                </div>
+
+                            {% else %}
+
+                                <div class="sf-current-image sf-image-placeholder">
+
+                                    <i class="bi bi-person"></i>
+
+                                </div>
+
+                            {% endif %}
+
+
+                            <div class="sf-image-field">
+
+                                <label class="sf-form-label">
+                                    Upload New Image
+                                </label>
+
+                                {{ form.profile_image }}
+
+                                <small>
+                                    JPG, PNG or WEBP recommended.
+                                </small>
+
+                                {% if form.profile_image.errors %}
+
+                                    <div class="sf-form-error">
+                                        {{ form.profile_image.errors }}
+                                    </div>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BIO -->
+
+                    <div class="sf-profile-section">
+
+                        <div class="sf-section-heading">
+
+                            <div class="sf-section-icon">
+                                <i class="bi bi-chat-left-text"></i>
+                            </div>
+
+                            <div>
+                                <h5>
+                                    About You
+                                </h5>
+
+                                <p>
+                                    Tell something about yourself and your learning journey.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <!-- EMAIL -->
+
+                        <div class="sf-profile-section">
+
+                            <div class="sf-section-heading">
+
+                                <div class="sf-section-icon">
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+
+                                <div>
+
+                                    <h5>
+                                        Email Address
+                                    </h5>
+
+                                    <p>
+                                        Keep your email address updated for account recovery.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="sf-form-group">
+
+                                <label
+                                    for="{{ form.email.id_for_label }}"
+                                    class="sf-form-label"
+                                >
+                                    Email Address
+                                </label>
+
+                                {{ form.email }}
+
+                                {% if form.email.errors %}
+
+                                    <div class="sf-form-error">
+
+                                        {{ form.email.errors }}
+
+                                    </div>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="sf-form-group">
+
+                            <label class="sf-form-label">
+                                Bio
+                            </label>
+
+                            {{ form.bio }}
+
+                            {% if form.bio.errors %}
+
+                                <div class="sf-form-error">
+                                    {{ form.bio.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="sf-profile-actions">
+
+                        <button
+                            type="submit"
+                            class="sf-save-profile-btn"
+                        >
+                            <i class="bi bi-check-lg"></i>
+                            <span>Save Changes</span>
+                        </button>
+
+
+                        <a
+                            href="{% url 'profile' %}"
+                            class="sf-cancel-profile-btn"
+                        >
+                            <i class="bi bi-x-lg"></i>
+                            <span>Cancel</span>
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

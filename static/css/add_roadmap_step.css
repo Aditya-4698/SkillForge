@@ -1,0 +1,585 @@
+/* =========================================================
+   ADD ROADMAP STEP
+========================================================= */
+
+.sf-roadmap-step-page {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0 50px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.sf-roadmap-step-card {
+    position: relative;
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px rgba(15, 23, 42, 0.07);
+
+    animation: sfStepCardIn 0.45s ease;
+}
+
+
+/* TOP GRADIENT */
+
+.sf-roadmap-step-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #4f46e5,
+        #6366f1,
+        #8b5cf6
+    );
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.sf-roadmap-step-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 30px 34px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8faff,
+            #f5f3ff
+        );
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.sf-roadmap-step-icon {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f3e8ff
+        );
+
+    color: #4f46e5;
+
+    font-size: 23px;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.12);
+}
+
+
+/* =========================================================
+   HEADER TEXT
+========================================================= */
+
+.sf-roadmap-step-header h2 {
+    margin: 0 0 5px;
+
+    color: #0f172a;
+
+    font-size: 25px;
+    font-weight: 750;
+
+    letter-spacing: -0.4px;
+}
+
+
+.sf-roadmap-step-header p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+.sf-roadmap-step-header strong {
+    color: #475569;
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.sf-roadmap-step-form {
+    padding: 32px 34px 34px;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.sf-form-group {
+    margin-bottom: 23px;
+}
+
+
+.sf-form-group:last-of-type {
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.sf-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   INPUT WRAPPER
+========================================================= */
+
+.sf-input-wrapper {
+    position: relative;
+}
+
+
+.sf-input-wrapper > i {
+    position: absolute;
+
+    top: 50%;
+    left: 15px;
+
+    z-index: 2;
+
+    transform: translateY(-50%);
+
+    color: #94a3b8;
+
+    font-size: 16px;
+
+    pointer-events: none;
+
+    transition: color 0.2s ease;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.sf-input-wrapper input,
+.sf-input-wrapper textarea,
+.sf-input-wrapper select {
+
+    width: 100%;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: #f8fafc;
+
+    color: #0f172a;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* INPUT */
+
+.sf-input-wrapper input,
+.sf-input-wrapper select {
+
+    height: 48px;
+
+    padding: 0 15px 0 44px;
+}
+
+
+/* TEXTAREA */
+
+.sf-input-wrapper textarea {
+
+    min-height: 125px;
+
+    padding: 14px 15px 14px 44px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.sf-input-wrapper input::placeholder,
+.sf-input-wrapper textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.sf-input-wrapper input:hover,
+.sf-input-wrapper textarea:hover,
+.sf-input-wrapper select:hover {
+    border-color: #c7d2fe;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.sf-input-wrapper input:focus,
+.sf-input-wrapper textarea:focus,
+.sf-input-wrapper select:focus {
+
+    border-color: #6366f1;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.10);
+}
+
+
+.sf-input-wrapper:focus-within > i {
+    color: #6366f1;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.sf-input-wrapper select {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HELP TEXT
+========================================================= */
+
+.sf-form-help {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ERRORS
+========================================================= */
+
+.sf-form-error {
+    margin-top: 6px;
+
+    color: #dc2626;
+
+    font-size: 12px;
+}
+
+
+.sf-form-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    margin-bottom: 22px;
+    padding: 12px 14px;
+
+    border: 1px solid #fecaca;
+    border-radius: 11px;
+
+    background: #fef2f2;
+
+    color: #b91c1c;
+
+    font-size: 13px;
+}
+
+
+.sf-form-alert > i {
+    margin-top: 1px;
+}
+
+
+/* =========================================================
+   DJANGO ERROR LIST RESET
+========================================================= */
+
+.sf-roadmap-step-form ul.errorlist {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================================
+   BUTTON AREA
+========================================================= */
+
+.sf-form-actions {
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding-top: 5px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.sf-primary-btn {
+
+    min-height: 46px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #6366f1,
+            #7c3aed
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.23);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.sf-primary-btn:hover {
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(79, 70, 229, 0.30);
+}
+
+
+.sf-primary-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.sf-secondary-btn {
+
+    min-height: 46px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 18px;
+
+    border: 1px solid #dbe2ea;
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.sf-secondary-btn:hover {
+
+    background: #f8fafc;
+
+    border-color: #cbd5e1;
+
+    color: #0f172a;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes sfStepCardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .sf-roadmap-step-page {
+        padding: 15px 0 35px;
+    }
+
+
+    .sf-roadmap-step-header {
+        padding: 25px 22px;
+
+        align-items: flex-start;
+    }
+
+
+    .sf-roadmap-step-icon {
+        width: 52px;
+        height: 52px;
+
+        border-radius: 14px;
+    }
+
+
+    .sf-roadmap-step-header h2 {
+        font-size: 22px;
+    }
+
+
+    .sf-roadmap-step-form {
+        padding: 26px 22px 28px;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .sf-roadmap-step-header {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+
+    .sf-roadmap-step-header h2 {
+        font-size: 21px;
+    }
+
+
+    .sf-form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+
+    .sf-primary-btn,
+    .sf-secondary-btn {
+        width: 100%;
+    }
+
+}

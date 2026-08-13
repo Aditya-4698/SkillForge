@@ -1,0 +1,671 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Projects - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<div class="projects-header">
+
+    <div>
+        <h2 class="projects-title">
+            Projects
+        </h2>
+
+        <p class="project-subtitle">
+            Build real projects from the skills you learn.
+        </p>
+    </div>
+
+    <a
+        href="{% url 'add_project' %}"
+        class="projects-add-btn"
+    >
+        <i class="bi bi-plus-lg"></i>
+        New Project
+    </a>
+
+</div>
+
+
+<!-- =====================================================
+     PROJECT FILTERS
+===================================================== -->
+
+<div class="sf-project-filter">
+
+    <form
+        method="GET"
+        id="projectFilterForm"
+        class="sf-project-filter-form"
+    >
+
+        <!-- SEARCH -->
+
+        <div class="sf-filter-field sf-filter-search">
+
+            <label
+                for="project-search"
+                class="sf-filter-label"
+            >
+                Search Projects
+            </label>
+
+            <div class="sf-search-wrapper">
+
+                <i class="bi bi-search sf-search-icon"></i>
+
+                <input
+                    id="project-search"
+                    type="text"
+                    name="search"
+                    class="sf-filter-input"
+                    placeholder="Search by project name..."
+                    value="{{ search }}"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div class="sf-filter-field">
+
+            <label
+                for="project-status"
+                class="sf-filter-label"
+            >
+                Status
+            </label>
+
+            <select
+                id="project-status"
+                name="status"
+                class="sf-filter-select"
+            >
+
+                <option value="">
+                    All Status
+                </option>
+
+                <option
+                    value="Planning"
+                    {% if selected_status == "Planning" %}
+                        selected
+                    {% endif %}
+                >
+                    Planning
+                </option>
+
+                <option
+                    value="In Progress"
+                    {% if selected_status == "In Progress" %}
+                        selected
+                    {% endif %}
+                >
+                    In Progress
+                </option>
+
+                <option
+                    value="Completed"
+                    {% if selected_status == "Completed" %}
+                        selected
+                    {% endif %}
+                >
+                    Completed
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- SKILL -->
+
+        <div class="sf-filter-field">
+
+            <label
+                for="project-skill"
+                class="sf-filter-label"
+            >
+                Skill
+            </label>
+
+            <select
+                id="project-skill"
+                name="skill"
+                class="sf-filter-select"
+            >
+
+                <option value="">
+                    All Skills
+                </option>
+
+                {% for skill in skills %}
+
+                    <option
+                        value="{{ skill.id }}"
+                        {% if selected_skill == skill.id|stringformat:"s" %}
+                            selected
+                        {% endif %}
+                    >
+                        {{ skill.name }}
+                    </option>
+
+                {% endfor %}
+
+            </select>
+
+        </div>
+
+
+        <!-- SEARCH BUTTON -->
+
+        <div class="sf-filter-action">
+
+            <button
+                type="submit"
+                class="sf-filter-btn"
+                title="Search Projects"
+            >
+
+                <i class="bi bi-search"></i>
+
+                <span>
+                    Search
+                </span>
+
+            </button>
+
+        </div>
+
+    </form>
+
+
+    <!-- CLEAR FILTERS -->
+
+    {% if search or selected_status or selected_skill %}
+
+        <div class="sf-filter-footer">
+
+            <div class="sf-active-filter-text">
+
+                <i class="bi bi-funnel-fill"></i>
+
+                Filters applied
+
+            </div>
+
+            <a
+                href="{% url 'projects' %}"
+                class="sf-clear-filter"
+            >
+
+                <i class="bi bi-x-lg"></i>
+
+                Clear Filters
+
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+
+<!-- =====================================================
+     PROJECT COUNT + SORT
+===================================================== -->
+
+<div class="sf-project-toolbar">
+
+    <!-- PROJECT COUNT -->
+
+    <div class="sf-project-count">
+
+        <span class="sf-project-count-label">
+            Showing
+        </span>
+
+        <span
+            id="projectCount"
+            class="sf-project-count-number"
+        >
+            {{ projects|length }}
+        </span>
+
+        <span class="sf-project-count-label">
+            projects
+        </span>
+
+    </div>
+
+
+    <!-- SORT -->
+
+    <div class="sf-project-sort">
+
+        <label
+            for="projectSort"
+            class="sf-project-sort-label"
+        >
+            Sort By
+        </label>
+
+        <div class="sf-project-sort-wrapper">
+
+            <i class="bi bi-sort-down sf-project-sort-icon"></i>
+
+            <select
+                id="projectSort"
+                class="sf-project-sort-select"
+            >
+
+                <option value="newest">
+                    Recently Updated
+                </option>
+
+                <option value="oldest">
+                    Oldest Updated
+                </option>
+
+                <option value="name_asc">
+                    Name A → Z
+                </option>
+
+                <option value="name_desc">
+                    Name Z → A
+                </option>
+
+                <option value="progress_high">
+                    Progress High → Low
+                </option>
+
+                <option value="progress_low">
+                    Progress Low → High
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<div class="row g-4 projects-grid">
+
+    {% for project in projects %}
+
+        <div
+            class="col-md-6 project-item"
+            data-project-name="{{ project.title|lower }}"
+            data-project-status="{{ project.status }}"
+            data-project-skill="{{ project.skill.id }}"
+            data-project-progress="{{ project.milestone_progress }}"
+            data-project-updated="{{ project.updated_at|date:'U' }}"
+        >
+
+            <div class="project-card h-100">
+
+                <div class="project-card-body">
+
+
+                    <!-- PROJECT TOP -->
+
+                    <div class="project-top">
+
+                        <div class="project-title-area">
+
+                            <h5 class="project-title">
+
+                                <a
+                                    href="{% url 'project_detail' project.id %}"
+                                    class="project-title-link"
+                                >
+                                    {{ project.title }}
+                                </a>
+
+                            </h5>
+
+
+                            <span class="project-skill">
+
+                                <i class="bi bi-code-slash"></i>
+
+                                {{ project.skill.name }}
+
+                            </span>
+
+
+                            <!-- PRIORITY -->
+
+                            <div class="project-meta-row">
+
+                                <div class="project-priority">
+
+                                    {% if project.priority == "HIGH" %}
+
+                                        <span class="project-priority-badge priority-high">
+
+                                            <i class="bi bi-fire"></i>
+
+                                            High Priority
+
+                                        </span>
+
+                                    {% elif project.priority == "MEDIUM" %}
+
+                                        <span class="project-priority-badge priority-medium">
+
+                                            <i class="bi bi-flag-fill"></i>
+
+                                            Medium Priority
+
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="project-priority-badge priority-low">
+
+                                            <i class="bi bi-flag"></i>
+
+                                            Low Priority
+
+                                        </span>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- STATUS -->
+
+                        <span
+                            class="
+                                project-status
+
+                                {% if project.status == 'Completed' %}
+                                    status-completed
+
+                                {% elif project.status == 'In Progress' %}
+                                    status-progress
+
+                                {% elif project.status == 'On Hold' %}
+                                    status-hold
+
+                                {% else %}
+                                    status-planning
+                                {% endif %}
+                            "
+                        >
+                            {{ project.status }}
+                        </span>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    {% if project.description %}
+
+                        <p class="project-description">
+
+                            {{ project.description }}
+
+                        </p>
+
+                    {% else %}
+
+                        <p class="project-description project-no-description">
+
+                            No description added
+
+                        </p>
+
+                    {% endif %}
+
+
+                    <!-- DEADLINE / OVERDUE -->
+
+                    {% if project.is_overdue %}
+
+                        <div class="alert alert-danger py-2 mt-3 mb-0">
+
+                            ⚠️
+
+                            This project is overdue.
+
+                        </div>
+
+                    {% elif project.deadline %}
+
+                        <div class="small text-muted mt-2">
+
+                            📅 Deadline:
+
+                            {{ project.deadline|date:"d M Y" }}
+
+                        </div>
+
+                    {% endif %}
+
+
+                    <!-- DEADLINE STATUS -->
+
+                    {% if project.deadline and not project.is_overdue %}
+
+                        {% if project.milestone_progress == 100 %}
+
+    <div class="project-status-message project-status-message--completed">
+
+        <span class="project-status-message__icon">
+            <i class="bi bi-check-lg"></i>
+        </span>
+
+        <span>
+            Project completed
+        </span>
+
+    </div>
+
+
+                    {% elif project.days_remaining == 0 %}
+
+                        <div class="project-status-message project-status-message--today">
+
+                            <span class="project-status-message__icon">
+                                <i class="bi bi-alarm-fill"></i>
+                            </span>
+
+                            <span>
+                                Deadline is today
+                            </span>
+
+                        </div>
+
+
+                    {% elif project.days_remaining <= 3 %}
+
+                        <div class="project-status-message project-status-message--urgent">
+
+                            <span class="project-status-message__icon">
+                                <i class="bi bi-hourglass-split"></i>
+                            </span>
+
+                            <span>
+                                {{ project.days_remaining }} days remaining
+                            </span>
+
+                        </div>
+
+
+                    {% else %}
+
+                        <div class="project-status-message project-status-message--normal">
+
+                            <span class="project-status-message__icon">
+                                <i class="bi bi-calendar3"></i>
+                            </span>
+
+                            <span>
+                                {{ project.days_remaining }} days remaining
+                            </span>
+
+                        </div>
+
+                    {% endif %}
+
+                    {% endif %}
+
+
+                    <!-- PROGRESS -->
+
+                    <div class="project-progress-header">
+
+                        <span>
+                            Progress
+                        </span>
+
+                        <strong>
+                            {{ project.progress }}%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="project-progress">
+
+                        <div
+                            class="project-progress-bar"
+                            style="width: {{ project.progress }}%;"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- FOOTER -->
+
+                    <div class="project-footer">
+
+                        <span>
+
+                            <i class="bi bi-calendar3"></i>
+
+                            {{ project.created_at|date:"d M Y" }}
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="bi bi-clock"></i>
+
+                            Updated
+
+                            {{ project.updated_at|date:"d M Y" }}
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    {% empty %}
+
+        <div class="col-12">
+
+            <div class="project-empty">
+
+                <div class="project-empty-icon">
+
+                    <i class="bi bi-folder2-open"></i>
+
+                </div>
+
+
+                <h5>
+                    No projects yet
+                </h5>
+
+
+                <p>
+                    Start building something from your skills.
+                </p>
+
+
+                <a
+                    href="{% url 'add_project' %}"
+                    class="project-add-btn"
+                >
+
+                    <i class="bi bi-plus-lg"></i>
+
+                    Create Project
+
+                </a>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+
+<!-- =====================================================
+     NO SEARCH RESULT
+===================================================== -->
+
+<div
+    id="noProjectsFound"
+    class="text-center py-5 d-none"
+>
+
+    <h5>
+        No projects found
+    </h5>
+
+    <p class="text-muted mb-0">
+
+        Try searching with a different project name.
+
+    </p>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="{% static 'js/projects.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Milestone - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-between">
+    <div class="col-md-8">
+
+        <div class="card milestone-form-card">
+
+            <div class="card-body">
+
+                <h2 class="mb-1">
+                    Edit Milestone
+                </h2>
+
+                <p class="text-muted mb-4">
+                    Project:
+                    <strong>
+                        {{ project.title }}
+                    </strong>
+                </p>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <div class="milestone-form-actions">
+
+                        <button
+                            type="submit"
+                            class="milestone-save-btn">
+
+                            <i class="bi bi-check2"></i>
+                            Save Changes
+
+                        </button>
+
+                        <a
+                            href="{% url 'project_detail' project.id %}"
+                            class="milestone-cancel-btn">
+
+                            Cancel
+
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

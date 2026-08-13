@@ -1,0 +1,439 @@
+/* =========================================================
+   DELETE ROADMAP PAGE
+========================================================= */
+
+.sf-delete-roadmap-page {
+
+    width: 100%;
+    max-width: 620px;
+
+    margin: 50px auto;
+
+    padding: 0 15px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.sf-delete-roadmap-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 42px 40px 38px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fafaff 48%,
+            #f7f5ff 100%
+        );
+
+    box-shadow:
+        0 20px 55px rgba(15, 23, 42, 0.08),
+        0 5px 18px rgba(99, 102, 241, 0.05);
+
+    text-align: center;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.sf-delete-roadmap-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 28px 65px rgba(15, 23, 42, 0.11),
+        0 8px 22px rgba(99, 102, 241, 0.07);
+}
+
+
+/* =========================================================
+   TOP ACCENT
+========================================================= */
+
+.sf-delete-roadmap-accent {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #6366f1,
+            #8b5cf6,
+            #a855f7
+        );
+}
+
+
+/* =========================================================
+   DELETE ICON
+========================================================= */
+
+.sf-delete-roadmap-icon {
+
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border: 1px solid #e0e7ff;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eef2ff,
+            #f3e8ff
+        );
+
+    color: #6366f1;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 12px 28px rgba(99, 102, 241, 0.13);
+}
+
+
+.sf-delete-roadmap-icon i {
+
+    font-size: 28px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.sf-delete-roadmap-title {
+
+    margin: 0 0 9px;
+
+    color: #0f172a;
+
+    font-size: 24px;
+
+    font-weight: 750;
+
+    letter-spacing: -0.4px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.sf-delete-roadmap-text {
+
+    margin: 0 auto 20px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ROADMAP NAME
+========================================================= */
+
+.sf-delete-roadmap-name {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin: 0 auto 18px;
+
+    padding: 13px 18px;
+
+    border: 1px solid #e0e7ff;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8faff,
+            #f7f4ff
+        );
+
+    color: #1e293b;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+
+.sf-delete-roadmap-name i {
+
+    color: #6366f1;
+
+    font-size: 16px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.sf-delete-roadmap-warning {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-bottom: 28px;
+
+    color: #dc2626;
+
+    font-size: 12px;
+
+    font-weight: 550;
+}
+
+
+.sf-delete-roadmap-warning i {
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.sf-delete-roadmap-actions {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.sf-delete-roadmap-cancel {
+
+    min-width: 115px;
+    height: 44px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px 18px;
+
+    border: 1px solid #d8dee8;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+
+.sf-delete-roadmap-cancel:hover {
+
+    background: #f8fafc;
+
+    border-color: #cbd5e1;
+
+    color: #1e293b;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.sf-delete-roadmap-btn {
+
+    min-width: 155px;
+    height: 44px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px 19px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #dc2626
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 22px rgba(220, 38, 38, 0.22);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.sf-delete-roadmap-btn:hover {
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 28px rgba(220, 38, 38, 0.30);
+}
+
+
+.sf-delete-roadmap-btn:active {
+
+    transform: translateY(0);
+}
+
+
+.sf-delete-roadmap-btn i {
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .sf-delete-roadmap-page {
+
+        margin: 30px auto;
+
+        padding: 0 12px;
+    }
+
+
+    .sf-delete-roadmap-card {
+
+        padding: 34px 22px 28px;
+
+        border-radius: 20px;
+    }
+
+
+    .sf-delete-roadmap-icon {
+
+        width: 64px;
+        height: 64px;
+
+        border-radius: 19px;
+
+        font-size: 25px;
+    }
+
+
+    .sf-delete-roadmap-icon i {
+
+        font-size: 25px;
+    }
+
+
+    .sf-delete-roadmap-title {
+
+        font-size: 22px;
+    }
+
+
+    .sf-delete-roadmap-actions {
+
+        flex-direction: column-reverse;
+
+        gap: 9px;
+    }
+
+
+    .sf-delete-roadmap-cancel,
+    .sf-delete-roadmap-btn {
+
+        width: 100%;
+    }
+
+}

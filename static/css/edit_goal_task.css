@@ -1,0 +1,312 @@
+/* =========================================
+   EDIT TASK PAGE
+   ========================================= */
+
+.sf-edit-task-page {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 10px auto 40px;
+}
+
+
+/* =========================================
+   CARD
+   ========================================= */
+
+.sf-edit-task-card {
+    background: #ffffff;
+
+    border: 1px solid #e7eaf0;
+    border-radius: 16px;
+
+    padding: 30px;
+
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.sf-edit-task-header {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+}
+
+
+.sf-edit-task-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(13, 110, 253, 0.09);
+
+    border-radius: 12px;
+
+    color: #0d6efd;
+
+    font-size: 19px;
+}
+
+
+.sf-edit-task-title {
+    margin: 0 0 4px;
+
+    color: #1f2937;
+
+    font-size: 23px;
+    font-weight: 700;
+
+    letter-spacing: -0.2px;
+}
+
+
+.sf-edit-task-subtitle {
+    margin: 0;
+
+    color: #98a2b3;
+
+    font-size: 13px;
+}
+
+
+.sf-edit-task-subtitle strong {
+    color: #475467;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   FORM FIELD
+   ========================================= */
+
+.sf-edit-task-field {
+    margin-bottom: 26px;
+}
+
+
+.sf-edit-task-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #344054;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   DJANGO INPUT
+   ========================================= */
+
+.sf-edit-task-field input {
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 13px;
+
+    background: #ffffff;
+
+    border: 1px solid #d9dee7;
+    border-radius: 9px;
+
+    color: #344054;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.sf-edit-task-field input:hover {
+    border-color: #b9c2cf;
+}
+
+
+.sf-edit-task-field input:focus {
+    background: #ffffff;
+
+    border-color: #0d6efd;
+
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.10);
+}
+
+
+/* =========================================
+   ERROR
+   ========================================= */
+
+.sf-edit-task-error {
+    margin-top: 7px;
+
+    color: #dc3545;
+
+    font-size: 12px;
+}
+
+
+.sf-edit-task-error ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================
+   ACTIONS
+   ========================================= */
+
+.sf-edit-task-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding-top: 2px;
+}
+
+
+/* =========================================
+   CANCEL BUTTON
+   ========================================= */
+
+.sf-edit-task-cancel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 40px;
+
+    padding: 0 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #d9dee7;
+    border-radius: 9px;
+
+    color: #667085;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+
+.sf-edit-task-cancel:hover {
+    background: #f8fafc;
+
+    border-color: #c5ccd7;
+
+    color: #344054;
+}
+
+
+/* =========================================
+   SAVE BUTTON
+   ========================================= */
+
+.sf-edit-task-save {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    height: 40px;
+
+    padding: 0 17px;
+
+    background: #0d6efd;
+
+    border: 1px solid #0d6efd;
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.sf-edit-task-save:hover {
+    background: #0b5ed7;
+
+    border-color: #0b5ed7;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 5px 12px rgba(13, 110, 253, 0.18);
+}
+
+
+.sf-edit-task-save:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 576px) {
+
+    .sf-edit-task-page {
+        margin-top: 5px;
+    }
+
+    .sf-edit-task-card {
+        padding: 22px 18px;
+
+        border-radius: 13px;
+    }
+
+    .sf-edit-task-title {
+        font-size: 20px;
+    }
+
+    .sf-edit-task-actions {
+        justify-content: stretch;
+    }
+
+    .sf-edit-task-cancel,
+    .sf-edit-task-save {
+        flex: 1;
+    }
+
+}
+

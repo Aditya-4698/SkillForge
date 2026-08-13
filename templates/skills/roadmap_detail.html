@@ -1,0 +1,337 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ roadmap.title }} - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="roadmap-detail-page">
+
+    <!-- =====================================================
+         ROADMAP HEADER
+    ====================================================== -->
+
+    <div class="roadmap-detail-header">
+
+        <div class="roadmap-detail-heading">
+
+            <div class="roadmap-detail-icon">
+                <i class="bi bi-map"></i>
+            </div>
+
+            <div class="roadmap-detail-info">
+
+                <span class="roadmap-detail-skill">
+                    {{ roadmap.skill.name }}
+                </span>
+
+                <h2 class="roadmap-detail-title">
+                    {{ roadmap.title }}
+                </h2>
+
+                {% if roadmap.description %}
+
+                    <p class="roadmap-detail-description">
+                        {{ roadmap.description }}
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="roadmap-header-actions">
+
+            <a
+                href="{% url 'edit_roadmap' roadmap.id %}"
+                class="roadmap-header-btn roadmap-header-edit"
+            >
+                <i class="bi bi-pencil-square"></i>
+                <span>Edit</span>
+            </a>
+
+
+            <a
+                href="{% url 'delete_roadmap' roadmap.id %}"
+                class="roadmap-header-btn roadmap-header-delete"
+            >
+                <i class="bi bi-trash"></i>
+                <span>Delete</span>
+            </a>
+
+
+            <a
+                href="{% url 'roadmaps' %}"
+                class="roadmap-header-btn roadmap-header-back"
+            >
+                <i class="bi bi-arrow-left"></i>
+                <span>Back</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PROGRESS CARD
+    ====================================================== -->
+
+    <div class="roadmap-progress-card">
+
+        <div class="roadmap-progress-header">
+
+            <div>
+
+                <span class="roadmap-section-label">
+                    ROADMAP PROGRESS
+                </span>
+
+                <h4>
+                    Your Learning Journey
+                </h4>
+
+                <p>
+                    Track your progress as you complete each step.
+                </p>
+
+            </div>
+
+
+            <div class="roadmap-progress-percent">
+                {{ roadmap.progress }}%
+            </div>
+
+        </div>
+
+
+        <div class="roadmap-progress-track">
+
+            <div
+                class="roadmap-progress-bar"
+                style="width: {{ roadmap.progress }}%;"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         LEARNING STEPS CARD
+    ====================================================== -->
+
+    <div class="roadmap-learning-card">
+
+        <!-- SECTION HEADER -->
+
+        <div class="roadmap-learning-header">
+
+            <div>
+
+                <span class="roadmap-section-label">
+                    LEARNING PATH
+                </span>
+
+                <h3>
+                    Learning Steps
+                </h3>
+
+                <p>
+                    Complete each step to progress through the roadmap.
+                </p>
+
+            </div>
+
+
+            <a
+                href="{% url 'add_roadmap_step' roadmap.id %}"
+                class="roadmap-add-step-btn"
+            >
+
+                <i class="bi bi-plus-circle"></i>
+
+                <span>
+                    Add Step
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <div class="roadmap-learning-divider"></div>
+
+
+
+        <!-- =================================================
+             STEPS
+        ================================================== -->
+
+        <div class="roadmap-steps">
+
+            {% for step in roadmap.steps.all %}
+
+                <div
+                    class="roadmap-step
+                    {% if step.completed %}roadmap-step-completed{% endif %}"
+                >
+
+                    <!-- STEP NUMBER / STATUS -->
+
+                    <div class="roadmap-step-number">
+
+                        {% if step.completed %}
+
+                            <i class="bi bi-check-lg"></i>
+
+                        {% else %}
+
+                            {{ step.order }}
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- STEP INFORMATION -->
+
+                    <div class="roadmap-step-content">
+
+                        <div class="roadmap-step-heading">
+
+                            <h5>
+                                {{ step.title }}
+                            </h5>
+
+
+                            {% if step.completed %}
+
+                                <span class="roadmap-step-badge completed">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Completed
+                                </span>
+
+                            {% else %}
+
+                                <span class="roadmap-step-badge pending">
+                                    Pending
+                                </span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        {% if step.description %}
+
+                            <p class="roadmap-step-description">
+                                {{ step.description }}
+                            </p>
+
+                        {% endif %}
+
+
+                        <!-- STEP ACTIONS -->
+
+                        <div class="roadmap-step-actions">
+
+                            {% if step.completed %}
+
+                                <a
+                                    href="{% url 'undo_roadmap_step' roadmap.id step.id %}"
+                                    class="roadmap-step-btn roadmap-step-undo"
+                                >
+                                    <i class="bi bi-arrow-counterclockwise"></i>
+                                    Undo
+                                </a>
+
+                            {% else %}
+
+                                <a
+                                    href="{% url 'complete_roadmap_step' roadmap.id step.id %}"
+                                    class="roadmap-step-btn roadmap-step-complete"
+                                >
+                                    <i class="bi bi-check-circle"></i>
+                                    Complete
+                                </a>
+
+                            {% endif %}
+
+
+                            <a
+                                href="{% url 'edit_roadmap_step' roadmap.id step.id %}"
+                                class="roadmap-step-btn roadmap-step-edit"
+                            >
+                                <i class="bi bi-pencil-square"></i>
+                                Edit
+                            </a>
+
+
+                            <a
+                                href="{% url 'delete_roadmap_step' roadmap.id step.id %}"
+                                class="roadmap-step-btn roadmap-step-delete"
+                            >
+                                <i class="bi bi-trash"></i>
+                                Delete
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            {% empty %}
+
+
+                <!-- =================================================
+                     EMPTY STATE
+                ================================================== -->
+
+                <div class="roadmap-empty">
+
+                    <div class="roadmap-empty-icon">
+                        <i class="bi bi-map"></i>
+                    </div>
+
+
+                    <h4>
+                        No Steps Added Yet
+                    </h4>
+
+
+                    <p>
+                        Start building your learning roadmap by
+                        adding your first learning step.
+                    </p>
+
+
+                    <a
+                        href="{% url 'add_roadmap_step' roadmap.id %}"
+                        class="roadmap-add-first-btn"
+                    >
+                        <i class="bi bi-plus-circle"></i>
+                        Add First Step
+                    </a>
+
+                </div>
+
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

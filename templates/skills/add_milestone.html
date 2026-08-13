@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add Milestone - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="milestone-page">
+
+    <div class="milestone-card">
+
+        <div class="milestone-card-body">
+
+            <!-- Header -->
+
+            <div class="milestone-header">
+
+                <div class="milestone-icon">
+                    <i class="bi bi-flag"></i>
+                </div>
+
+                <div>
+
+                    <h2>
+                        Add Milestone
+                    </h2>
+
+                    <p>
+                        Add a milestone to
+                        <strong>{{ project.title }}</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Form -->
+
+            <form method="POST" class="milestone-form">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+
+                <!-- Actions -->
+
+                <div class="milestone-actions">
+
+                    <button
+                        type="submit"
+                        class="milestone-save-btn">
+
+                        <i class="bi bi-check-lg"></i>
+
+                        Add Milestone
+
+                    </button>
+
+
+                    <a
+                        href="{% url 'project_detail' project.id %}"
+                        class="milestone-cancel-btn">
+
+                        <i class="bi bi-x-lg"></i>
+
+                        Cancel
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

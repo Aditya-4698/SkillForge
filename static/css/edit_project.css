@@ -1,0 +1,424 @@
+/* =====================================================
+   EDIT PROJECT PAGE
+===================================================== */
+
+.project-form-page {
+    max-width: 820px;
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.project-form-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid #e7ebf2 !important;
+
+    border-radius: 20px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fcfcff 100%
+        ) !important;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, .06),
+        0 2px 8px rgba(99, 102, 241, .04);
+}
+
+
+/* Top gradient */
+
+.project-form-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #6366f1,
+            #8b5cf6,
+            #a855f7
+        );
+}
+
+
+/* =====================================================
+   FORM HEADER
+===================================================== */
+
+.project-form-header {
+    margin-bottom: 28px;
+}
+
+
+.project-form-title {
+    margin: 0 0 6px;
+
+    color: #0f172a;
+
+    font-size: 27px;
+
+    font-weight: 750;
+
+    letter-spacing: -.5px;
+}
+
+
+.project-form-subtitle {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.project-form-card form p {
+    margin-bottom: 20px;
+}
+
+
+/* Labels */
+
+.project-form-card form label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #334155;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .2px;
+}
+
+
+/* Required star */
+
+.project-form-card form label .required {
+    color: #ef4444;
+}
+
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+.project-form-card form input,
+.project-form-card form textarea,
+.project-form-card form select {
+
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid #dfe5ee;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #1e293b;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    outline: none;
+
+    box-shadow:
+        0 2px 5px rgba(15, 23, 42, .02);
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+
+/* Textarea */
+
+.project-form-card form textarea {
+    min-height: 115px;
+
+    resize: vertical;
+}
+
+
+/* Select */
+
+.project-form-card form select {
+    cursor: pointer;
+
+    appearance: auto;
+}
+
+
+/* Placeholder */
+
+.project-form-card form input::placeholder,
+.project-form-card form textarea::placeholder {
+    color: #a0aabd;
+}
+
+
+/* Focus */
+
+.project-form-card form input:focus,
+.project-form-card form textarea:focus,
+.project-form-card form select:focus {
+
+    border-color: #818cf8;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, .10),
+        0 5px 15px rgba(99, 102, 241, .06);
+}
+
+
+/* =====================================================
+   HELP TEXT
+===================================================== */
+
+.project-form-card form .helptext {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   DJANGO ERROR
+===================================================== */
+
+.project-form-card .errorlist {
+
+    margin: 6px 0 0;
+
+    padding: 0;
+
+    list-style: none;
+
+    color: #dc2626;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+
+.project-form-card input.is-invalid,
+.project-form-card textarea.is-invalid,
+.project-form-card select.is-invalid {
+
+    border-color: #fca5a5;
+}
+
+
+/* =====================================================
+   BUTTON AREA
+===================================================== */
+
+.project-form-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 27px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eef1f6;
+}
+
+
+/* =====================================================
+   SAVE BUTTON
+===================================================== */
+
+.project-save-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 42px;
+
+    padding: 10px 19px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    color: #ffffff !important;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    text-decoration: none !important;
+
+    box-shadow:
+        0 8px 22px rgba(99, 102, 241, .22);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+}
+
+
+.project-save-btn:hover {
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+
+    filter: brightness(1.03);
+
+    box-shadow:
+        0 12px 28px rgba(99, 102, 241, .30);
+}
+
+
+.project-save-btn:active {
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   CANCEL BUTTON
+===================================================== */
+
+.project-cancel-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 9px 17px;
+
+    border: 1px solid #dbe1ea;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #475569 !important;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none !important;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.project-cancel-btn:hover {
+
+    color: #334155 !important;
+
+    background: #f8fafc;
+
+    border-color: #cbd5e1;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 16px rgba(15, 23, 42, .06);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .project-form-title {
+        font-size: 24px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .project-form-card .card-body {
+        padding: 22px !important;
+    }
+
+    .project-form-title {
+        font-size: 22px;
+    }
+
+    .project-form-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .project-save-btn,
+    .project-cancel-btn {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Roadmap Step - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-roadmap-step-page">
+
+    <div class="sf-roadmap-step-card">
+
+        <!-- =========================================
+             HEADER
+        ========================================== -->
+
+        <div class="sf-roadmap-step-header">
+
+            <div class="sf-roadmap-step-icon edit-icon">
+                <i class="bi bi-pencil-square"></i>
+            </div>
+
+            <div>
+
+                <h2>
+                    Edit Roadmap Step
+                </h2>
+
+                <p>
+                    Update this learning step in
+                    <strong>{{ roadmap.title }}</strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             FORM
+        ========================================== -->
+
+        <form
+            method="POST"
+            class="sf-roadmap-step-form"
+        >
+
+            {% csrf_token %}
+
+
+            <!-- NON FIELD ERRORS -->
+
+            {% if form.non_field_errors %}
+
+                <div class="sf-form-alert">
+
+                    <i class="bi bi-exclamation-circle"></i>
+
+                    <div>
+                        {{ form.non_field_errors }}
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+
+            <!-- =====================================
+                 STEP TITLE
+            ====================================== -->
+
+            <div class="sf-form-group">
+
+                <label for="{{ form.title.id_for_label }}">
+                    Step Title
+                </label>
+
+                <div class="sf-input-wrapper">
+
+                    <i class="bi bi-bookmark"></i>
+
+                    {{ form.title }}
+
+                </div>
+
+
+                {% for error in form.title.errors %}
+
+                    <div class="sf-form-error">
+                        {{ error }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- =====================================
+                 DESCRIPTION
+            ====================================== -->
+
+            <div class="sf-form-group">
+
+                <label for="{{ form.description.id_for_label }}">
+                    Description
+                </label>
+
+                <div class="sf-input-wrapper sf-textarea-wrapper">
+
+                    <i class="bi bi-card-text"></i>
+
+                    {{ form.description }}
+
+                </div>
+
+
+                {% for error in form.description.errors %}
+
+                    <div class="sf-form-error">
+                        {{ error }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- =====================================
+                 ORDER
+            ====================================== -->
+
+            <div class="sf-form-group">
+
+                <label for="{{ form.order.id_for_label }}">
+                    Step Order
+                </label>
+
+                <div class="sf-input-wrapper">
+
+                    <i class="bi bi-list-ol"></i>
+
+                    {{ form.order }}
+
+                </div>
+
+
+                <small class="sf-form-help">
+                    Set the position of this step in your roadmap.
+                </small>
+
+
+                {% for error in form.order.errors %}
+
+                    <div class="sf-form-error">
+                        {{ error }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- =====================================
+                 ACTIONS
+            ====================================== -->
+
+            <div class="sf-form-actions">
+
+                <button
+                    type="submit"
+                    class="sf-primary-btn"
+                >
+
+                    <i class="bi bi-check-lg"></i>
+
+                    Save Changes
+
+                </button>
+
+
+                <a
+                    href="{% url 'roadmap_detail' roadmap.id %}"
+                    class="sf-secondary-btn"
+                >
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Cancel
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

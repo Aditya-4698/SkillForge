@@ -1,0 +1,351 @@
+/* =====================================================
+   DELETE PROJECT PAGE
+===================================================== */
+
+.delete-project-page {
+    width: 100%;
+    max-width: 620px;
+    margin: 40px auto;
+}
+
+
+/* =====================================================
+   DELETE CARD
+===================================================== */
+
+.delete-project-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid #e7ebf2 !important;
+
+    border-radius: 20px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fcfcff 100%
+        ) !important;
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.07),
+        0 3px 10px rgba(99, 102, 241, 0.04);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.delete-project-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.10),
+        0 5px 15px rgba(99, 102, 241, 0.06);
+}
+
+
+/* =====================================================
+   TOP ACCENT
+===================================================== */
+
+.delete-project-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6366f1,
+            #8b5cf6,
+            #a855f7
+        );
+}
+
+
+/* =====================================================
+   DELETE ICON
+===================================================== */
+
+.delete-project-icon {
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    border-radius: 18px;
+
+    background: #fef2f2;
+
+    color: #dc2626;
+
+    font-size: 26px;
+
+    box-shadow:
+        0 8px 20px rgba(220, 38, 38, 0.10);
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.delete-project-card h3 {
+
+    color: #0f172a;
+
+    font-size: 23px;
+
+    font-weight: 750;
+
+    letter-spacing: -0.3px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.delete-project-card p {
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 8px;
+}
+
+
+/* =====================================================
+   PROJECT NAME
+===================================================== */
+
+.delete-project-name {
+
+    display: inline-block;
+
+    max-width: 100%;
+
+    padding: 10px 16px;
+
+    margin: 5px 0 25px;
+
+    border: 1px solid #e8eaff;
+
+    border-radius: 10px;
+
+    background: #f8f8ff;
+
+    color: #1e293b;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+
+/* =====================================================
+   BUTTON AREA
+===================================================== */
+
+.delete-project-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+===================================================== */
+
+.delete-project-btn {
+
+    min-width: 130px;
+
+    height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px 18px;
+
+    border: none !important;
+
+    border-radius: 10px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #dc2626
+        ) !important;
+
+    color: #ffffff !important;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    box-shadow:
+        0 8px 20px rgba(220, 38, 38, 0.20);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.delete-project-btn:hover {
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(220, 38, 38, 0.30);
+}
+
+
+.delete-project-btn:active {
+
+    transform: translateY(0);
+}
+
+
+.delete-project-btn i {
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CANCEL BUTTON
+===================================================== */
+
+.delete-project-cancel {
+
+    min-width: 110px;
+
+    height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 18px;
+
+    border: 1px solid #d8dee8 !important;
+
+    border-radius: 10px !important;
+
+    background: #ffffff !important;
+
+    color: #475569 !important;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+
+.delete-project-cancel:hover {
+
+    background: #f8fafc !important;
+
+    border-color: #cbd5e1 !important;
+
+    color: #1e293b !important;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 576px) {
+
+    .delete-project-page {
+
+        margin: 25px auto;
+
+    }
+
+
+    .delete-project-card .card-body {
+
+        padding: 28px 20px !important;
+
+    }
+
+
+    .delete-project-card h3 {
+
+        font-size: 21px;
+
+    }
+
+
+    .delete-project-actions {
+
+        flex-direction: column;
+
+        width: 100%;
+
+    }
+
+
+    .delete-project-btn,
+    .delete-project-cancel {
+
+        width: 100%;
+
+    }
+
+}

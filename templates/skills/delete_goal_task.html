@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}
+Delete Task - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-delete-task-page">
+
+    <div class="sf-delete-task-card">
+
+        <!-- =====================================================
+             DELETE ICON
+        ====================================================== -->
+
+        <div class="sf-delete-task-icon">
+            <i class="bi bi-trash3"></i>
+        </div>
+
+
+        <!-- =====================================================
+             CONTENT
+        ====================================================== -->
+
+        <h3 class="sf-delete-task-title">
+            Delete Task?
+        </h3>
+
+        <p class="sf-delete-task-text">
+            Are you sure you want to delete this task?
+        </p>
+
+
+        <!-- =====================================================
+             TASK NAME
+        ====================================================== -->
+
+        <div class="sf-delete-task-name">
+            "{{ task.title }}"
+        </div>
+
+
+        <!-- =====================================================
+             WARNING
+        ====================================================== -->
+
+        <p class="sf-delete-task-warning">
+
+            <i class="bi bi-exclamation-circle"></i>
+
+            <span>
+                This action cannot be undone.
+            </span>
+
+        </p>
+
+
+        <!-- =====================================================
+             ACTIONS
+        ====================================================== -->
+
+        <form
+            method="POST"
+            class="sf-delete-task-form"
+        >
+
+            {% csrf_token %}
+
+            <div class="sf-delete-task-actions">
+
+                <!-- CANCEL -->
+
+                <a
+                    href="{% url 'goal_detail' goal.id %}"
+                    class="sf-delete-task-cancel"
+                >
+                    <i class="bi bi-arrow-left"></i>
+                    Cancel
+                </a>
+
+
+                <!-- DELETE -->
+
+                <button
+                    type="submit"
+                    class="sf-delete-task-btn"
+                >
+                    <i class="bi bi-trash3"></i>
+                    Delete Task
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

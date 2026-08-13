@@ -1,0 +1,452 @@
+/* =====================================================
+   ADD SKILL PAGE
+===================================================== */
+
+.add-skill-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 45px 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+}
+
+
+.add-skill-wrapper {
+    width: 100%;
+    max-width: 720px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.add-skill-card {
+    border: 1px solid #e5e7eb !important;
+
+    border-radius: 20px !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.07) !important;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.add-skill-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.11) !important;
+}
+
+
+/* Top gradient line */
+
+.add-skill-card::before {
+    content: "";
+
+    display: block;
+
+    height: 4px;
+
+    width: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6366f1,
+            #8b5cf6
+        );
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+.add-skill-card .card-body {
+    padding: 35px !important;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.add-skill-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+.add-skill-icon {
+    width: 48px;
+
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(99, 102, 241, 0.25);
+}
+
+
+.add-skill-header h3 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+
+.add-skill-header p {
+    margin: 5px 0 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   DJANGO FORM
+===================================================== */
+
+.add-skill-card form p {
+    margin-bottom: 22px;
+}
+
+
+/* Labels */
+
+.add-skill-card form label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #334155;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* Inputs */
+
+.add-skill-card form input,
+.add-skill-card form textarea,
+.add-skill-card form select {
+
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid #dfe3eb;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    color: #1e293b;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* Textarea */
+
+.add-skill-card form textarea {
+    min-height: 115px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+/* Focus */
+
+.add-skill-card form input:focus,
+.add-skill-card form textarea:focus,
+.add-skill-card form select:focus {
+
+    border-color: #6366f1;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(99, 102, 241, 0.10);
+}
+
+
+/* Placeholder */
+
+.add-skill-card form input::placeholder,
+.add-skill-card form textarea::placeholder {
+
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.add-skill-card .errorlist {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 6px 0 0;
+
+    color: #dc2626;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.add-skill-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-top: 5px;
+}
+
+
+.add-skill-actions .btn {
+
+    min-height: 44px;
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Save */
+
+.add-skill-actions .btn-dark {
+
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    box-shadow:
+        0 7px 18px
+        rgba(99, 102, 241, 0.22);
+}
+
+
+.add-skill-actions .btn-dark:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 24px
+        rgba(99, 102, 241, 0.30);
+}
+
+
+/* Cancel */
+
+.add-skill-actions .btn-outline-secondary {
+
+    border: 1px solid #dfe3eb;
+
+    color: #475569;
+
+    background: #ffffff;
+}
+
+
+.add-skill-actions .btn-outline-secondary:hover {
+
+    color: #4f46e5;
+
+    background: #f5f3ff;
+
+    border-color: #c7d2fe;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .add-skill-page {
+        padding: 25px 14px;
+    }
+
+
+    .add-skill-card .card-body {
+        padding: 25px 20px !important;
+    }
+
+
+    .add-skill-header h3 {
+        font-size: 21px;
+    }
+
+
+    .add-skill-header p {
+        font-size: 13px;
+    }
+
+
+    .add-skill-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .add-skill-actions .btn {
+        width: 100%;
+    }
+}
+
+.skill-form-group {
+    margin-bottom: 22px;
+}
+
+.skill-form-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.skill-form-group .form-control,
+.skill-form-group .form-select {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 11px 14px;
+
+    border: 1px solid #dfe3eb;
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.skill-form-group textarea.form-control {
+    min-height: 115px;
+    resize: vertical;
+}
+
+.skill-form-group .form-control:focus,
+.skill-form-group .form-select:focus {
+    background: #fff;
+
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.10);
+
+    outline: none;
+}
+
+
+/* Error only after submit */
+
+.field-error {
+    margin-top: 6px;
+
+    color: #dc2626;
+
+    font-size: 12px;
+    font-weight: 500;
+}

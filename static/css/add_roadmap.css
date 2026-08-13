@@ -1,0 +1,445 @@
+/* =========================================================
+   ADD ROADMAP PAGE
+========================================================= */
+
+.add-roadmap-page {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 10px 0 40px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.add-roadmap-page .card {
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid #e5e9f1 !important;
+
+    border-radius: 20px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fcfcff 60%,
+            #f7f5ff 100%
+        );
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.07),
+        0 4px 12px rgba(99, 102, 241, 0.04);
+}
+
+
+/* Top accent */
+
+.add-roadmap-page .card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #6366f1,
+            #8b5cf6,
+            #a855f7
+        );
+}
+
+
+/* Decorative bubble */
+
+.add-roadmap-page .card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    top: -120px;
+    right: -60px;
+
+    border-radius: 50%;
+
+    background: rgba(99, 102, 241, 0.07);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.add-roadmap-page .card-body {
+    position: relative;
+    z-index: 1;
+
+    padding: 34px !important;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.add-roadmap-page .card-body > .mb-4 {
+    padding-bottom: 20px;
+
+    margin-bottom: 25px !important;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+
+.add-roadmap-page h2 {
+    margin-bottom: 7px;
+
+    color: #0f172a;
+
+    font-size: 26px;
+
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+}
+
+
+.add-roadmap-page .card-body > .mb-4 p {
+    color: #64748b !important;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.add-roadmap-page form p {
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.add-roadmap-page form label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #334155;
+
+    font-size: 13px;
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.add-roadmap-page form input,
+.add-roadmap-page form select,
+.add-roadmap-page form textarea {
+    width: 100%;
+
+    border: 1px solid #dbe1ea;
+
+    border-radius: 11px;
+
+    background: #f8fafc;
+
+    color: #0f172a;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* Input */
+
+.add-roadmap-page form input,
+.add-roadmap-page form select {
+    height: 46px;
+
+    padding: 0 13px;
+}
+
+
+/* Textarea */
+
+.add-roadmap-page form textarea {
+    min-height: 120px;
+
+    padding: 12px 13px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+/* Placeholder */
+
+.add-roadmap-page form input::placeholder,
+.add-roadmap-page form textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+/* Hover */
+
+.add-roadmap-page form input:hover,
+.add-roadmap-page form select:hover,
+.add-roadmap-page form textarea:hover {
+    border-color: #c7d2fe;
+
+    background: #ffffff;
+}
+
+
+/* Focus */
+
+.add-roadmap-page form input:focus,
+.add-roadmap-page form select:focus,
+.add-roadmap-page form textarea:focus {
+    border-color: #6366f1;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.10);
+}
+
+
+/* =========================================================
+   HELP TEXT
+========================================================= */
+
+.add-roadmap-page form .helptext {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.add-roadmap-page form .errorlist {
+    margin: 6px 0 0;
+    padding: 0;
+
+    list-style: none;
+
+    color: #dc2626;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   BUTTON AREA
+========================================================= */
+
+.add-roadmap-page form > .mt-4 {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 28px !important;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+
+/* =========================================================
+   CREATE BUTTON
+========================================================= */
+
+.add-roadmap-page .btn-dark {
+    min-width: 155px;
+
+    height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    padding: 9px 17px;
+
+    border: none !important;
+
+    border-radius: 10px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #6366f1
+        ) !important;
+
+    color: #ffffff !important;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.22);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.add-roadmap-page .btn-dark:hover {
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(79, 70, 229, 0.30);
+}
+
+
+.add-roadmap-page .btn-dark:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.add-roadmap-page .btn-outline-secondary {
+    min-width: 90px;
+
+    height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 17px;
+
+    margin-left: 0 !important;
+
+    border: 1px solid #d8dee8 !important;
+
+    border-radius: 10px !important;
+
+    background: #ffffff !important;
+
+    color: #475569 !important;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        transform .25s ease;
+}
+
+
+.add-roadmap-page .btn-outline-secondary:hover {
+    border-color: #cbd5e1 !important;
+
+    background: #f8fafc !important;
+
+    color: #1e293b !important;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .add-roadmap-page {
+        padding: 5px 0 30px;
+    }
+
+
+    .add-roadmap-page .card-body {
+        padding: 27px 24px !important;
+    }
+
+
+    .add-roadmap-page h2 {
+        font-size: 23px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .add-roadmap-page .card-body {
+        padding: 24px 18px !important;
+    }
+
+
+    .add-roadmap-page form > .mt-4 {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .add-roadmap-page .btn-dark,
+    .add-roadmap-page .btn-outline-secondary {
+        width: 100%;
+    }
+
+
+    .add-roadmap-page .row {
+        margin: 0;
+    }
+}

@@ -1,0 +1,382 @@
+/* =====================================================
+   EDIT MILESTONE PAGE
+===================================================== */
+
+.milestone-form-card {
+    max-width: 820px;
+
+    border: 1px solid #e7ebf2;
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.06);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/* =====================================================
+   TOP GRADIENT
+===================================================== */
+
+.milestone-form-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        #8b5cf6,
+        #a855f7
+    );
+}
+
+
+/* =====================================================
+   FORM BODY
+===================================================== */
+
+.milestone-form-card .card-body {
+
+    padding: 32px !important;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.milestone-form-card h2 {
+
+    color: #0f172a;
+
+    font-size: 27px;
+
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+
+    margin-bottom: 6px;
+}
+
+
+/* =====================================================
+   PROJECT TEXT
+===================================================== */
+
+.milestone-form-card > .card-body > p {
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.milestone-form-card > .card-body > p strong {
+
+    color: #4f46e5;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.milestone-form-card form p {
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.milestone-form-card form label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #334155;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =====================================================
+   INPUT + TEXTAREA
+===================================================== */
+
+.milestone-form-card form input[type="text"],
+.milestone-form-card form textarea {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #dfe5ee;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #1e293b;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+/* Textarea */
+
+.milestone-form-card form textarea {
+
+    min-height: 110px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
+
+.milestone-form-card input::placeholder,
+.milestone-form-card textarea::placeholder {
+
+    color: #a0aabd;
+}
+
+
+/* =====================================================
+   FOCUS
+===================================================== */
+
+.milestone-form-card form input:focus,
+.milestone-form-card form textarea:focus {
+
+    border-color: #6366f1;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.10);
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.milestone-form-card .errorlist {
+
+    margin: 6px 0 0;
+
+    padding: 0;
+
+    list-style: none;
+
+    color: #dc2626;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   HELP TEXT
+===================================================== */
+
+.milestone-form-card .helptext {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   BUTTON AREA
+===================================================== */
+
+.milestone-form-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eef1f6;
+}
+
+
+/* =====================================================
+   SAVE BUTTON
+===================================================== */
+
+.milestone-save-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 42px;
+
+    padding: 10px 19px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #6366f1,
+        #8b5cf6
+    );
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.20);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.milestone-save-btn:hover {
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(99, 102, 241, 0.30);
+}
+
+
+/* =====================================================
+   CANCEL BUTTON
+===================================================== */
+
+.milestone-cancel-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 9px 18px;
+
+    border: 1px solid #d9e0ea;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.milestone-cancel-btn:hover {
+
+    color: #334155;
+
+    background: #f8fafc;
+
+    border-color: #cbd5e1;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 576px) {
+
+    .milestone-form-card .card-body {
+
+        padding: 22px !important;
+    }
+
+    .milestone-form-card h2 {
+
+        font-size: 23px;
+    }
+
+    .milestone-form-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .milestone-save-btn,
+    .milestone-cancel-btn {
+
+        width: 100%;
+    }
+
+}

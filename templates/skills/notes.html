@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block title %}
+Notes - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="notes-page">
+
+    <!-- =========================================
+         PAGE HEADER
+    ========================================== -->
+
+    <div class="notes-header">
+
+        <div class="notes-heading">
+
+            <div class="notes-title-icon">
+                <i class="bi bi-journal-text"></i>
+            </div>
+
+            <div>
+
+                <h2 class="notes-title">
+                    Notes
+                </h2>
+
+                <p class="notes-subtitle">
+                    Keep your learning notes organized.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="{% url 'add_note' %}"
+            class="notes-add-btn"
+        >
+
+            <i class="bi bi-plus-lg"></i>
+
+            <span>
+                Add Note
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <!-- =========================================
+         NOTES CARD
+    ========================================== -->
+
+    <div class="notes-card">
+
+        <div class="notes-card-header">
+
+            <div>
+
+                <h4>
+                    Your Notes
+                </h4>
+
+                <p>
+                    Review and manage your learning notes.
+                </p>
+
+            </div>
+
+            <div class="notes-header-icon">
+                <i class="bi bi-journal-bookmark"></i>
+            </div>
+
+        </div>
+
+
+        <div class="notes-divider"></div>
+
+
+        <!-- =====================================
+             NOTES LIST
+        ====================================== -->
+
+        <div class="notes-list">
+
+            {% for note in notes %}
+
+                <div class="note-item">
+
+                    <!-- NOTE ICON -->
+
+                    <div class="note-icon">
+
+                        <i class="bi bi-file-text"></i>
+
+                    </div>
+
+
+                    <!-- NOTE CONTENT -->
+
+                    <div class="note-content">
+
+                        <h5>
+                            {{ note.title }}
+                        </h5>
+
+                        <p>
+                            {{ note.content|truncatewords:25 }}
+                        </p>
+
+                        <div class="note-meta">
+
+                            <i class="bi bi-clock"></i>
+
+                            <span>
+                                Updated:
+                                {{ note.updated_at|date:"d M Y, h:i A" }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTION -->
+
+                    <div class="note-actions">
+
+                        <a
+                            href="{% url 'note_detail' note.id %}"
+                            class="note-view-btn"
+                        >
+
+                            <i class="bi bi-eye"></i>
+
+                            <span>
+                                View
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            {% empty %}
+
+                <!-- =================================
+                     EMPTY STATE
+                ================================== -->
+
+                <div class="notes-empty">
+
+                    <div class="notes-empty-icon">
+
+                        <i class="bi bi-journal-text"></i>
+
+                    </div>
+
+
+                    <h4>
+                        No Notes Yet
+                    </h4>
+
+
+                    <p>
+                        Start creating notes to keep your
+                        learning organized.
+                    </p>
+
+
+                    <a
+                        href="{% url 'add_note' %}"
+                        class="notes-add-btn"
+                    >
+
+                        <i class="bi bi-plus-lg"></i>
+
+                        <span>
+                            Create Your First Note
+                        </span>
+
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

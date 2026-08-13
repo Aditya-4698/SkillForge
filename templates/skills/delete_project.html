@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}
+Delete Project - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="delete-project-page">
+
+    <div class="card delete-project-card">
+
+        <div class="card-body text-center p-4">
+
+            <div class="delete-project-icon">
+                <i class="bi bi-trash3"></i>
+            </div>
+
+            <h3>
+                Delete Project?
+            </h3>
+
+            <p>
+                Are you sure you want to delete:
+            </p>
+
+            <div class="delete-project-name">
+                "{{ project.title }}"
+            </div>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="delete-project-actions">
+
+                    <button
+                        type="submit"
+                        class="delete-project-btn">
+
+                        <i class="bi bi-trash3"></i>
+
+                        Yes, Delete
+
+                    </button>
+
+                    <a
+                        href="{% url 'project_detail' project.id %}"
+                        class="delete-project-cancel">
+
+                        Cancel
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

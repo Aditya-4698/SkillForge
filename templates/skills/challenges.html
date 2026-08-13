@@ -1,0 +1,471 @@
+{% extends "base.html" %}
+
+{% block title %}
+Challenges - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="challenges-page">
+
+    <!-- PAGE HEADER -->
+
+    <div class="challenges-header">
+
+        <div class="challenges-heading">
+
+            <div class="challenges-icon">
+                <i class="bi bi-trophy"></i>
+            </div>
+
+            <div>
+
+                <h2>
+                    Challenges
+                </h2>
+
+                <p>
+                    Practice your skills with hands-on challenges.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="{% url 'add_challenge' %}"
+            class="challenges-add-btn"
+        >
+            <i class="bi bi-plus-circle"></i>
+            Add Challenge
+        </a>
+
+    </div>
+
+    <!-- =====================================================
+        SEARCH & STATUS FILTER
+    ===================================================== -->
+
+    <div class="challenge-filter-card">
+
+        <div class="challenge-filter-body">
+
+            <!-- SEARCH -->
+
+            <form
+                method="GET"
+                class="challenge-search-form"
+            >
+
+                <div class="challenge-search-box">
+
+                    <i class="bi bi-search challenge-search-icon"></i>
+
+                    <input
+                        type="text"
+                        name="search"
+                        value="{{ search }}"
+                        class="challenge-search-input"
+                        placeholder="Search challenges..."
+                    >
+
+                    <input
+                        type="hidden"
+                        name="status"
+                        value="{{ current_status }}"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="sort"
+                        value="{{ current_sort }}"
+                    >
+
+                    <button
+                        type="submit"
+                        class="challenge-search-btn"
+                    >
+                        <i class="bi bi-search"></i>
+                        <span>Search</span>
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- STATUS FILTER -->
+
+            <div class="challenge-status-section">
+
+                <span class="challenge-filter-label">
+                    <i class="bi bi-filter"></i>
+                    Status
+                </span>
+
+
+                <div class="challenge-status-buttons">
+
+                    <a
+                        href="{% url 'challenges' %}?status=all&sort={{ current_sort }}&search={{ search|urlencode }}"
+                        class="challenge-filter-btn {% if current_status == 'all' %}active{% endif %}"
+                    >
+                        <i class="bi bi-grid"></i>
+                        All
+                    </a>
+
+
+                    <a
+                        href="{% url 'challenges' %}?status=pending&sort={{ current_sort }}&search={{ search|urlencode }}"
+                        class="challenge-filter-btn {% if current_status == 'pending' %}active{% endif %}"
+                    >
+                        <i class="bi bi-clock"></i>
+                        Pending
+                    </a>
+
+
+                    <a
+                        href="{% url 'challenges' %}?status=completed&sort={{ current_sort }}&search={{ search|urlencode }}"
+                        class="challenge-filter-btn {% if current_status == 'completed' %}active{% endif %}"
+                    >
+                        <i class="bi bi-check-circle"></i>
+                        Completed
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+        SORT
+    ===================================================== -->
+
+    <div class="challenge-sort-wrapper">
+
+        <form
+            method="GET"
+            class="challenge-sort-form"
+        >
+
+            <input
+                type="hidden"
+                name="status"
+                value="{{ current_status }}"
+            >
+
+            <input
+                type="hidden"
+                name="search"
+                value="{{ search }}"
+            >
+
+
+            <label
+                for="challenge-sort"
+                class="challenge-sort-label"
+            >
+                <i class="bi bi-sort-down"></i>
+                Sort By
+            </label>
+
+
+            <div class="challenge-sort-select-wrapper">
+
+                <select
+                    id="challenge-sort"
+                    name="sort"
+                    class="challenge-sort-select"
+                    onchange="this.form.submit()"
+                >
+
+                    <option
+                        value="latest"
+                        {% if current_sort == "latest" %}
+                            selected
+                        {% endif %}
+                    >
+                        Latest
+                    </option>
+
+
+                    <option
+                        value="oldest"
+                        {% if current_sort == "oldest" %}
+                            selected
+                        {% endif %}
+                    >
+                        Oldest
+                    </option>
+
+
+                    <option
+                        value="completed"
+                        {% if current_sort == "completed" %}
+                            selected
+                        {% endif %}
+                    >
+                        Completed First
+                    </option>
+
+
+                    <option
+                        value="pending"
+                        {% if current_sort == "pending" %}
+                            selected
+                        {% endif %}
+                    >
+                        Pending First
+                    </option>
+
+                </select>
+
+                <i class="bi bi-chevron-down challenge-sort-icon"></i>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- ==========================================
+        CHALLENGE STATS
+    =========================================== -->
+
+    <div class="challenge-stats">
+
+        <!-- TOTAL -->
+
+        <div class="challenge-stat-card total">
+
+            <div class="challenge-stat-icon">
+                <i class="bi bi-trophy-fill"></i>
+            </div>
+
+            <div class="challenge-stat-content">
+
+                <p>
+                    Total Challenges
+                </p>
+
+                <h2>
+                    {{ total_challenges }}
+                </h2>
+
+                <span>
+                    All challenges
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPLETED -->
+
+        <div class="challenge-stat-card completed">
+
+            <div class="challenge-stat-icon">
+                <i class="bi bi-check-circle-fill"></i>
+            </div>
+
+            <div class="challenge-stat-content">
+
+                <p>
+                    Completed
+                </p>
+
+                <h2>
+                    {{ completed_challenges }}
+                </h2>
+
+                <span>
+                    Successfully completed
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PENDING -->
+
+        <div class="challenge-stat-card pending">
+
+            <div class="challenge-stat-icon">
+                <i class="bi bi-hourglass-split"></i>
+            </div>
+
+            <div class="challenge-stat-content">
+
+                <p>
+                    Pending
+                </p>
+
+                <h2>
+                    {{ pending_challenges }}
+                </h2>
+
+                <span>
+                    Still to complete
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CHALLENGES -->
+
+    <div class="row g-4">
+
+        {% for challenge in challenges %}
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="challenge-card">
+
+                <div class="challenge-card-body">
+
+
+                    <!-- TOP -->
+
+                    <div class="challenge-top">
+
+                        <div class="challenge-title-area">
+
+                            <h5>
+                                {{ challenge.title }}
+                            </h5>
+
+                            <span class="challenge-skill">
+                                <i class="bi bi-lightning-charge"></i>
+                                {{ challenge.skill.name }}
+                            </span>
+
+                        </div>
+
+
+                        {% if challenge.completed %}
+
+                            <span class="challenge-status completed">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Completed
+                            </span>
+
+                        {% else %}
+
+                            <span class="challenge-status pending">
+                                <i class="bi bi-clock"></i>
+                                Pending
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <p class="challenge-description">
+
+                        {{ challenge.description|truncatewords:20 }}
+
+                    </p>
+
+
+                    <!-- META -->
+
+                    <div class="challenge-meta">
+
+                        <span class="challenge-difficulty">
+
+                            <i class="bi bi-bar-chart-fill"></i>
+
+                            {{ challenge.difficulty }}
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- FOOTER -->
+
+                    <div class="challenge-footer">
+
+                        <a
+                            href="{% url 'challenge_detail' challenge.id %}"
+                            class="challenge-view-btn"
+                        >
+
+                            <i class="bi bi-eye"></i>
+
+                            View Challenge
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {% empty %}
+
+
+        <!-- EMPTY STATE -->
+
+        <div class="col-12">
+
+            <div class="challenge-empty">
+
+                <div class="challenge-empty-icon">
+
+                    <i class="bi bi-trophy"></i>
+
+                </div>
+
+
+                <h4>
+                    No Challenges Yet
+                </h4>
+
+
+                <p>
+                    Start creating challenges to practice
+                    and improve your skills.
+                </p>
+
+
+                <a
+                    href="{% url 'add_challenge' %}"
+                    class="challenges-add-btn"
+                >
+
+                    <i class="bi bi-plus-circle"></i>
+
+                    Add Challenge
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

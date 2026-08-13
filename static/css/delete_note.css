@@ -1,0 +1,430 @@
+/* =========================================================
+   SKILLFORGE - DELETE NOTE PAGE
+========================================================= */
+
+.sf-delete-note-page {
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.sf-delete-note-header {
+    margin-bottom: 28px;
+}
+
+
+.sf-delete-note-heading {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 16px;
+}
+
+
+.sf-delete-note-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #fff1f2;
+    color: #e11d48;
+
+    font-size: 21px;
+}
+
+
+.sf-delete-note-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #6366f1;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.sf-delete-note-title {
+    margin: 0;
+
+    color: #1f2937;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+.sf-delete-note-subtitle {
+    margin: 7px 0 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.sf-delete-note-card {
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e7e9ee;
+    border-radius: 16px;
+
+    box-shadow:
+        0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+
+.sf-delete-note-card-body {
+    padding: 42px 40px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   WARNING ICON
+========================================================= */
+
+.sf-delete-warning-icon {
+    width: 66px;
+    height: 66px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 18px;
+
+    background: #fff1f2;
+    color: #e11d48;
+
+    font-size: 28px;
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+.sf-delete-question {
+    margin: 0;
+
+    color: #1f2937;
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+.sf-delete-description {
+    max-width: 520px;
+
+    margin: 9px auto 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   NOTE PREVIEW
+========================================================= */
+
+.sf-delete-note-preview {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    max-width: 620px;
+
+    margin: 28px auto 0;
+
+    padding: 18px 20px;
+
+    text-align: left;
+
+    background: #f8f9fc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 13px;
+}
+
+
+.sf-delete-preview-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #eef2ff;
+    color: #6366f1;
+
+    font-size: 19px;
+}
+
+
+.sf-delete-preview-content {
+    min-width: 0;
+}
+
+
+.sf-delete-preview-label {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #9ca3af;
+
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+
+.sf-delete-preview-content h5 {
+    margin: 0;
+
+    overflow: hidden;
+
+    color: #1f2937;
+
+    font-size: 15px;
+    font-weight: 650;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.sf-delete-preview-content p {
+    margin: 3px 0 0;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.sf-delete-note-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.sf-delete-confirm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 43px;
+
+    padding: 10px 18px;
+
+    border: 1px solid #e11d48;
+    border-radius: 9px;
+
+    background: #e11d48;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+.sf-delete-confirm-btn:hover {
+    background: #be123c;
+    border-color: #be123c;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 10px rgba(225, 29, 72, 0.18);
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.sf-delete-cancel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 43px;
+
+    padding: 10px 18px;
+
+    border: 1px solid #dfe3ea;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #4b5563;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+
+.sf-delete-cancel-btn:hover {
+    background: #f8f9fc;
+
+    border-color: #cbd1da;
+
+    color: #1f2937;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .sf-delete-note-title {
+        font-size: 24px;
+    }
+
+
+    .sf-delete-note-card-body {
+        padding: 34px 25px;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .sf-delete-note-heading {
+        gap: 12px;
+    }
+
+
+    .sf-delete-note-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+
+        border-radius: 11px;
+
+        font-size: 18px;
+    }
+
+
+    .sf-delete-note-title {
+        font-size: 21px;
+    }
+
+
+    .sf-delete-note-subtitle {
+        font-size: 13px;
+    }
+
+
+    .sf-delete-note-card {
+        border-radius: 13px;
+    }
+
+
+    .sf-delete-note-card-body {
+        padding: 30px 18px;
+    }
+
+
+    .sf-delete-warning-icon {
+        width: 58px;
+        height: 58px;
+
+        border-radius: 15px;
+
+        font-size: 24px;
+    }
+
+
+    .sf-delete-question {
+        font-size: 21px;
+    }
+
+
+    .sf-delete-note-preview {
+        padding: 15px;
+
+        gap: 11px;
+    }
+
+
+    .sf-delete-note-form {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .sf-delete-confirm-btn,
+    .sf-delete-cancel-btn {
+        width: 100%;
+    }
+
+}

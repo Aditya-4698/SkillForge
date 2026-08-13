@@ -1,0 +1,292 @@
+/* =========================================================
+   ADD CHALLENGE PAGE
+========================================================= */
+
+.challenge-form-page {
+    width: 100%;
+    padding: 35px 20px 50px;
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.challenge-form-page .card {
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.08);
+
+    overflow: hidden;
+}
+
+
+.challenge-form-page .card-body {
+    padding: 35px !important;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.challenge-form-page h2 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 26px;
+    font-weight: 750;
+
+    letter-spacing: -0.4px;
+}
+
+
+.challenge-form-page .text-muted {
+    color: #64748b !important;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.challenge-form-page form {
+    margin-top: 5px;
+}
+
+
+.challenge-form-page .mb-3,
+.challenge-form-page .mb-4 {
+    margin-bottom: 22px !important;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.challenge-form-page .form-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.challenge-form-page .form-control,
+.challenge-form-page .form-select {
+
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 11px 14px;
+
+    border: 1px solid #dbe1ea;
+
+    border-radius: 11px;
+
+    background: #f8fafc;
+
+    color: #0f172a;
+
+    font-size: 14px;
+
+    box-shadow: none;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.challenge-form-page textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.challenge-form-page .form-control::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.challenge-form-page .form-control:hover,
+.challenge-form-page .form-select:hover {
+    border-color: #c7d2fe;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.challenge-form-page .form-control:focus,
+.challenge-form-page .form-select:focus {
+
+    border-color: #6366f1;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.10);
+
+    outline: none;
+}
+
+
+/* =========================================================
+   ERRORS
+========================================================= */
+
+.challenge-form-page .text-danger {
+    color: #dc2626 !important;
+}
+
+
+.challenge-form-page .text-danger.small {
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+
+/* Django non-field errors */
+
+.challenge-form-page form > ul.errorlist {
+    margin: 0 0 20px;
+    padding: 11px 14px;
+
+    list-style: none;
+
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+
+    background: #fef2f2;
+
+    color: #b91c1c;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.challenge-form-page .btn-dark {
+
+    min-height: 46px;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 18px rgba(15, 23, 42, 0.18);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.challenge-form-page .btn-dark:hover {
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 12px 24px rgba(15, 23, 42, 0.25);
+}
+
+
+.challenge-form-page .btn-outline-secondary {
+
+    min-height: 46px;
+
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all .2s ease;
+}
+
+
+.challenge-form-page .btn-outline-secondary:hover {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .challenge-form-page {
+        padding: 25px 15px 40px;
+    }
+
+    .challenge-form-page .card-body {
+        padding: 25px 20px !important;
+    }
+
+    .challenge-form-page h2 {
+        font-size: 23px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .challenge-form-page .card-body {
+        padding: 22px 17px !important;
+    }
+
+    .challenge-form-page .btn {
+        width: 100%;
+        margin: 5px 0 0 !important;
+    }
+
+}

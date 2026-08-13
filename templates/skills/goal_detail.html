@@ -1,0 +1,766 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ goal.title }} - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-goal-detail-page">
+
+    <div class="sf-goal-detail-card">
+
+        <div class="sf-goal-detail-body">
+
+            <!-- =====================================================
+                 GOAL HEADER
+            ====================================================== -->
+
+            <div class="sf-goal-detail-header">
+
+                <div class="sf-goal-heading">
+
+                    <div class="sf-goal-icon">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+
+                    <div>
+
+                        <h2 class="sf-goal-title">
+                            {{ goal.title }}
+                        </h2>
+
+                        {% if goal.skill %}
+
+                            <p class="sf-goal-skill">
+                                <i class="bi bi-code-slash"></i>
+                                Skill:
+                                <strong>
+                                    {{ goal.skill.name }}
+                                </strong>
+                            </p>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+
+                {% if goal.completed %}
+
+                    <span class="sf-goal-status sf-goal-status--completed">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Completed
+
+                    </span>
+
+                {% else %}
+
+                    <span class="sf-goal-status sf-goal-status--progress">
+
+                        <i class="bi bi-lightning-charge-fill"></i>
+
+                        In Progress
+
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- DIVIDER -->
+
+            <div class="sf-goal-divider"></div>
+
+
+            <!-- =====================================================
+                 DESCRIPTION
+            ====================================================== -->
+
+            {% if goal.description %}
+
+                <div class="sf-goal-description">
+
+                    <h5>
+
+                        <i class="bi bi-file-text"></i>
+
+                        Description
+
+                    </h5>
+
+                    <p>
+                        {{ goal.description }}
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+
+            <!-- =====================================================
+                 TARGET / CURRENT PROGRESS
+            ====================================================== -->
+
+            <div class="sf-goal-stats">
+
+                <div class="sf-goal-stat-box">
+
+                    <span class="sf-goal-stat-label">
+                        Target Progress
+                    </span>
+
+                    <strong class="sf-goal-stat-value">
+                        {{ goal.target_progress }}%
+                    </strong>
+
+                </div>
+
+
+                <div class="sf-goal-stat-box sf-goal-stat-box--current">
+
+                    <span class="sf-goal-stat-label">
+                        Overall Progress
+                    </span>
+
+                    <strong class="sf-goal-stat-value">
+                        {{ goal.overall_progress }}%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 LEARNING PROGRESS
+            ====================================================== -->
+
+            <div class="sf-goal-progress-section">
+
+                <div class="sf-goal-progress-heading">
+
+                    <span>
+
+                        <i class="bi bi-graph-up-arrow"></i>
+
+                        Learning Progress
+
+                    </span>
+
+                    <strong>
+                        {{ goal.overall_progress }}%
+                    </strong>
+
+                </div>
+
+
+                <div class="sf-goal-progress-track">
+
+                    <div
+                        class="sf-goal-progress-bar"
+                        style="width: {{ goal.current_progress }}%;"
+                        aria-valuenow="{{ goal.overall_progress }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 TASK HEADER
+            ====================================================== -->
+
+            <div class="sf-goal-tasks-header">
+
+                <div class="sf-goal-tasks-heading">
+
+                    <h4>
+                        Goal Tasks
+                    </h4>
+
+                    <p>
+                        Break this goal into smaller tasks.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="{% url 'add_goal_task' goal.id %}"
+                    class="sf-add-task-btn"
+                >
+
+                    <i class="bi bi-plus-lg"></i>
+
+                    Add Task
+
+                </a>
+
+            </div>
+
+
+            <!-- =====================================================
+                 TASK PROGRESS
+            ====================================================== -->
+
+            <div class="sf-task-progress">
+
+                <div class="sf-task-progress-header">
+
+                    <span class="sf-task-progress-label">
+
+                        <i class="bi bi-list-check"></i>
+
+                        Task Progress
+
+                    </span>
+
+                    <span class="sf-task-progress-value">
+
+                        {{ goal.task_progress }}%
+
+                    </span>
+
+                </div>
+
+
+                <div class="sf-task-progress-track">
+
+                    <div
+                        class="sf-task-progress-bar"
+                        role="progressbar"
+                        style="width: {{ goal.task_progress }}%;"
+                        aria-valuenow="{{ goal.task_progress }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================================
+                GOAL DEADLINE & STATUS
+                ========================================================= -->
+
+            <div class="sf-goal-meta-grid">
+
+                <!-- DEADLINE -->
+
+                <div class="sf-goal-meta-card">
+
+                    <span class="sf-goal-meta-label">
+                        <i class="bi bi-calendar3"></i>
+                        Deadline
+                    </span>
+
+                    {% if goal.deadline %}
+
+                        <strong class="sf-goal-meta-value">
+                            {{ goal.deadline|date:"d M Y" }}
+                        </strong>
+
+                    {% else %}
+
+                        <strong class="sf-goal-meta-value sf-goal-meta-value--muted">
+                            No deadline
+                        </strong>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="sf-goal-meta-card">
+
+                    <span class="sf-goal-meta-label">
+                        <i class="bi bi-activity"></i>
+                        Status
+                    </span>
+
+
+                    {% if goal.smart_status == "Completed" %}
+
+                        <span class="sf-goal-smart-status sf-goal-smart-status--completed">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Completed
+                        </span>
+
+                    {% elif goal.smart_status == "Overdue" %}
+
+                        <span class="sf-goal-smart-status sf-goal-smart-status--overdue">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                            Overdue
+                        </span>
+
+                    {% elif goal.smart_status == "Deadline Soon" %}
+
+                        <span class="sf-goal-smart-status sf-goal-smart-status--soon">
+                            <i class="bi bi-hourglass-split"></i>
+                            Deadline Soon
+                        </span>
+
+                    {% elif goal.smart_status == "On Track" %}
+
+                        <span class="sf-goal-smart-status sf-goal-smart-status--on-track">
+                            <i class="bi bi-circle-fill"></i>
+                            On Track
+                        </span>
+
+                    {% else %}
+
+                        <span class="sf-goal-smart-status sf-goal-smart-status--none">
+                            <i class="bi bi-dash-circle"></i>
+                            No Deadline
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================================
+                DEADLINE MESSAGE
+                ========================================================= -->
+
+            {% if goal.deadline and not goal.target_reached %}
+
+                <div class="sf-goal-deadline-message">
+
+                    {% if goal.days_remaining < 0 %}
+
+                        <div class="sf-goal-deadline-alert sf-goal-deadline-alert--danger">
+
+                            <div class="sf-goal-deadline-icon">
+                                <i class="bi bi-exclamation-triangle-fill"></i>
+                            </div>
+
+                            <div class="sf-goal-deadline-content">
+
+                                <strong>
+                                    Goal overdue
+                                </strong>
+
+                                <span>
+                                    This goal is
+                                    <b>{{ goal.days_remaining|stringformat:"d"|slice:"1:" }}</b>
+                                    days overdue.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    {% elif goal.days_remaining == 0 %}
+
+                        <div class="sf-goal-deadline-alert sf-goal-deadline-alert--warning">
+
+                            <div class="sf-goal-deadline-icon">
+                                <i class="bi bi-clock-fill"></i>
+                            </div>
+
+                            <div class="sf-goal-deadline-content">
+
+                                <strong>
+                                    Deadline today
+                                </strong>
+
+                                <span>
+                                    Your goal deadline is today.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    {% elif goal.days_remaining <= 7 %}
+
+                        <div class="sf-goal-deadline-alert sf-goal-deadline-alert--warning">
+
+                            <div class="sf-goal-deadline-icon">
+                                <i class="bi bi-hourglass-split"></i>
+                            </div>
+
+                            <div class="sf-goal-deadline-content">
+
+                                <strong>
+                                    Deadline approaching
+                                </strong>
+
+                                <span>
+                                    Only
+                                    <b>{{ goal.days_remaining }}</b>
+                                    days remaining.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    {% else %}
+
+                        <div class="sf-goal-deadline-alert sf-goal-deadline-alert--normal">
+
+                            <div class="sf-goal-deadline-icon">
+                                <i class="bi bi-calendar-check"></i>
+                            </div>
+
+                            <div class="sf-goal-deadline-content">
+
+                                <strong>
+                                    Goal timeline
+                                </strong>
+
+                                <span>
+                                    <b>{{ goal.days_remaining }}</b>
+                                    days remaining.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+
+            <!-- =========================================================
+                OVERDUE MESSAGE
+                ========================================================= -->
+
+            {% if goal.days_overdue > 0 %}
+
+                <div class="sf-goal-deadline-alert sf-goal-deadline-alert--danger sf-goal-overdue-alert">
+
+                    <div class="sf-goal-deadline-icon">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                    </div>
+
+                    <div class="sf-goal-deadline-content">
+
+                        <strong>
+                            Goal overdue
+                        </strong>
+
+                        <span>
+                            This goal is
+                            <b>{{ goal.days_overdue }}</b>
+                            days overdue.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+            <!-- =====================================================
+                 TASK GRID
+            ====================================================== -->
+
+            <div class="sf-goal-tasks-grid">
+
+                {% for task in goal.goal_tasks.all %}
+
+                    <div class="sf-task-col">
+
+                        <div class="sf-task-card">
+
+                            <div class="sf-task-card-body">
+
+                                <!-- =================================================
+                                     TASK CONTENT
+                                ================================================== -->
+
+                                <div class="sf-task-content">
+
+                                    <!-- TASK ICON -->
+
+                                    {% if task.completed %}
+
+                                        <div class="sf-task-check sf-task-check--done">
+
+                                            <i class="bi bi-check-lg"></i>
+
+                                        </div>
+
+                                    {% else %}
+
+                                        <div class="sf-task-check sf-task-check--pending">
+
+                                            <i class="bi bi-circle"></i>
+
+                                        </div>
+
+                                    {% endif %}
+
+
+                                    <!-- TASK INFO -->
+
+                                    <div class="sf-task-info">
+
+                                        <h6 class="sf-task-title">
+                                            {{ task.title }}
+                                        </h6>
+
+
+                                        {% if task.completed and task.completed_at %}
+
+                                            <p class="sf-task-completed-time">
+
+                                                <i class="bi bi-check-circle"></i>
+
+                                                Completed:
+                                                {{ task.completed_at|date:"d M Y, h:i A" }}
+
+                                            </p>
+
+                                        {% endif %}
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- =================================================
+                                     TASK ACTIONS
+                                ================================================== -->
+
+                                <div class="sf-task-actions">
+
+                                    <!-- STATUS -->
+
+                                    {% if task.completed %}
+
+                                        <span class="sf-task-status sf-task-status--done">
+
+                                            <i class="bi bi-check-circle-fill"></i>
+
+                                            Done
+
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="sf-task-status sf-task-status--pending">
+
+                                            <i class="bi bi-clock-fill"></i>
+
+                                            Pending
+
+                                        </span>
+
+                                    {% endif %}
+
+
+                                    <!-- EDIT -->
+
+                                    <a
+                                        href="{% url 'edit_goal_task' task.id %}"
+                                        class="sf-task-edit-btn"
+                                    >
+
+                                        <i class="bi bi-pencil"></i>
+
+                                        Edit
+
+                                    </a>
+
+
+                                    <!-- DELETE -->
+
+                                    <a
+                                        href="{% url 'delete_goal_task' task.id %}"
+                                        class="sf-task-delete-btn"
+                                    >
+
+                                        <i class="bi bi-trash3"></i>
+
+                                        Delete
+
+                                    </a>
+
+
+                                    <!-- COMPLETE / UNDO -->
+
+                                    <form
+                                        method="POST"
+                                        action="{% url 'toggle_goal_task' task.id %}"
+                                        class="sf-task-toggle-form"
+                                    >
+
+                                        {% csrf_token %}
+
+                                        {% if task.completed %}
+
+                                            <button
+                                                type="submit"
+                                                class="sf-task-action-btn sf-task-undo-btn"
+                                            >
+
+                                                <i class="bi bi-arrow-counterclockwise"></i>
+
+                                                Undo
+
+                                            </button>
+
+                                        {% else %}
+
+                                            <button
+                                                type="submit"
+                                                class="sf-task-action-btn sf-task-complete-btn"
+                                            >
+
+                                                <i class="bi bi-check2"></i>
+
+                                                Complete
+
+                                            </button>
+
+                                        {% endif %}
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                {% empty %}
+
+                    <!-- =================================================
+                         EMPTY TASK STATE
+                    ================================================== -->
+
+                    <div class="sf-task-empty">
+
+                        <div class="sf-task-empty-icon">
+
+                            <i class="bi bi-list-check"></i>
+
+                        </div>
+
+                        <h6>
+                            No tasks added yet
+                        </h6>
+
+                        <p>
+                            Break this goal into smaller tasks
+                            to track your progress.
+                        </p>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- =====================================================
+                 GOAL MESSAGE
+            ====================================================== -->
+
+            <div class="sf-goal-message">
+
+                {% if goal.target_reached %}
+
+                    <div class="sf-goal-success-message">
+
+                        <div class="sf-goal-message-icon">
+
+                            <i class="bi bi-check-lg"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Target reached!
+                            </strong>
+
+                            <span>
+                                Great work. You have achieved your learning goal.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                {% else %}
+
+                    <div class="sf-goal-info-message">
+
+                        <div class="sf-goal-message-icon">
+
+                            <i class="bi bi-lightbulb"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Keep going
+                            </strong>
+
+                            <span>
+                                Keep working on your projects to reach this goal.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- =====================================================
+                 BACK BUTTON
+            ====================================================== -->
+
+            <div class="sf-goal-detail-actions">
+
+                <a
+                    href="{% url 'goals' %}"
+                    class="sf-goal-back-btn"
+                >
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Back to Goals
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

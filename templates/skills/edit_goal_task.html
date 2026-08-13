@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Task - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-edit-task-page">
+
+    <div class="sf-edit-task-card">
+
+        <!-- HEADER -->
+
+        <div class="sf-edit-task-header">
+
+            <div class="sf-edit-task-icon">
+                <i class="bi bi-pencil-square"></i>
+            </div>
+
+            <div>
+
+                <h3 class="sf-edit-task-title">
+                    Edit Task
+                </h3>
+
+                <p class="sf-edit-task-subtitle">
+                    Update the task for
+                    <strong>{{ goal.title }}</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <form method="POST" class="sf-edit-task-form">
+
+            {% csrf_token %}
+
+
+            <div class="sf-edit-task-field">
+
+                <label
+                    for="{{ form.title.id_for_label }}"
+                    class="sf-edit-task-label">
+
+                    Task
+
+                </label>
+
+                {{ form.title }}
+
+                {% if form.title.errors %}
+
+                    <div class="sf-edit-task-error">
+
+                        {{ form.title.errors }}
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="sf-edit-task-actions">
+
+                <a
+                    href="{% url 'goal_detail' goal.id %}"
+                    class="sf-edit-task-cancel">
+
+                    Cancel
+
+                </a>
+
+
+                <button
+                    type="submit"
+                    class="sf-edit-task-save">
+
+                    <i class="bi bi-check-lg"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

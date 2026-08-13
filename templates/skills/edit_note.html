@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Note - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-edit-note-page">
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <div class="sf-edit-note-header">
+
+        <div class="sf-edit-note-heading">
+
+            <div class="sf-edit-note-icon">
+                <i class="bi bi-pencil-square"></i>
+            </div>
+
+            <div>
+
+                <span class="sf-edit-note-label">
+                    Learning Note
+                </span>
+
+                <h2 class="sf-edit-note-title">
+                    Edit Note
+                </h2>
+
+                <p class="sf-edit-note-subtitle">
+                    Update your learning note and keep your knowledge organized.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BACK BUTTON -->
+
+        <a
+            href="{% url 'note_detail' note.id %}"
+            class="sf-edit-note-back"
+        >
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to Note</span>
+        </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         FORM CARD
+    ====================================================== -->
+
+    <div class="sf-edit-note-card">
+
+        <!-- CARD HEADER -->
+
+        <div class="sf-edit-note-card-header">
+
+            <div class="sf-edit-note-card-heading">
+
+                <div class="sf-edit-note-card-icon">
+                    <i class="bi bi-file-earmark-text"></i>
+                </div>
+
+                <div>
+
+                    <h5>
+                        Note Details
+                    </h5>
+
+                    <p>
+                        Make changes to your learning note.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="sf-edit-note-divider"></div>
+
+
+        <!-- =================================================
+             FORM
+        ================================================== -->
+
+        <form
+            method="POST" enctype="multipart/form-data"
+            class="sf-edit-note-form"
+        >
+
+            {% csrf_token %}
+
+
+            <!-- TITLE -->
+
+            <div class="sf-edit-note-field">
+
+                <label
+                    for="{{ form.title.id_for_label }}"
+                    class="sf-edit-note-label-form"
+                >
+                    Title
+                </label>
+
+                {{ form.title }}
+
+                {% if form.title.errors %}
+
+                    <div class="sf-edit-note-error">
+
+                        <i class="bi bi-exclamation-circle"></i>
+
+                        <span>
+                            {{ form.title.errors|striptags }}
+                        </span>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- CONTENT -->
+
+            <div class="sf-edit-note-field">
+
+                <label
+                    for="{{ form.content.id_for_label }}"
+                    class="sf-edit-note-label-form"
+                >
+                    Content
+                </label>
+
+                {{ form.content }}
+
+                {% if form.content.errors %}
+
+                    <div class="sf-edit-note-error">
+
+                        <i class="bi bi-exclamation-circle"></i>
+
+                        <span>
+                            {{ form.content.errors|striptags }}
+                        </span>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+           <!-- ATTACHMENT -->
+
+            <div class="sf-edit-note-field">
+
+                <label
+                    for="{{ form.attachment.id_for_label }}"
+                    class="sf-edit-note-label-form"
+                >
+                    <i class="bi bi-paperclip"></i>
+                    PDF Attachment
+                </label>
+
+                {{ form.attachment }}
+
+                {% if form.attachment.errors %}
+
+                    <div class="sf-edit-note-error">
+
+                        <i class="bi bi-exclamation-circle"></i>
+
+                        <span>
+                            {{ form.attachment.errors|striptags }}
+                        </span>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="sf-edit-note-actions">
+
+                <button
+                    type="submit"
+                    class="sf-edit-note-save"
+                >
+                    <i class="bi bi-check-lg"></i>
+                    <span>Update Note</span>
+                </button>
+
+
+                <a
+                    href="{% url 'note_detail' note.id %}"
+                    class="sf-edit-note-cancel"
+                >
+                    <i class="bi bi-x-lg"></i>
+                    <span>Cancel</span>
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

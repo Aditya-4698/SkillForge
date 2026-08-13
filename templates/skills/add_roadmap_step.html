@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Roadmap Step - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-roadmap-step-page">
+
+    <div class="sf-roadmap-step-card">
+
+        <!-- HEADER -->
+        <div class="sf-roadmap-step-header">
+
+            <div class="sf-roadmap-step-icon">
+                <i class="bi bi-plus-lg"></i>
+            </div>
+
+            <div>
+                <h2>
+                    Add Roadmap Step
+                </h2>
+
+                <p>
+                    Add a new learning step to
+                    <strong>{{ roadmap.title }}</strong>.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- FORM -->
+        <form method="POST" class="sf-roadmap-step-form">
+
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="sf-form-alert">
+                    <i class="bi bi-exclamation-circle"></i>
+
+                    <div>
+                        {{ form.non_field_errors }}
+                    </div>
+                </div>
+            {% endif %}
+
+
+            <!-- TITLE -->
+            <div class="sf-form-group">
+
+                <label for="{{ form.title.id_for_label }}">
+                    Step Title
+                </label>
+
+                <div class="sf-input-wrapper">
+
+                    <i class="bi bi-bookmark"></i>
+
+                    {{ form.title }}
+
+                </div>
+
+                {% for error in form.title.errors %}
+                    <div class="sf-form-error">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+            <div class="sf-form-group">
+
+                <label for="{{ form.description.id_for_label }}">
+                    Description
+                </label>
+
+                <div class="sf-input-wrapper sf-textarea-wrapper">
+
+                    <i class="bi bi-card-text"></i>
+
+                    {{ form.description }}
+
+                </div>
+
+                {% for error in form.description.errors %}
+                    <div class="sf-form-error">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+            </div>
+
+
+            <!-- ORDER -->
+            <div class="sf-form-group">
+
+                <label for="{{ form.order.id_for_label }}">
+                    Step Order
+                </label>
+
+                <div class="sf-input-wrapper">
+
+                    <i class="bi bi-list-ol"></i>
+
+                    {{ form.order }}
+
+                </div>
+
+                <small class="sf-form-help">
+                    Enter the position of this step in your roadmap.
+                </small>
+
+                {% for error in form.order.errors %}
+                    <div class="sf-form-error">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+            </div>
+
+
+            <!-- BUTTONS -->
+            <div class="sf-form-actions">
+
+                <button
+                    type="submit"
+                    class="sf-primary-btn"
+                >
+                    <i class="bi bi-plus-circle"></i>
+                    Add Step
+                </button>
+
+
+                <a
+                    href="{% url 'roadmap_detail' roadmap.id %}"
+                    class="sf-secondary-btn"
+                >
+                    <i class="bi bi-arrow-left"></i>
+                    Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

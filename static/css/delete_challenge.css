@@ -1,0 +1,436 @@
+/* =========================================================
+   DELETE CHALLENGE PAGE
+========================================================= */
+
+.delete-challenge-page {
+
+    width: 100%;
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px 60px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.delete-challenge-card {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 520px;
+
+    overflow: hidden;
+
+    padding: 42px 40px 28px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 55px rgba(15, 23, 42, 0.09);
+
+    animation: deleteChallengeAppear .45s ease;
+}
+
+
+/* =========================================================
+   TOP ACCENT
+========================================================= */
+
+.delete-challenge-accent {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ef4444,
+            #f97316,
+            #dc2626
+        );
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.delete-challenge-icon {
+
+    width: 76px;
+    height: 76px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 22px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f2,
+            #fee2e2
+        );
+
+    color: #dc2626;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 10px 25px rgba(220, 38, 38, 0.12);
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.delete-challenge-content h2 {
+
+    margin: 0 0 12px;
+
+    color: #0f172a;
+
+    font-size: 26px;
+
+    font-weight: 750;
+
+    letter-spacing: -.4px;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.delete-challenge-message {
+
+    max-width: 420px;
+
+    margin: 0 auto;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.delete-challenge-message strong {
+
+    color: #334155;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.delete-challenge-warning {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 22px;
+
+    padding: 10px 14px;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 10px;
+
+    background: #fef2f2;
+
+    color: #b91c1c;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.delete-challenge-warning i {
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.delete-challenge-actions {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.delete-challenge-confirm {
+
+    min-height: 46px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dc2626,
+            #ef4444
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 650;
+
+    box-shadow:
+        0 8px 20px rgba(220, 38, 38, 0.22);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.delete-challenge-confirm:hover {
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(220, 38, 38, 0.30);
+}
+
+
+.delete-challenge-confirm:active {
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.delete-challenge-cancel {
+
+    min-height: 46px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 20px;
+
+    border: 1px solid #dbe1ea;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.delete-challenge-cancel:hover {
+
+    background: #f8fafc;
+
+    border-color: #cbd5e1;
+
+    color: #0f172a;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.delete-challenge-footer {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 28px;
+    padding-top: 20px;
+
+    border-top: 1px solid #edf0f5;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+
+.delete-challenge-footer i {
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes deleteChallengeAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(.98);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .delete-challenge-page {
+
+        min-height: calc(100vh - 60px);
+
+        padding: 30px 15px 40px;
+    }
+
+
+    .delete-challenge-card {
+
+        padding: 35px 22px 24px;
+
+        border-radius: 19px;
+    }
+
+
+    .delete-challenge-icon {
+
+        width: 65px;
+        height: 65px;
+
+        margin-bottom: 19px;
+
+        border-radius: 18px;
+
+        font-size: 26px;
+    }
+
+
+    .delete-challenge-content h2 {
+
+        font-size: 23px;
+    }
+
+
+    .delete-challenge-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .delete-challenge-confirm,
+    .delete-challenge-cancel {
+
+        width: 100%;
+    }
+
+
+    .delete-challenge-footer {
+
+        line-height: 1.5;
+    }
+
+}

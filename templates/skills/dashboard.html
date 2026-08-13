@@ -1,0 +1,2024 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Dashboard - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid dashboard">
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <div class="dashboard-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                🚀 SkillForge Dashboard
+            </span>
+
+            <h1>
+                Build Skills.
+                <span>Achieve Goals.</span>
+            </h1>
+
+            <p>
+                Every small step counts. Keep improving your skills,
+                complete your goals, and become a better developer every day.
+            </p>
+
+        </div>
+
+    </div>
+
+    
+
+
+    <!-- =========================
+         PROJECT STATISTICS
+    ========================== -->
+
+    <div class="row g-4 sf-project-stats">
+
+        <!-- Total Projects -->
+
+        <div class="col-12 col-sm-6 col-xl-3">
+
+            <div class="sf-project-stat-card sf-project-stat-card--total">
+
+                <div class="sf-project-stat-body">
+
+                    <div class="sf-project-stat-top">
+
+                        <div class="sf-project-stat-icon">
+                            <i class="bi bi-folder2-open"></i>
+                        </div>
+
+                        <span class="sf-project-stat-label">
+                            Total Projects
+                        </span>
+
+                    </div>
+
+                    <div class="sf-project-stat-number">
+                        {{ total_projects }}
+                    </div>
+
+                    <div class="sf-project-stat-footer">
+
+                        <span>
+                            <i class="bi bi-grid"></i>
+                            All Projects
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Completed -->
+
+        <div class="col-12 col-sm-6 col-xl-3">
+
+            <div class="sf-project-stat-card sf-project-stat-card--completed">
+
+                <div class="sf-project-stat-body">
+
+                    <div class="sf-project-stat-top">
+
+                        <div class="sf-project-stat-icon">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+
+                        <span class="sf-project-stat-label">
+                            Completed
+                        </span>
+
+                    </div>
+
+                    <div class="sf-project-stat-number">
+                        {{ completed_projects }}
+                    </div>
+
+                    <div class="sf-project-stat-footer">
+
+                        <span>
+                            <i class="bi bi-check-circle"></i>
+                            Finished projects
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- In Progress -->
+
+        <div class="col-12 col-sm-6 col-xl-3">
+
+            <div class="sf-project-stat-card sf-project-stat-card--completed">
+
+                <div class="sf-project-stat-body">
+
+                    <div class="sf-project-stat-top">
+
+                        <div class="sf-project-stat-icon">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+
+                        <span class="sf-project-stat-label">
+                            In Progress
+                        </span>
+
+                    </div>
+
+                    <div class="sf-project-stat-number">
+                        {{ in_progress_projects }}
+                    </div>
+
+                    <div class="sf-project-stat-footer">
+
+                        <span>
+                            <i class="bi bi-arrow-up-right"></i>
+                            Currently active
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Overdue -->
+
+        <div class="col-12 col-sm-6 col-xl-3">
+
+            <div class="sf-project-stat-card sf-project-stat-card--completed">
+
+                <div class="sf-project-stat-body">
+
+                    <div class="sf-project-stat-top">
+
+                        <div class="sf-project-stat-icon">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                        </div>
+
+                        <span class="sf-project-stat-label">
+                            Overdue
+                        </span>
+
+                    </div>
+
+                    <div class="sf-project-stat-number">
+                        {{ overdue_projects }}
+                    </div>
+
+                    <div class="sf-project-stat-footer">
+
+                        <span>
+                            <i class="bi bi-clock"></i>
+                            Needs attention
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         STATISTICS
+    ========================== -->
+
+    <div class="row g-4">
+
+        <!-- Total Skills -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card stat-card">
+
+                <div class="card-body">
+
+                    <div class="stat-icon blue">
+                        <i class="bi bi-code-square"></i>
+                    </div>
+
+                    <p>
+                        Total Skills
+                    </p>
+
+                    <h2>
+                        {{ total_skills }}
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Average Progress -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card stat-card">
+
+                <div class="card-body">
+
+                    <div class="stat-icon purple">
+                        <i class="bi bi-bar-chart-fill"></i>
+                    </div>
+
+                    <p>
+                        Average Progress
+                    </p>
+
+                    <h2>
+                        {{ average_progress }}%
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Active Goals -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card stat-card">
+
+                <div class="card-body">
+
+                    <div class="stat-icon green">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+
+                    <p>
+                        Active Goals
+                    </p>
+
+                    <h2>
+                        {{ active_goals }}
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Completed Goals -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card stat-card">
+
+                <div class="card-body">
+
+                    <div class="stat-icon orange">
+                        <i class="bi bi-trophy-fill"></i>
+                    </div>
+
+                    <p>
+                        Completed Goals
+                    </p>
+
+                    <h2>
+                        {{ completed_goals }}
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MOST ACTIVE SKILL
+    ========================== -->
+
+    {% if most_active_skill %}
+
+        <div class="card mb-4">
+
+            <div class="card-body">
+
+                <p class="text-muted mb-1">
+                    Most Active Skill
+                </p>
+
+                <h4 class="mb-1">
+                    {{ most_active_skill.name }}
+                </h4>
+
+                <p class="text-muted mb-0">
+                    {{ most_active_skill.projects.count }}
+                    connected projects
+                </p>
+
+            </div>
+
+        </div>
+
+    {% endif %}
+
+
+    <!-- =========================
+         MY SKILLS
+    ========================== -->
+
+    <div class="sf-skills-section">
+
+        <!-- HEADER -->
+
+        <div class="sf-skills-header">
+
+            <div class="sf-skills-heading">
+
+                <div class="sf-skills-icon">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                </div>
+
+                <div>
+
+                    <h3 class="sf-skills-title">
+                        My Skills
+                    </h3>
+
+                    <p class="sf-skills-subtitle">
+                        Your current learning progress
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="sf-skills-count">
+
+                <i class="bi bi-stars"></i>
+
+                <strong>
+                    {{ total_skills }}
+                </strong>
+
+                <span>
+                    Skills
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- SKILLS LIST -->
+
+        <div class="sf-skills-list">
+
+            {% for skill in skills %}
+
+                <div class="sf-skill-item">
+
+                    <!-- TOP -->
+
+                    <div class="sf-skill-top">
+
+                        <div class="sf-skill-name-area">
+
+                            <div class="sf-skill-code-icon">
+                                <i class="bi bi-code-slash"></i>
+                            </div>
+
+                            <div class="sf-skill-name-info">
+
+                                <h5 class="sf-skill-name">
+                                    {{ skill.name }}
+                                </h5>
+
+                                <span class="sf-skill-level">
+                                    {{ skill.level }}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="sf-skill-percentage">
+                            {{ skill.progress }}%
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROGRESS -->
+
+                    <div class="sf-skill-progress-track">
+
+                        <div
+                            class="sf-skill-progress-bar"
+                            style="width: {{ skill.progress }}%;"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- BOTTOM -->
+
+                    <div class="sf-skill-bottom">
+
+                        <span class="sf-skill-progress-label">
+
+                            <i class="bi bi-graph-up-arrow"></i>
+
+                            Learning Progress
+
+                        </span>
+
+
+                        {% if skill.progress >= 80 %}
+
+                            <span class="sf-skill-progress-status sf-status-strong">
+                                Strong Progress
+                            </span>
+
+                        {% elif skill.progress >= 50 %}
+
+                            <span class="sf-skill-progress-status sf-status-good">
+                                Good Progress
+                            </span>
+
+                        {% elif skill.progress > 0 %}
+
+                            <span class="sf-skill-progress-status sf-status-start">
+                                Getting Started
+                            </span>
+
+                        {% else %}
+
+                            <span class="sf-skill-progress-status sf-status-start">
+                                Not Started
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            {% empty %}
+
+                <!-- EMPTY STATE -->
+
+                <div class="sf-skills-empty">
+
+                    <div class="sf-skills-empty-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+
+                    <h4>
+                        No Skills Added
+                    </h4>
+
+                    <p>
+                        Start by adding your first skill to track your learning progress.
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+     ACTIVE GOALS
+    ========================= -->
+
+    <div class="sf-goals-section">
+
+        <!-- HEADER -->
+        <div class="sf-goals-header">
+
+            <div class="sf-goals-heading">
+
+                <div class="sf-goals-icon">
+                    <i class="bi bi-bullseye"></i>
+                </div>
+
+                <div>
+                    <h3 class="sf-goals-title">
+                        Active Goals
+                    </h3>
+
+                    <p class="sf-goals-subtitle">
+                        Keep moving towards your targets
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="sf-goals-count">
+                <i class="bi bi-target"></i>
+
+                <strong>
+                    {{ active_goals }}
+                </strong>
+
+                <span>
+                    Active
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- GOALS LIST -->
+        <div class="sf-goals-list">
+
+            {% for goal in goals %}
+
+                {% if not goal.completed %}
+
+                    <div class="sf-goal-card">
+
+                        <!-- TOP -->
+                        <div class="sf-goal-top">
+
+                            <div class="sf-goal-title-area">
+
+                                <div class="sf-goal-mini-icon">
+                                    <i class="bi bi-flag-fill"></i>
+                                </div>
+
+                                <div>
+
+                                    <h5 class="sf-goal-title">
+                                        {{ goal.title }}
+                                    </h5>
+
+                                    <span class="sf-goal-skill">
+                                        <i class="bi bi-code-slash"></i>
+                                        {{ goal.skill.name }}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- STATUS -->
+                            {% if goal.target_reached %}
+
+                                <span class="sf-goal-status sf-goal-status--completed">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Completed
+                                </span>
+
+                            {% elif goal.current_progress > 0 %}
+
+                                <span class="sf-goal-status sf-goal-status--progress">
+                                    <i class="bi bi-lightning-charge-fill"></i>
+                                    In Progress
+                                </span>
+
+                            {% else %}
+
+                                <span class="sf-goal-status sf-goal-status--pending">
+                                    <i class="bi bi-circle"></i>
+                                    Not Started
+                                </span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+                        {% if goal.description %}
+
+                            <p class="sf-goal-description">
+                                {{ goal.description }}
+                            </p>
+
+                        {% endif %}
+
+
+                        <!-- PROGRESS HEADER -->
+                        <div class="sf-goal-progress-header">
+
+                            <span>
+                                <i class="bi bi-graph-up-arrow"></i>
+                                Progress
+                            </span>
+
+                            <strong>
+                                {{ goal.current_progress }}%
+                                <small>
+                                    / {{ goal.target_progress }}%
+                                </small>
+                            </strong>
+
+                        </div>
+
+
+                        <!-- PROGRESS BAR -->
+                        <div class="sf-goal-progress-track">
+
+                            <div
+                                class="sf-goal-progress-bar
+                                {% if goal.target_reached %}
+                                    sf-goal-progress-bar--completed
+                                {% endif %}"
+                                style="width: {{ goal.current_progress }}%;"
+                            ></div>
+
+                        </div>
+
+
+                        <!-- FOOTER -->
+                        <div class="sf-goal-footer">
+
+                            <div class="sf-goal-target">
+
+                                <i class="bi bi-bullseye"></i>
+
+                                <span>
+                                    Target:
+                                    <strong>
+                                        {{ goal.target_progress }}%
+                                    </strong>
+                                </span>
+
+                            </div>
+
+
+                            {% if goal.deadline %}
+
+                                <div class="sf-goal-deadline">
+
+                                    <i class="bi bi-calendar-event"></i>
+
+                                    <span>
+                                        {{ goal.deadline|date:"d M Y" }}
+                                    </span>
+
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- PROGRESS MESSAGE -->
+                        {% if goal.target_reached %}
+
+                            <div class="sf-goal-message sf-goal-message--success">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                Target reached — great work!
+
+                            </div>
+
+                        {% elif goal.current_progress > 0 %}
+
+                            <div class="sf-goal-message sf-goal-message--progress">
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                                Keep going — you're making progress.
+
+                            </div>
+
+                        {% else %}
+
+                            <div class="sf-goal-message sf-goal-message--default">
+
+                                <i class="bi bi-info-circle"></i>
+
+                                Start working towards your target.
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                {% endif %}
+
+            {% empty %}
+
+                <!-- EMPTY STATE -->
+
+                <div class="sf-goals-empty">
+
+                    <div class="sf-goals-empty-icon">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+
+                    <h5>
+                        No Active Goals
+                    </h5>
+
+                    <p>
+                        Create your first learning goal to start tracking your progress.
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <!-- =========================================================
+        LEARNING GOALS
+    ========================================================= -->
+
+    <div class="sf-learning-goals">
+
+
+        <!-- =====================================================
+            HEADER
+        ====================================================== -->
+
+        <div class="sf-learning-goals-header">
+
+            <div class="sf-learning-goals-heading">
+
+                <div class="sf-learning-goals-icon">
+                    <i class="bi bi-bullseye"></i>
+                </div>
+
+                <div>
+
+                    <h3 class="sf-learning-goals-title">
+                        Learning Goals
+                    </h3>
+
+                    <p class="sf-learning-goals-subtitle">
+                        Track your current learning goals.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+            GOALS GRID
+        ====================================================== -->
+
+        <div class="sf-learning-goals-grid">
+
+            {% for goal in goals %}
+
+                <div class="sf-learning-goal-card">
+
+
+                    <!-- =================================================
+                        GOAL HEADER
+                    ================================================== -->
+
+                    <div class="sf-learning-goal-header">
+
+                        <div class="sf-learning-goal-title-area">
+
+                            <div class="sf-learning-goal-mini-icon">
+                                <i class="bi bi-bullseye"></i>
+                            </div>
+
+                            <h5 class="sf-learning-goal-title">
+                                {{ goal.title }}
+                            </h5>
+
+                        </div>
+
+
+                        <!-- STATUS -->
+
+                        {% if goal.status == "Completed" %}
+
+                            <span class="sf-learning-goal-status sf-learning-goal-status--completed">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                Completed
+
+                            </span>
+
+                        {% elif goal.status == "Overdue" %}
+
+                            <span class="sf-learning-goal-status sf-learning-goal-status--overdue">
+
+                                <i class="bi bi-exclamation-circle-fill"></i>
+
+                                Overdue
+
+                            </span>
+
+                        {% elif goal.status == "Deadline Soon" %}
+
+                            <span class="sf-learning-goal-status sf-learning-goal-status--soon">
+
+                                <i class="bi bi-clock-fill"></i>
+
+                                Deadline Soon
+
+                            </span>
+
+                        {% else %}
+
+                            <span class="sf-learning-goal-status sf-learning-goal-status--track">
+
+                                <i class="bi bi-activity"></i>
+
+                                On Track
+
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- =================================================
+                        SKILL
+                    ================================================== -->
+
+                    <div class="sf-learning-goal-skill">
+
+                        <i class="bi bi-code-slash"></i>
+
+                        <span>
+                            {{ goal.skill.name }}
+                        </span>
+
+                    </div>
+
+
+                    <!-- =================================================
+                        DESCRIPTION
+                    ================================================== -->
+
+                    {% if goal.description %}
+
+                        <p class="sf-learning-goal-description">
+
+                            {{ goal.description|truncatewords:15 }}
+
+                        </p>
+
+                    {% endif %}
+
+
+                    <!-- =================================================
+                        PROGRESS
+                    ================================================== -->
+
+                    <div class="sf-learning-goal-progress">
+
+                        <div class="sf-learning-goal-progress-header">
+
+                            <span>
+                                Progress
+                            </span>
+
+                            <strong>
+
+                                {{ goal.current_progress }}%
+
+                                <small>
+                                    / {{ goal.target_progress }}%
+                                </small>
+
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sf-learning-goal-progress-track">
+
+                            <div
+                                class="sf-learning-goal-progress-bar"
+                                style="width: {{ goal.current_progress }}%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                        FOOTER
+                    ================================================== -->
+
+                    <div class="sf-learning-goal-footer">
+
+
+                        <!-- DEADLINE -->
+
+                        <div class="sf-learning-goal-deadline">
+
+                            {% if goal.deadline %}
+
+                                <i class="bi bi-calendar-event"></i>
+
+                                <span>
+                                    {{ goal.deadline|date:"d M Y" }}
+                                </span>
+
+                            {% else %}
+
+                                <i class="bi bi-calendar-x"></i>
+
+                                <span>
+                                    No deadline
+                                </span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- VIEW -->
+
+                        <a
+                            href="{% url 'goal_detail' goal.id %}"
+                            class="sf-learning-goal-view"
+                        >
+
+                            View Goal
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            {% empty %}
+
+
+                <!-- =================================================
+                    EMPTY
+                ================================================== -->
+
+                <div class="sf-learning-goals-empty">
+
+                    <div class="sf-learning-goals-empty-icon">
+
+                        <i class="bi bi-bullseye"></i>
+
+                    </div>
+
+                    <h6>
+                        No learning goals yet
+                    </h6>
+
+                    <p>
+                        Create your first learning goal
+                        to start tracking your progress.
+                    </p>
+
+                </div>
+
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <!-- =========================================================
+        TASK ACTIVITY
+    ========================================================= -->
+
+    <div class="sf-task-activity-row">
+
+
+        <!-- =====================================================
+            PENDING TASKS
+        ====================================================== -->
+
+        <div class="sf-task-activity-card">
+
+            <div class="sf-task-activity-card-body">
+
+                <!-- HEADER -->
+
+                <div class="sf-task-activity-header">
+
+                    <div class="sf-task-activity-heading">
+
+                        <div class="sf-task-activity-icon sf-task-activity-icon--pending">
+                            <i class="bi bi-clock"></i>
+                        </div>
+
+                        <div>
+                            <h5 class="sf-task-activity-title">
+                                Pending Tasks
+                            </h5>
+
+                            <p class="sf-task-activity-subtitle">
+                                Tasks that still need your attention.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <span class="sf-task-activity-badge">
+                        {{ pending_tasks_list|length }}
+                    </span>
+
+                </div>
+
+
+                <!-- TASK LIST -->
+
+                <div class="sf-task-activity-list">
+
+                    {% for task in pending_tasks_list %}
+
+                        <div class="sf-task-activity-item">
+
+                            <div class="sf-task-activity-item-left">
+
+                                <div class="sf-task-activity-status-icon">
+                                    <i class="bi bi-circle"></i>
+                                </div>
+
+                                <div class="sf-task-activity-info">
+
+                                    <h6>
+                                        {{ task.title }}
+                                    </h6>
+
+                                    <span>
+                                        <i class="bi bi-bullseye"></i>
+                                        {{ task.goal.title }}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <a
+                                href="{% url 'goal_detail' task.goal.id %}"
+                                class="sf-task-activity-view"
+                            >
+                                View
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    {% empty %}
+
+                        <div class="sf-task-activity-empty">
+
+                            <div class="sf-task-activity-empty-icon">
+                                <i class="bi bi-check2-circle"></i>
+                            </div>
+
+                            <h6>
+                                All caught up!
+                            </h6>
+
+                            <p>
+                                You have no pending tasks.
+                            </p>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+            RECENTLY COMPLETED
+        ====================================================== -->
+
+        <div class="sf-task-activity-card">
+
+            <div class="sf-task-activity-card-body">
+
+                <!-- HEADER -->
+
+                <div class="sf-task-activity-header">
+
+                    <div class="sf-task-activity-heading">
+
+                        <div class="sf-task-activity-icon sf-task-activity-icon--completed">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+
+                        <div>
+                            <h5 class="sf-task-activity-title">
+                                Recently Completed
+                            </h5>
+
+                            <p class="sf-task-activity-subtitle">
+                                Your latest completed tasks.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <span class="sf-task-activity-badge sf-task-activity-badge--completed">
+                        {{ recent_completed_tasks|length }}
+                    </span>
+
+                </div>
+
+
+                <!-- COMPLETED LIST -->
+
+                <div class="sf-task-activity-list">
+
+                    {% for task in recent_completed_tasks %}
+
+                        <div class="sf-task-activity-item">
+
+                            <div class="sf-task-activity-item-left">
+
+                                <div class="sf-task-activity-status-icon sf-task-activity-status-icon--completed">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+
+                                <div class="sf-task-activity-info">
+
+                                    <h6>
+                                        {{ task.title }}
+                                    </h6>
+
+                                    <span>
+                                        <i class="bi bi-bullseye"></i>
+                                        {{ task.goal.title }}
+
+                                        {% if task.completed_at %}
+
+                                            <em>•</em>
+
+                                            <i class="bi bi-calendar3"></i>
+
+                                            {{ task.completed_at|date:"d M Y" }}
+
+                                        {% endif %}
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <span class="sf-task-activity-done">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Done
+                            </span>
+
+                        </div>
+
+                    {% empty %}
+
+                        <div class="sf-task-activity-empty">
+
+                            <div class="sf-task-activity-empty-icon">
+                                <i class="bi bi-check2-square"></i>
+                            </div>
+
+                            <h6>
+                                No completed tasks
+                            </h6>
+
+                            <p>
+                                Complete your first task to see it here.
+                            </p>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =========================================================
+        GOAL TASK DASHBOARD
+    ========================================================= -->
+
+    <div class="sf-task-dashboard">
+
+
+        <!-- =====================================================
+            HEADER
+        ====================================================== -->
+
+        <div class="sf-task-dashboard-header">
+
+            <div class="sf-task-dashboard-heading">
+
+                <div class="sf-task-dashboard-icon">
+                    <i class="bi bi-list-check"></i>
+                </div>
+
+                <div class="sf-task-dashboard-heading-content">
+
+                    <h3 class="sf-task-dashboard-title">
+                        Goal Tasks
+                    </h3>
+
+                    <p class="sf-task-dashboard-subtitle">
+                        Track the smaller steps behind your learning goals.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="sf-task-dashboard-count">
+
+                <i class="bi bi-check2-square"></i>
+
+                <div>
+
+                    <strong>
+                        {{ task_progress }}%
+                    </strong>
+
+                    <span>
+                        Completed
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+            TASK STATISTICS
+        ====================================================== -->
+
+        <div class="sf-task-dashboard-stats">
+
+
+            <div class="sf-task-dashboard-stat">
+
+                <div class="sf-task-dashboard-stat-icon">
+
+                    <i class="bi bi-list-ul"></i>
+
+                </div>
+
+                <div class="sf-task-dashboard-stat-content">
+
+                    <span>
+                        Total Tasks
+                    </span>
+
+                    <strong>
+                        {{ total_tasks }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="sf-task-dashboard-stat">
+
+                <div class="sf-task-dashboard-stat-icon sf-task-dashboard-stat-icon--success">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                </div>
+
+                <div class="sf-task-dashboard-stat-content">
+
+                    <span>
+                        Completed
+                    </span>
+
+                    <strong>
+                        {{ completed_tasks }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="sf-task-dashboard-stat">
+
+                <div class="sf-task-dashboard-stat-icon sf-task-dashboard-stat-icon--warning">
+
+                    <i class="bi bi-clock-fill"></i>
+
+                </div>
+
+                <div class="sf-task-dashboard-stat-content">
+
+                    <span>
+                        Pending
+                    </span>
+
+                    <strong>
+                        {{ pending_tasks }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="sf-task-dashboard-stat">
+
+                <div class="sf-task-dashboard-stat-icon">
+
+                    <i class="bi bi-graph-up-arrow"></i>
+
+                </div>
+
+                <div class="sf-task-dashboard-stat-content">
+
+                    <span>
+                        Task Progress
+                    </span>
+
+                    <strong>
+                        {{ task_progress }}%
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+            OVERALL PROGRESS
+        ====================================================== -->
+
+        <div class="sf-task-dashboard-progress">
+
+            <div class="sf-task-dashboard-progress-header">
+
+                <div class="sf-task-dashboard-progress-label">
+
+                    <i class="bi bi-graph-up-arrow"></i>
+
+                    <span>
+                        Overall Task Progress
+                    </span>
+
+                </div>
+
+                <strong>
+                    {{ completed_tasks }} / {{ total_tasks }}
+                </strong>
+
+            </div>
+
+
+            <div class="sf-task-dashboard-progress-track">
+
+                <div
+                    class="sf-task-dashboard-progress-bar"
+                    style="width: {{ task_progress }}%;"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+            RECENT TASKS
+        ====================================================== -->
+
+        <div class="sf-task-dashboard-list">
+
+            <div class="sf-task-dashboard-list-header">
+
+                <div>
+
+                    <h5>
+                        Recent Tasks
+                    </h5>
+
+                    <p>
+                        Your latest goal activities.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="{% url 'goals' %}"
+                    class="sf-task-dashboard-view"
+                >
+
+                    View Goals
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+            <div class="sf-task-dashboard-items">
+
+                {% for task in recent_tasks %}
+
+                    <div class="sf-task-dashboard-item">
+
+                        <div class="sf-task-dashboard-item-left">
+
+                            {% if task.completed %}
+
+                                <div class="sf-task-dashboard-check sf-task-dashboard-check--completed">
+
+                                    <i class="bi bi-check-lg"></i>
+
+                                </div>
+
+                            {% else %}
+
+                                <div class="sf-task-dashboard-check">
+
+                                    <i class="bi bi-circle"></i>
+
+                                </div>
+
+                            {% endif %}
+
+
+                            <div class="sf-task-dashboard-task-info">
+
+                                <h6>
+                                    {{ task.title }}
+                                </h6>
+
+                                <span>
+
+                                    <i class="bi bi-bullseye"></i>
+
+                                    {{ task.goal.title }}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        {% if task.completed %}
+
+                            <span class="sf-task-dashboard-status sf-task-dashboard-status--completed">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                Done
+
+                            </span>
+
+                        {% else %}
+
+                            <span class="sf-task-dashboard-status">
+
+                                <i class="bi bi-clock-fill"></i>
+
+                                Pending
+
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                {% empty %}
+
+                    <div class="sf-task-dashboard-empty">
+
+                        <div class="sf-task-dashboard-empty-icon">
+
+                            <i class="bi bi-list-check"></i>
+
+                        </div>
+
+                        <h6>
+                            No tasks yet
+                        </h6>
+
+                        <p>
+                            Add tasks to your learning goals
+                            to start tracking your progress.
+                        </p>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+    
+
+    <!-- =========================
+         MY PROJECTS
+    ========================== -->
+
+    <div class="my-projects-panel">
+
+        <!-- HEADER -->
+
+        <div class="projects-section-header">
+
+            <div class="projects-section-heading">
+
+                <span class="projects-section-label">
+                    PROJECTS
+                </span>
+
+                <h4>
+                    My Projects
+                </h4>
+
+                <p>
+                    Projects you are building from your skills.
+                </p>
+
+            </div>
+
+            <a
+                href="{% url 'projects' %}"
+                class="projects-view-all"
+            >
+                View All
+                <i class="bi bi-arrow-up-right"></i>
+            </a>
+
+        </div>
+
+
+        <!-- PROJECTS -->
+
+        <div class="row g-4">
+
+            {% for project in projects %}
+
+                <div class="col-md-6">
+
+                    <div class="dashboard-project">
+
+                        <div class="dashboard-project-accent"></div>
+
+
+                        <!-- HEADER -->
+
+                        <div class="dashboard-project-header">
+
+                            <div class="dashboard-project-info">
+
+                                <div class="dashboard-project-icon">
+                                    <i class="bi bi-code-slash"></i>
+                                </div>
+
+
+                                <div class="dashboard-project-title-wrap">
+
+                                    <h5 class="dashboard-project-title">
+
+                                        <a href="{% url 'project_detail' project.id %}">
+                                            {{ project.title }}
+                                        </a>
+
+                                    </h5>
+
+
+                                    <div class="dashboard-project-skill">
+
+                                        <i class="bi bi-lightning-charge-fill"></i>
+
+                                        {{ project.skill.name }}
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            {% if project.milestone_progress == 100 %}
+
+                                <span class="dashboard-project-status completed">
+
+                                    <i class="bi bi-check-circle-fill"></i>
+
+                                    Completed
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="dashboard-project-status">
+                                    {{ project.status }}
+                                </span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="dashboard-project-description">
+
+                            {% if project.description %}
+
+                                {{ project.description|truncatewords:18 }}
+
+                            {% else %}
+
+                                <span>
+                                    No description added yet.
+                                </span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- PROGRESS -->
+
+                        <div class="dashboard-project-progress-section">
+
+                            <div class="dashboard-project-progress-heading">
+
+                                <span>
+                                    Milestone Progress
+                                </span>
+
+                                <strong>
+                                    {{ project.milestone_progress }}%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="dashboard-project-progress">
+
+                                <div
+                                    class="
+                                        dashboard-project-progress-bar
+                                        {% if project.milestone_progress == 100 %}
+                                            completed
+                                        {% endif %}
+                                    "
+                                    style="width: {{ project.milestone_progress }}%;"
+                                ></div>
+
+                            </div>
+
+
+                            <div class="dashboard-project-progress-meta">
+
+                                <span>
+
+                                    <i class="bi bi-check2"></i>
+
+                                    {{ project.completed_milestones }}
+                                    /
+                                    {{ project.total_milestones }}
+
+                                    milestones
+
+                                </span>
+
+
+                                {% if project.milestone_progress == 100 %}
+
+                                    <span class="project-complete-text">
+                                        All done 🎉
+                                    </span>
+
+                                {% else %}
+
+                                    <span>
+                                        Keep going
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FOOTER -->
+
+                        <div class="dashboard-project-footer">
+
+                            <div class="dashboard-project-footer-info">
+
+                                <i class="bi bi-folder2-open"></i>
+
+                                Learning Project
+
+                            </div>
+
+
+                            <a
+                                href="{% url 'project_detail' project.id %}"
+                                class="dashboard-project-view-btn"
+                            >
+
+                                View Project
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            {% empty %}
+
+                <div class="col-12">
+
+                    <div class="dashboard-project-empty">
+
+                        <div class="dashboard-project-empty-icon">
+                            <i class="bi bi-folder-plus"></i>
+                        </div>
+
+                        <h5>
+                            No projects yet
+                        </h5>
+
+                        <p>
+                            Turn your skills into real-world projects.
+                        </p>
+
+                        <a
+                            href="{% url 'add_project' %}"
+                            class="dashboard-project-create-btn"
+                        >
+
+                            <i class="bi bi-plus-lg"></i>
+
+                            Create Project
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         RECENT ACTIVITY
+    ========================== -->
+
+    <div class="sf-project-section">
+
+        <div class="sf-project-section-header">
+
+            <div>
+
+                <span class="sf-project-section-label">
+                    ACTIVITY
+                </span>
+
+                <h4 class="sf-project-section-title">
+                    Recent Activity
+                </h4>
+
+                <p class="sf-project-section-subtitle">
+                    Your latest learning and project updates.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="sf-project-activity-list">
+
+            {% for activity in activities %}
+
+                <div class="sf-project-activity-item">
+
+                    <!-- ICON -->
+
+                    <div
+                        class="
+                            sf-project-activity-icon
+
+                            {% if activity.activity_type == 'MILESTONE_COMPLETED' %}
+                                sf-project-activity-success
+
+                            {% elif activity.activity_type == 'PROJECT_CREATED'
+                            or activity.activity_type == 'ROADMAP_CREATED'
+                            or activity.activity_type == 'CHALLENGE_CREATED'
+                            or activity.activity_type == 'NOTE_CREATED' %}
+                                sf-project-activity-primary
+
+                            {% elif activity.activity_type == 'MILESTONE_UNDONE' %}
+                                sf-project-activity-warning
+
+                            {% else %}
+                                sf-project-activity-default
+                            {% endif %}
+                        "
+                    >
+
+                        {% if activity.activity_type == "MILESTONE_COMPLETED" %}
+
+                            <i class="bi bi-check-lg"></i>
+
+                        {% elif activity.activity_type == "PROJECT_CREATED" %}
+
+                            <i class="bi bi-plus-lg"></i>
+
+                        {% elif activity.activity_type == "ROADMAP_CREATED" %}
+
+                            <i class="bi bi-map"></i>
+
+                        {% elif activity.activity_type == "CHALLENGE_CREATED" %}
+
+                            <i class="bi bi-trophy"></i>
+
+                        {% elif activity.activity_type == "NOTE_CREATED" %}
+
+                            <i class="bi bi-journal-text"></i>
+
+                        {% elif activity.activity_type == "MILESTONE_UNDONE" %}
+
+                            <i class="bi bi-arrow-counterclockwise"></i>
+
+                        {% else %}
+
+                            <i class="bi bi-lightning-charge-fill"></i>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- CONTENT -->
+
+                    <div class="sf-project-activity-content">
+
+                        <div class="sf-project-activity-message">
+
+                            {{ activity.message }}
+
+                        </div>
+
+
+                        <div class="sf-project-activity-meta">
+
+                            {% if activity.project %}
+
+                                <span>
+                                    <i class="bi bi-folder2-open"></i>
+                                    {{ activity.project.title }}
+                                </span>
+
+                            {% elif activity.roadmap %}
+
+                                <span>
+                                    <i class="bi bi-map"></i>
+                                    {{ activity.roadmap.title }}
+                                </span>
+
+                            {% elif activity.challenge %}
+
+                                <span>
+                                    <i class="bi bi-trophy"></i>
+                                    {{ activity.challenge.title }}
+                                </span>
+
+                            {% elif activity.note %}
+
+                                <span>
+                                    <i class="bi bi-journal-text"></i>
+                                    {{ activity.note.title }}
+                                </span>
+
+                            {% endif %}
+
+
+                            <span class="sf-project-activity-separator">
+                                •
+                            </span>
+
+
+                            <span>
+
+                                <i class="bi bi-clock"></i>
+
+                                {{ activity.created_at|timesince }} ago
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            {% empty %}
+
+                <div class="sf-project-activity-empty">
+
+                    <div class="sf-project-activity-empty-icon">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
+
+                    <h6>
+                        No activity yet
+                    </h6>
+
+                    <p>
+                        Start working to see updates here.
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

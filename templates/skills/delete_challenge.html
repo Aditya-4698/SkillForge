@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}
+Delete Challenge - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="delete-challenge-page">
+
+    <div class="delete-challenge-card">
+
+        <!-- TOP ACCENT -->
+
+        <div class="delete-challenge-accent"></div>
+
+
+        <!-- ICON -->
+
+        <div class="delete-challenge-icon">
+
+            <i class="bi bi-trash3"></i>
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="delete-challenge-content">
+
+            <h2>
+                Delete Challenge?
+            </h2>
+
+            <p class="delete-challenge-message">
+
+                Are you sure you want to delete
+
+                <strong>
+                    "{{ challenge.title }}"
+                </strong>
+
+                ?
+
+            </p>
+
+
+            <div class="delete-challenge-warning">
+
+                <i class="bi bi-exclamation-circle"></i>
+
+                <span>
+                    This action cannot be undone.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <form
+            method="POST"
+            class="delete-challenge-actions"
+        >
+
+            {% csrf_token %}
+
+
+            <button
+                type="submit"
+                class="delete-challenge-confirm"
+            >
+
+                <i class="bi bi-trash3"></i>
+
+                Delete Challenge
+
+            </button>
+
+
+            <a
+                href="{% url 'challenge_detail' challenge.id %}"
+                class="delete-challenge-cancel"
+            >
+
+                <i class="bi bi-arrow-left"></i>
+
+                Cancel
+
+            </a>
+
+        </form>
+
+
+        <!-- FOOTER -->
+
+        <div class="delete-challenge-footer">
+
+            <i class="bi bi-shield-check"></i>
+
+            Your challenge data will be permanently removed.
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Roadmap - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="add-roadmap-page">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card">
+
+                <div class="card-body p-4">
+
+                    <!-- HEADER -->
+
+                    <div class="mb-4">
+
+                        <h2>
+                            Create Roadmap
+                        </h2>
+
+                        <p class="text-muted mb-0">
+                            Create a structured learning path for your skill.
+                        </p>
+
+                    </div>
+
+
+                    <!-- FORM -->
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <!-- FORM ERRORS -->
+
+                        {% if form.non_field_errors %}
+
+                            <div class="alert alert-danger">
+
+                                {{ form.non_field_errors }}
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- SKILL -->
+
+                        <div class="mb-3">
+
+                            <label for="{{ form.skill.id_for_label }}">
+                                Skill
+                            </label>
+
+                            {{ form.skill }}
+
+                            {% for error in form.skill.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- TITLE -->
+
+                        <div class="mb-3">
+
+                            <label for="{{ form.title.id_for_label }}">
+                                Roadmap Title
+                            </label>
+
+                            {{ form.title }}
+
+                            {% for error in form.title.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="mb-3">
+
+                            <label for="{{ form.description.id_for_label }}">
+                                Description
+                            </label>
+
+                            {{ form.description }}
+
+                            {% for error in form.description.errors %}
+
+                                <div class="text-danger small mt-1">
+                                    {{ error }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- ACTIONS -->
+
+                        <div class="mt-4">
+
+                            <button
+                                type="submit"
+                                class="btn btn-dark"
+                            >
+
+                                <i class="bi bi-plus-circle me-1"></i>
+
+                                Create Roadmap
+
+                            </button>
+
+
+                            <a
+                                href="{% url 'roadmaps' %}"
+                                class="btn btn-outline-secondary ms-2"
+                            >
+
+                                Cancel
+
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

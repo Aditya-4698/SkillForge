@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+
+{% block title %}
+Profile - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-profile-page">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-9 col-xl-8">
+
+            <div class="sf-profile-card">
+
+                <!-- PROFILE HEADER -->
+
+                <div class="sf-profile-header">
+
+                    <div class="sf-profile-avatar-wrapper">
+
+                        {% if profile.profile_image %}
+
+                            <img
+                                src="{{ profile.profile_image.url }}"
+                                alt="Profile"
+                                class="sf-profile-avatar"
+                            >
+
+                        {% else %}
+
+                            <div class="sf-profile-avatar sf-profile-avatar-default">
+
+                                <i class="bi bi-person"></i>
+
+                            </div>
+
+                        {% endif %}
+
+                        <span class="sf-online-dot"></span>
+
+                    </div>
+
+
+                    <div class="sf-profile-info">
+
+                        <span class="sf-profile-label">
+                            <i class="bi bi-person-badge"></i>
+                            My Profile
+                        </span>
+
+                        <h2>
+                            {{ request.user.username }}
+                        </h2>
+
+                        <p>
+                            <i class="bi bi-envelope"></i>
+                            {{ request.user.email }}
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="{% url 'edit_profile' %}"
+                        class="sf-edit-profile-btn"
+                    >
+                        <i class="bi bi-pencil-square"></i>
+                        Edit Profile
+                    </a>
+
+                </div>
+
+
+                <!-- PROFILE BODY -->
+
+                <div class="sf-profile-body">
+
+                    <!-- ABOUT -->
+
+                    <div class="sf-profile-section">
+
+                        <div class="sf-section-heading">
+
+                            <div class="sf-section-icon">
+                                <i class="bi bi-person-heart"></i>
+                            </div>
+
+                            <div>
+                                <h5>
+                                    About Me
+                                </h5>
+
+                                <p>
+                                    A little about yourself
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="sf-about-box">
+
+                            {% if profile.bio %}
+
+                                <p>
+                                    {{ profile.bio }}
+                                </p>
+
+                            {% else %}
+
+                                <div class="sf-empty-about">
+
+                                    <i class="bi bi-journal-plus"></i>
+
+                                    <div>
+                                        <strong>
+                                            No bio added yet
+                                        </strong>
+
+                                        <span>
+                                            Add something about yourself.
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACCOUNT INFORMATION -->
+
+                    <div class="sf-profile-section">
+
+                        <div class="sf-section-heading">
+
+                            <div class="sf-section-icon">
+                                <i class="bi bi-grid"></i>
+                            </div>
+
+                            <div>
+                                <h5>
+                                    Account Information
+                                </h5>
+
+                                <p>
+                                    Your account details
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="sf-account-grid">
+
+
+                            <!-- USERNAME -->
+
+                            <div class="sf-account-item">
+
+                                <div class="sf-account-icon purple">
+                                    <i class="bi bi-at"></i>
+                                </div>
+
+                                <div>
+                                    <span>
+                                        Username
+                                    </span>
+
+                                    <strong>
+                                        {{ request.user.username }}
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <!-- EMAIL -->
+
+                            <div class="sf-account-item">
+
+                                <div class="sf-account-icon blue">
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+
+                                <div>
+                                    <span>
+                                        Email
+                                    </span>
+
+                                    <strong>
+                                        {{ request.user.email|default:"Not provided" }}
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <!-- STATUS -->
+
+                            <div class="sf-account-item">
+
+                                <div class="sf-account-icon green">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+
+                                <div>
+                                    <span>
+                                        Account Status
+                                    </span>
+
+                                    <strong class="sf-active-text">
+                                        Active
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <!-- MEMBER -->
+
+                            <div class="sf-account-item">
+
+                                <div class="sf-account-icon orange">
+                                    <i class="bi bi-person-check"></i>
+                                </div>
+
+                                <div>
+                                    <span>
+                                        Profile
+                                    </span>
+
+                                    <strong>
+                                        SkillForge Member
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <div class="sf-profile-footer">
+
+                    <div class="sf-footer-left">
+
+                        <div class="sf-footer-icon">
+                            <i class="bi bi-stars"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Keep learning and growing
+                            </strong>
+
+                            <span>
+                                Your progress starts with consistency.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="{% url 'edit_profile' %}"
+                        class="sf-footer-edit"
+                    >
+                        <i class="bi bi-pencil-square"></i>
+                        Edit Profile
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

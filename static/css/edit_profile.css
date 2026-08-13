@@ -1,0 +1,603 @@
+/* =========================================================
+   SKILLFORGE - EDIT PROFILE
+========================================================= */
+
+.sf-edit-profile-page {
+    width: 100%;
+    padding: 10px 0 40px;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.sf-profile-edit-card {
+    position: relative;
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid #e8eaf0;
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 8px 30px rgba(15, 23, 42, 0.06);
+}
+
+
+/* Soft background bubbles */
+
+.sf-profile-edit-card::before {
+    content: "";
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    top: -95px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background: rgba(99, 102, 241, 0.07);
+
+    pointer-events: none;
+}
+
+
+.sf-profile-edit-card::after {
+    content: "";
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    bottom: -65px;
+    left: -55px;
+
+    border-radius: 50%;
+
+    background: rgba(14, 165, 233, 0.05);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.sf-profile-edit-header {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.sf-profile-edit-icon {
+    width: 54px;
+    height: 54px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #f1f5f9;
+    color: #334155;
+
+    font-size: 23px;
+}
+
+
+.sf-profile-edit-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: #94a3b8;
+}
+
+
+.sf-profile-edit-title {
+    margin: 0;
+
+    font-size: 27px;
+    font-weight: 700;
+
+    color: #172033;
+}
+
+
+.sf-profile-edit-subtitle {
+    margin: 5px 0 0;
+
+    font-size: 14px;
+
+    color: #7b8494;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.sf-profile-divider {
+    height: 1px;
+
+    margin: 26px 0;
+
+    background: #edf0f4;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.sf-profile-form {
+    position: relative;
+    z-index: 1;
+}
+
+
+.sf-profile-section {
+    padding: 22px;
+
+    margin-bottom: 22px;
+
+    border: 1px solid #edf0f4;
+    border-radius: 16px;
+
+    background: #fafbfc;
+}
+
+
+.sf-section-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.sf-section-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+    border: 1px solid #e8ebef;
+
+    color: #64748b;
+
+    font-size: 17px;
+}
+
+
+.sf-section-heading h5 {
+    margin: 0;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: #263142;
+}
+
+
+.sf-section-heading p {
+    margin: 3px 0 0;
+
+    font-size: 13px;
+
+    color: #8a93a1;
+}
+
+
+/* =========================================================
+   IMAGE UPLOAD
+========================================================= */
+
+.sf-image-upload {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.sf-current-image {
+    width: 82px;
+    height: 82px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    border: 3px solid #ffffff;
+
+    box-shadow:
+        0 0 0 1px #e1e6ed,
+        0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+
+.sf-current-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.sf-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f1f5f9;
+
+    color: #94a3b8;
+
+    font-size: 30px;
+}
+
+
+.sf-image-field {
+    flex: 1;
+    min-width: 0;
+}
+
+
+.sf-image-field input[type="file"] {
+    display: block;
+
+    width: 100%;
+
+    padding: 9px 12px;
+
+    border: 1px solid #dfe4ea;
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    font-size: 13px;
+
+    color: #596273;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+.sf-image-field input[type="file"]:hover {
+    border-color: #cbd3df;
+}
+
+
+.sf-image-field input[type="file"]:focus {
+    outline: none;
+
+    border-color: #94a3b8;
+
+    box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.08);
+}
+
+
+.sf-image-field small {
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 12px;
+
+    color: #9aa2ae;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.sf-form-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #344054;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.sf-form-group {
+    width: 100%;
+}
+
+
+/* =========================================================
+   TEXTAREA / INPUT
+========================================================= */
+
+.sf-form-group input,
+.sf-form-group textarea,
+.sf-profile-form textarea,
+.sf-profile-form input[type="text"] {
+    width: 100%;
+
+    border: 1px solid #dfe4ea;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    padding: 12px 14px;
+
+    font-size: 14px;
+
+    color: #273142;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.sf-form-group textarea,
+.sf-profile-form textarea {
+    min-height: 145px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+.sf-form-group input:focus,
+.sf-form-group textarea:focus,
+.sf-profile-form textarea:focus,
+.sf-profile-form input[type="text"]:focus {
+    border-color: #94a3b8;
+
+    box-shadow:
+        0 0 0 3px rgba(100, 116, 139, 0.08);
+}
+
+
+.sf-form-group input::placeholder,
+.sf-form-group textarea::placeholder {
+    color: #a4abb5;
+}
+
+
+/* =========================================================
+   ERRORS
+========================================================= */
+
+.sf-form-error {
+    margin-top: 7px;
+
+    font-size: 12px;
+
+    color: #dc3545;
+}
+
+
+.sf-form-error ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.sf-profile-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding-top: 4px;
+}
+
+
+.sf-save-profile-btn,
+.sf-cancel-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.sf-save-profile-btn {
+    border: 1px solid #334155;
+
+    background: #334155;
+    color: #ffffff;
+}
+
+
+.sf-save-profile-btn:hover {
+    background: #1e293b;
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 14px rgba(30, 41, 59, 0.16);
+}
+
+
+.sf-cancel-profile-btn {
+    border: 1px solid #dfe3e8;
+
+    background: #ffffff;
+    color: #64748b;
+}
+
+
+.sf-cancel-profile-btn:hover {
+    background: #f8fafc;
+    color: #334155;
+
+    border-color: #cfd5dd;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .sf-edit-profile-page {
+        padding-top: 0;
+    }
+
+
+    .sf-profile-edit-card {
+        padding: 20px;
+
+        border-radius: 16px;
+    }
+
+
+    .sf-profile-edit-header {
+        align-items: flex-start;
+    }
+
+
+    .sf-profile-edit-icon {
+        width: 46px;
+        height: 46px;
+
+        border-radius: 12px;
+
+        font-size: 19px;
+    }
+
+
+    .sf-profile-edit-title {
+        font-size: 23px;
+    }
+
+
+    .sf-profile-edit-subtitle {
+        font-size: 13px;
+    }
+
+
+    .sf-profile-section {
+        padding: 17px;
+    }
+
+
+    .sf-image-upload {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .sf-image-field {
+        width: 100%;
+    }
+
+
+    .sf-profile-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .sf-save-profile-btn,
+    .sf-cancel-profile-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .sf-profile-edit-header {
+        gap: 11px;
+    }
+
+
+    .sf-profile-edit-label {
+        font-size: 9px;
+    }
+
+
+    .sf-profile-edit-title {
+        font-size: 21px;
+    }
+
+
+    .sf-section-heading {
+        align-items: flex-start;
+    }
+
+
+    .sf-section-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}
+Delete Roadmap Step - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-delete-step-page">
+
+    <div class="sf-delete-step-card">
+
+        <!-- =========================================
+             WARNING ICON
+        ========================================== -->
+
+        <div class="sf-delete-step-icon">
+
+            <i class="bi bi-exclamation-triangle"></i>
+
+        </div>
+
+
+        <!-- =========================================
+             CONTENT
+        ========================================== -->
+
+        <div class="sf-delete-step-content">
+
+            <span class="sf-delete-step-label">
+                Delete Roadmap Step
+            </span>
+
+            <h2>
+                Delete this learning step?
+            </h2>
+
+            <p class="sf-delete-step-text">
+
+                You are about to permanently delete
+
+                <strong>
+                    "{{ step.title }}"
+                </strong>
+
+                from this roadmap.
+
+            </p>
+
+
+            <div class="sf-delete-warning">
+
+                <i class="bi bi-info-circle"></i>
+
+                <span>
+                    This action cannot be undone. All information
+                    associated with this step will be permanently removed.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             ACTIONS
+        ========================================== -->
+
+        <form
+            method="POST"
+            class="sf-delete-step-form"
+        >
+
+            {% csrf_token %}
+
+            <button
+                type="submit"
+                class="sf-delete-confirm-btn"
+            >
+
+                <i class="bi bi-trash3"></i>
+
+                Yes, Delete Step
+
+            </button>
+
+
+            <a
+                href="{% url 'roadmap_detail' roadmap.id %}"
+                class="sf-delete-cancel-btn"
+            >
+
+                <i class="bi bi-arrow-left"></i>
+
+                Keep Step
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

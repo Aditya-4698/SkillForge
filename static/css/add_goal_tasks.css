@@ -1,0 +1,305 @@
+/* =========================================
+   ADD TASK
+   ========================================= */
+
+.sf-add-task-page {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 10px auto 40px;
+}
+
+
+/* =========================================
+   CARD
+   ========================================= */
+
+.sf-add-task-card {
+    background: #ffffff;
+
+    border: 1px solid #e7eaf0;
+    border-radius: 16px;
+
+    padding: 30px;
+
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.sf-add-task-header {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+}
+
+
+.sf-add-task-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(13, 110, 253, 0.09);
+
+    border-radius: 12px;
+
+    color: #0d6efd;
+
+    font-size: 20px;
+}
+
+
+.sf-add-task-title {
+    margin: 0 0 4px;
+
+    color: #1f2937;
+
+    font-size: 23px;
+    font-weight: 700;
+}
+
+
+.sf-add-task-subtitle {
+    margin: 0;
+
+    color: #98a2b3;
+
+    font-size: 13px;
+}
+
+
+.sf-add-task-subtitle strong {
+    color: #475467;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.sf-task-field {
+    margin-bottom: 26px;
+}
+
+
+.sf-task-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #344054;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   DJANGO INPUT
+   ========================================= */
+
+.sf-task-field input {
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 13px;
+
+    background: #ffffff;
+
+    border: 1px solid #d9dee7;
+    border-radius: 9px;
+
+    color: #344054;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.sf-task-field input::placeholder {
+    color: #a0a8b5;
+}
+
+
+.sf-task-field input:hover {
+    border-color: #b9c2cf;
+}
+
+
+.sf-task-field input:focus {
+    border-color: #0d6efd;
+
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.10);
+}
+
+
+/* =========================================
+   ERROR
+   ========================================= */
+
+.sf-task-error {
+    margin-top: 7px;
+
+    color: #dc3545;
+
+    font-size: 12px;
+}
+
+
+.sf-task-error ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================
+   ACTIONS
+   ========================================= */
+
+.sf-task-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding-top: 2px;
+}
+
+
+/* =========================================
+   CANCEL
+   ========================================= */
+
+.sf-task-cancel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 40px;
+
+    padding: 0 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #d9dee7;
+    border-radius: 9px;
+
+    color: #667085;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+
+.sf-task-cancel:hover {
+    background: #f8fafc;
+
+    border-color: #c5ccd7;
+
+    color: #344054;
+}
+
+
+/* =========================================
+   ADD BUTTON
+   ========================================= */
+
+.sf-task-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    height: 40px;
+
+    padding: 0 17px;
+
+    background: #0d6efd;
+
+    border: 1px solid #0d6efd;
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+.sf-task-submit:hover {
+    background: #0b5ed7;
+
+    border-color: #0b5ed7;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 5px 12px rgba(13, 110, 253, 0.18);
+}
+
+
+.sf-task-submit:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 576px) {
+
+    .sf-add-task-page {
+        margin-top: 5px;
+    }
+
+    .sf-add-task-card {
+        padding: 22px 18px;
+
+        border-radius: 13px;
+    }
+
+    .sf-add-task-title {
+        font-size: 20px;
+    }
+
+    .sf-task-actions {
+        justify-content: stretch;
+    }
+
+    .sf-task-cancel,
+    .sf-task-submit {
+        flex: 1;
+    }
+
+}

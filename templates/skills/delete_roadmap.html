@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}
+Delete Roadmap - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-delete-roadmap-page">
+
+    <div class="sf-delete-roadmap-card">
+
+        <!-- TOP ACCENT -->
+
+        <div class="sf-delete-roadmap-accent"></div>
+
+
+        <!-- ICON -->
+
+        <div class="sf-delete-roadmap-icon">
+
+            <i class="bi bi-trash3"></i>
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <h3 class="sf-delete-roadmap-title">
+            Delete Roadmap?
+        </h3>
+
+
+        <p class="sf-delete-roadmap-text">
+
+            Are you sure you want to delete this roadmap?
+
+        </p>
+
+
+        <!-- ROADMAP NAME -->
+
+        <div class="sf-delete-roadmap-name">
+
+            <i class="bi bi-map"></i>
+
+            <span>
+                {{ roadmap.title }}
+            </span>
+
+        </div>
+
+
+        <!-- WARNING -->
+
+        <div class="sf-delete-roadmap-warning">
+
+            <i class="bi bi-exclamation-circle"></i>
+
+            <span>
+                This action cannot be undone.
+            </span>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="sf-delete-roadmap-actions">
+
+
+                <a
+                    href="{% url 'roadmap_detail' roadmap.id %}"
+                    class="sf-delete-roadmap-cancel"
+                >
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Cancel
+
+                </a>
+
+
+                <button
+                    type="submit"
+                    class="sf-delete-roadmap-btn"
+                >
+
+                    <i class="bi bi-trash3"></i>
+
+                    Delete Roadmap
+
+                </button>
+
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,776 @@
+/* =========================================================
+   ROADMAPS PAGE
+========================================================= */
+
+.roadmaps-page {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 0 40px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.roadmaps-page > .d-flex {
+    position: relative;
+
+    padding: 25px 28px;
+    margin-bottom: 28px !important;
+
+    overflow: hidden;
+
+    border: 1px solid #e6eaf1;
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #fafaff 55%,
+            #f5f3ff 100%
+        );
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.055);
+}
+
+
+/* Top accent */
+
+.roadmaps-page > .d-flex::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #6366f1,
+            #8b5cf6
+        );
+}
+
+
+/* Decorative bubble */
+
+.roadmaps-page > .d-flex::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -120px;
+    right: 70px;
+
+    border-radius: 50%;
+
+    background: rgba(99, 102, 241, 0.07);
+}
+
+
+/* Keep content above bubble */
+
+.roadmaps-page > .d-flex > div,
+.roadmaps-page > .d-flex > a {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Title */
+
+.roadmaps-page h2 {
+    color: #0f172a;
+
+    font-size: 27px;
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* Subtitle */
+
+.roadmaps-page > .d-flex p {
+    color: #64748b !important;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* Add Roadmap */
+
+.roadmaps-page > .d-flex > .btn-dark {
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    padding: 9px 17px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #6366f1
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.22);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.roadmaps-page > .d-flex > .btn-dark:hover {
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 27px rgba(79, 70, 229, 0.30);
+}
+
+
+/* =========================================================
+   ROADMAP GRID
+========================================================= */
+
+.roadmaps-page .row {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   ROADMAP CARD
+========================================================= */
+
+.roadmaps-page .row > .col-md-6 > .card {
+    position: relative;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    border: 1px solid #e6eaf1 !important;
+
+    border-radius: 17px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fcfcff 65%,
+            #f8f7ff 100%
+        );
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.055);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+
+/* Top card accent */
+
+.roadmaps-page .row > .col-md-6 > .card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    opacity: 0;
+
+    transition: opacity .25s ease;
+}
+
+
+.roadmaps-page .row > .col-md-6 > .card:hover {
+    transform: translateY(-4px);
+
+    border-color: #dcdff8 !important;
+
+    box-shadow:
+        0 16px 38px rgba(15, 23, 42, 0.09);
+}
+
+
+.roadmaps-page .row > .col-md-6 > .card:hover::before {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.roadmaps-page .card-body {
+    padding: 24px;
+}
+
+
+/* =========================================================
+   SKILL NAME
+========================================================= */
+
+.roadmaps-page .card-body > .d-flex p {
+    color: #6366f1 !important;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .7px;
+}
+
+
+/* =========================================================
+   ROADMAP TITLE
+========================================================= */
+
+.roadmaps-page .card-body h4 {
+    max-width: 360px;
+
+    margin-bottom: 9px;
+
+    color: #0f172a;
+
+    font-size: 19px;
+
+    font-weight: 720;
+
+    line-height: 1.35;
+
+    letter-spacing: -0.25px;
+}
+
+
+/* =========================================================
+   PROGRESS BADGE
+========================================================= */
+
+.roadmaps-page .card-body .badge.bg-dark {
+    min-width: 48px;
+
+    padding: 7px 9px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f3e8ff
+        ) !important;
+
+    color: #4f46e5 !important;
+
+    font-size: 11px;
+
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.roadmaps-page .card-body > p.text-muted {
+    min-height: 43px;
+
+    margin: 4px 0 18px;
+
+    color: #64748b !important;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.roadmaps-page .progress {
+    overflow: hidden;
+
+    height: 9px !important;
+
+    margin-bottom: 18px !important;
+
+    border-radius: 20px;
+
+    background: #eef0f6;
+}
+
+
+.roadmaps-page .progress-bar {
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #6366f1,
+            #8b5cf6
+        );
+
+    box-shadow:
+        0 3px 9px rgba(99, 102, 241, 0.22);
+
+    transition: width .5s ease;
+}
+
+
+/* =========================================================
+   CARD FOOTER
+========================================================= */
+
+.roadmaps-page .card-body > .d-flex:last-child {
+    padding-top: 2px;
+}
+
+
+/* Steps count */
+
+.roadmaps-page .card-body > .d-flex:last-child small {
+    color: #64748b !important;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   VIEW ROADMAP BUTTON
+========================================================= */
+
+.roadmaps-page .btn-outline-dark {
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 13px;
+
+    border: 1px solid #d8dee8;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.roadmaps-page .btn-outline-dark:hover {
+    border-color: #c7d2fe;
+
+    background: #f8f8ff;
+
+    color: #4f46e5;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.roadmaps-page .row > .col-12 > .card {
+    overflow: hidden;
+
+    position: relative;
+
+    border: 1px solid #e6eaf1 !important;
+
+    border-radius: 18px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #fafaff
+        );
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.05);
+}
+
+
+.roadmaps-page .row > .col-12 > .card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #8b5cf6
+        );
+}
+
+
+.roadmaps-page .row > .col-12 .card-body {
+    padding: 55px 25px !important;
+}
+
+
+/* Empty icon */
+
+.roadmaps-page .row > .col-12 .bi-map {
+    color: #6366f1 !important;
+
+    font-size: 48px !important;
+
+    opacity: .8;
+}
+
+
+/* Empty title */
+
+.roadmaps-page .row > .col-12 h5 {
+    margin-top: 18px !important;
+
+    color: #0f172a;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+
+/* Empty text */
+
+.roadmaps-page .row > .col-12 .card-body p {
+    color: #64748b !important;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* Create button */
+
+.roadmaps-page .row > .col-12 .btn-dark {
+    height: 40px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 8px 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #6366f1
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    box-shadow:
+        0 7px 18px rgba(79, 70, 229, 0.20);
+}
+
+
+.roadmaps-page .row > .col-12 .btn-dark:hover {
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .roadmaps-page {
+        padding: 5px 0 30px;
+    }
+
+
+    .roadmaps-page > .d-flex {
+        padding: 22px 20px;
+
+        gap: 18px;
+    }
+
+
+    .roadmaps-page h2 {
+        font-size: 24px;
+    }
+
+
+    .roadmaps-page > .d-flex > .btn-dark {
+        flex-shrink: 0;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .roadmaps-page > .d-flex {
+        flex-direction: column;
+
+        align-items: stretch !important;
+    }
+
+
+    .roadmaps-page > .d-flex > .btn-dark {
+        width: 100%;
+    }
+
+
+    .roadmaps-page .card-body {
+        padding: 20px;
+    }
+
+
+    .roadmaps-page .card-body h4 {
+        font-size: 17px;
+    }
+
+
+    .roadmaps-page .row > .col-md-6 > .card:hover {
+        transform: none;
+    }
+
+
+    .roadmaps-page .row > .col-12 .card-body {
+        padding: 45px 20px !important;
+    }
+}
+
+/* =========================================================
+   ROADMAP ACTION BUTTONS
+========================================================= */
+
+.roadmap-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   BASE BUTTON
+========================================================= */
+
+.roadmap-action {
+    min-height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 7px 12px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    background: #ffffff;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.roadmap-action i {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   VIEW
+========================================================= */
+
+.roadmap-action-view {
+    color: #334155;
+
+    border: 1px solid #cbd5e1;
+}
+
+
+.roadmap-action-view:hover {
+    color: #0f172a;
+
+    background: #f8fafc;
+
+    border-color: #94a3b8;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================================
+   EDIT
+========================================================= */
+
+.roadmap-action-edit {
+    color: #4f46e5;
+
+    border: 1px solid #c7d2fe;
+
+    background: #fafaff;
+}
+
+
+.roadmap-action-edit:hover {
+    color: #4338ca;
+
+    background: #eef2ff;
+
+    border-color: #a5b4fc;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.12);
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+.roadmap-action-delete {
+    color: #dc2626;
+
+    border: 1px solid #fecaca;
+
+    background: #fffafa;
+}
+
+
+.roadmap-action-delete:hover {
+    color: #b91c1c;
+
+    background: #fef2f2;
+
+    border-color: #fca5a5;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.10);
+}
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.roadmap-action:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .roadmap-card-actions {
+        gap: 6px;
+    }
+
+    .roadmap-action {
+        padding: 7px 10px;
+    }
+
+    .roadmap-action span {
+        font-size: 11px;
+    }
+
+}

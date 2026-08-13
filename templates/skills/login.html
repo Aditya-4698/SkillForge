@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-auth-page">
+
+    <div class="sf-auth-card">
+
+        <!-- HEADER -->
+
+        <div class="sf-auth-header">
+
+            <div class="sf-auth-icon">
+                <i class="bi bi-person-lock"></i>
+            </div>
+
+            <h2>
+                Welcome Back
+            </h2>
+
+            <p>
+                Login to continue learning.
+            </p>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            {% if form.non_field_errors %}
+
+                <div class="sf-auth-error">
+                    {{ form.non_field_errors }}
+                </div>
+
+            {% endif %}
+
+
+            <!-- USERNAME -->
+
+            <div class="sf-auth-field">
+
+                <label>
+                    Username
+                </label>
+
+                <div class="sf-auth-input">
+
+                    <i class="bi bi-person"></i>
+
+                    {{ form.username }}
+
+                </div>
+
+                {% for error in form.username.errors %}
+
+                    <div class="sf-auth-field-error">
+                        {{ error }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="sf-auth-field">
+
+                <label>
+                    Password
+                </label>
+
+                <div class="sf-auth-input">
+
+                    <i class="bi bi-lock"></i>
+
+                    {{ form.password }}
+
+                </div>
+
+                {% for error in form.password.errors %}
+
+                    <div class="sf-auth-field-error">
+                        {{ error }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <div class="sf-forgot-password">
+
+                <a href="{% url 'password_reset' %}">
+                    Forgot Password?
+                </a>
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                type="submit"
+                class="sf-auth-btn">
+
+                <i class="bi bi-box-arrow-in-right"></i>
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <!-- FOOTER -->
+
+        <div class="sf-auth-footer">
+
+            <span>
+                Don't have an account?
+            </span>
+
+            <a href="{% url 'signup' %}">
+                Create Account
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

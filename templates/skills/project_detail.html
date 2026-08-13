@@ -1,0 +1,712 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ project.title }} - SkillForge
+{% endblock %}
+
+
+{% block content %}
+
+<div class="sf-project-detail-page">
+
+    <div class="sf-project-detail-container">
+
+
+        <!-- =====================================================
+             PROJECT HEADER
+        ====================================================== -->
+
+        <div class="sf-project-header-card">
+
+            <div class="sf-project-header-content">
+
+                <div class="sf-project-header-left">
+
+                    <span class="sf-project-eyebrow">
+                        PROJECT
+                    </span>
+
+                    <h1 class="sf-project-title">
+                        {{ project.title }}
+                    </h1>
+
+                    <div class="sf-project-skill">
+
+                        <i class="bi bi-lightning-charge"></i>
+
+                        <span>Skill:</span>
+
+                        <strong>
+                            {{ project.skill.name }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sf-project-status">
+                    {{ project.status }}
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             PROJECT PROGRESS
+        ====================================================== -->
+
+        <div class="sf-project-card sf-project-progress-card">
+
+            <div class="sf-project-card-body">
+
+                <div class="sf-project-progress-header">
+
+                    <div>
+
+                        <h2 class="sf-project-section-title">
+                            Project Progress
+                        </h2>
+
+                        <p class="sf-project-section-subtitle">
+                            Based on completed milestones.
+                        </p>
+
+                    </div>
+
+
+                    <div class="sf-project-progress-number">
+                        {{ project.milestone_progress }}%
+                    </div>
+
+                </div>
+
+
+                <!-- PROGRESS BAR -->
+
+                <div class="sf-project-progress-track">
+
+                    <div
+                        class="sf-project-progress-fill"
+                        style="width: {{ project.milestone_progress }}%;">
+                    </div>
+
+                </div>
+
+
+                <div class="sf-project-progress-meta">
+
+                    <span>
+                        {{ project.completed_milestones }}
+                        of
+                        {{ project.total_milestones }}
+                        milestones completed
+                    </span>
+
+
+                    {% if project.milestone_progress == 100 %}
+
+                        <span class="sf-project-completed-text">
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Project Completed
+
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             COMPLETED ALERT
+        ====================================================== -->
+
+        {% if project.milestone_progress == 100 %}
+
+            <div class="sf-project-completed-alert">
+
+                <div class="sf-project-completed-icon">
+
+                    <i class="bi bi-trophy-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        🎉 Project Completed!
+                    </strong>
+
+                    <p>
+                        You completed all project milestones.
+                    </p>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+
+
+        <!-- =====================================================
+             MILESTONE STATISTICS
+        ====================================================== -->
+
+        <div class="sf-project-stat-grid">
+
+
+            <!-- TOTAL -->
+
+            <div class="sf-project-stat-card">
+
+                <div class="sf-project-stat-icon total">
+                    <i class="bi bi-list-check"></i>
+                </div>
+
+                <div>
+
+                    <span class="sf-project-stat-label">
+                        Total Milestones
+                    </span>
+
+                    <strong class="sf-project-stat-value">
+                        {{ project.total_milestones }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPLETED -->
+
+            <div class="sf-project-stat-card">
+
+                <div class="sf-project-stat-icon completed">
+                    <i class="bi bi-check-circle"></i>
+                </div>
+
+                <div>
+
+                    <span class="sf-project-stat-label">
+                        Completed
+                    </span>
+
+                    <strong class="sf-project-stat-value">
+                        {{ project.completed_milestones }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PENDING -->
+
+            <div class="sf-project-stat-card">
+
+                <div class="sf-project-stat-icon pending">
+                    <i class="bi bi-hourglass-split"></i>
+                </div>
+
+                <div>
+
+                    <span class="sf-project-stat-label">
+                        Pending
+                    </span>
+
+                    <strong class="sf-project-stat-value">
+                        {{ project.pending_milestones }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             DESCRIPTION
+        ====================================================== -->
+
+        <div class="sf-project-card">
+
+            <div class="sf-project-card-body">
+
+                <div class="sf-project-section-heading">
+
+                    <div class="sf-project-section-icon">
+                        <i class="bi bi-file-text"></i>
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            About this Project
+                        </h2>
+
+                        <p>
+                            Project description and overview.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                {% if project.description %}
+
+                    <p class="sf-project-description">
+                        {{ project.description }}
+                    </p>
+
+                {% else %}
+
+                    <div class="sf-project-empty-description">
+
+                        <i class="bi bi-file-earmark-text"></i>
+
+                        <span>
+                            No description added yet.
+                        </span>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             PROJECT RESOURCE
+        ====================================================== -->
+
+        {% if project.resource_link %}
+
+            <div class="sf-project-resource-card">
+
+                <div class="sf-project-resource-content">
+
+                    <div class="sf-project-resource-icon">
+
+                        <i class="bi bi-link-45deg"></i>
+
+                    </div>
+
+
+                    <div class="sf-project-resource-info">
+
+                        <span class="sf-project-resource-label">
+                            PROJECT RESOURCE
+                        </span>
+
+                        <h3>
+                            Project Link
+                        </h3>
+
+                        <p>
+                            Open the external resource associated
+                            with this project.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="{{ project.resource_link }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="sf-project-resource-btn">
+
+                    <span>
+                        Open Project
+                    </span>
+
+                    <i class="bi bi-box-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        {% endif %}
+
+
+
+        <!-- =====================================================
+             MILESTONES
+        ====================================================== -->
+
+        <div class="sf-project-card">
+
+            <div class="sf-project-card-body">
+
+
+                <div class="sf-project-milestone-header">
+
+                    <div>
+
+                        <div class="sf-project-section-heading">
+
+                            <div class="sf-project-section-icon">
+                                <i class="bi bi-list-check"></i>
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Project Milestones
+                                </h2>
+
+                                <p>
+                                    Break your project into
+                                    achievable steps.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="{% url 'add_milestone' project.id %}"
+                        class="sf-project-add-btn">
+
+                        <i class="bi bi-plus-lg"></i>
+
+                        <span>
+                            Add Milestone
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- MILESTONE LIST -->
+
+                <div class="sf-project-milestone-list">
+
+                    {% for milestone in project.milestones.all %}
+
+                        <div class="sf-project-milestone">
+
+                            <div class="sf-project-milestone-main">
+
+
+                                <div class="sf-project-milestone-title-row">
+
+                                    {% if milestone.completed %}
+
+                                        <span class="sf-project-milestone-check completed">
+                                            <i class="bi bi-check-lg"></i>
+                                        </span>
+
+                                        <strong class="completed-title">
+                                            {{ milestone.title }}
+                                        </strong>
+
+                                    {% else %}
+
+                                        <span class="sf-project-milestone-check">
+                                            <i class="bi bi-circle"></i>
+                                        </span>
+
+                                        <strong>
+                                            {{ milestone.title }}
+                                        </strong>
+
+                                    {% endif %}
+
+                                </div>
+
+
+                                {% if milestone.description %}
+
+                                    <p class="sf-project-milestone-description">
+                                        {{ milestone.description }}
+                                    </p>
+
+                                {% endif %}
+
+                            </div>
+
+
+
+                            <div class="sf-project-milestone-actions">
+
+
+                                {% if milestone.completed %}
+
+                                    <span class="sf-project-milestone-badge completed">
+                                        Completed
+                                    </span>
+
+
+                                    <form
+                                        method="POST"
+                                        action="{% url 'undo_milestone' project.id milestone.id %}">
+
+                                        {% csrf_token %}
+
+                                        <button
+                                            type="submit"
+                                            class="sf-milestone-btn undo">
+
+                                            <i class="bi bi-arrow-counterclockwise"></i>
+                                            Undo
+
+                                        </button>
+
+                                    </form>
+
+                                {% else %}
+
+                                    <span class="sf-project-milestone-badge pending">
+                                        Pending
+                                    </span>
+
+
+                                    <form
+                                        method="POST"
+                                        action="{% url 'complete_milestone' project.id milestone.id %}">
+
+                                        {% csrf_token %}
+
+                                        <button
+                                            type="submit"
+                                            class="sf-milestone-btn complete">
+
+                                            <i class="bi bi-check-lg"></i>
+                                            Complete
+
+                                        </button>
+
+                                    </form>
+
+                                {% endif %}
+
+
+                                <a
+                                    href="{% url 'edit_milestone' project.id milestone.id %}"
+                                    class="sf-milestone-btn edit">
+
+                                    <i class="bi bi-pencil"></i>
+                                    Edit
+
+                                </a>
+
+
+                                <a
+                                    href="{% url 'delete_milestone' project.id milestone.id %}"
+                                    class="sf-milestone-btn delete">
+
+                                    <i class="bi bi-trash3"></i>
+                                    Delete
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                    {% empty %}
+
+                        <div class="sf-project-empty-milestones">
+
+                            <div class="sf-project-empty-icon">
+                                <i class="bi bi-list-check"></i>
+                            </div>
+
+                            <h3>
+                                No milestones yet
+                            </h3>
+
+                            <p>
+                                Break this project into smaller
+                                milestones to track your progress.
+                            </p>
+
+                            <a
+                                href="{% url 'add_milestone' project.id %}"
+                                class="sf-project-add-btn">
+
+                                <i class="bi bi-plus-lg"></i>
+                                Add First Milestone
+
+                            </a>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             PROJECT INFORMATION
+        ====================================================== -->
+
+        <div class="sf-project-card">
+
+            <div class="sf-project-card-body">
+
+                <div class="sf-project-section-heading">
+
+                    <div class="sf-project-section-icon">
+                        <i class="bi bi-info-circle"></i>
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Project Information
+                        </h2>
+
+                        <p>
+                            Basic information about this project.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sf-project-info-grid">
+
+
+                    <div class="sf-project-info-item">
+
+                        <span>
+                            Skill
+                        </span>
+
+                        <strong>
+                            {{ project.skill.name }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="sf-project-info-item">
+
+                        <span>
+                            Status
+                        </span>
+
+                        <strong>
+                            {{ project.status }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="sf-project-info-item">
+
+                        <span>
+                            Created
+                        </span>
+
+                        <strong>
+                            {{ project.created_at|date:"d M Y" }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="sf-project-info-item">
+
+                        <span>
+                            Last Updated
+                        </span>
+
+                        <strong>
+                            {{ project.updated_at|date:"d M Y" }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             PAGE ACTIONS
+        ====================================================== -->
+
+        <div class="sf-project-detail-actions">
+
+            <a
+                href="{% url 'projects' %}"
+                class="sf-project-back-btn">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Projects
+
+            </a>
+
+
+            <div class="sf-project-main-actions">
+
+                <a
+                    href="{% url 'edit_project' project.id %}"
+                    class="sf-project-edit-btn">
+
+                    <i class="bi bi-pencil"></i>
+
+                    Edit Project
+
+                </a>
+
+
+                <a
+                    href="{% url 'delete_project' project.id %}"
+                    class="sf-project-delete-btn">
+
+                    <i class="bi bi-trash3"></i>
+
+                    Delete Project
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

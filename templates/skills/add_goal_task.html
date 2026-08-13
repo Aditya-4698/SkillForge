@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Task - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="sf-add-task-page">
+
+    <div class="sf-add-task-card">
+
+        <div class="sf-add-task-header">
+
+            <div class="sf-add-task-icon">
+                <i class="bi bi-check2-square"></i>
+            </div>
+
+            <div>
+                <h3 class="sf-add-task-title">
+                    Add Task
+                </h3>
+
+                <p class="sf-add-task-subtitle">
+                    Add a task to
+                    <strong>{{ goal.title }}</strong>
+                </p>
+            </div>
+
+        </div>
+
+
+        <form method="POST" class="sf-add-task-form">
+
+            {% csrf_token %}
+
+
+            <div class="sf-task-field">
+
+                <label
+                    for="{{ form.title.id_for_label }}"
+                    class="sf-task-label">
+
+                    Task Title
+
+                </label>
+
+                {{ form.title }}
+
+                {% if form.title.errors %}
+
+                    <div class="sf-task-error">
+                        {{ form.title.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="sf-task-actions">
+
+                <a
+                    href="{% url 'goal_detail' goal.id %}"
+                    class="sf-task-cancel">
+
+                    Cancel
+
+                </a>
+
+                <button
+                    type="submit"
+                    class="sf-task-submit">
+
+                    <i class="bi bi-plus-lg"></i>
+                    Add Task
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

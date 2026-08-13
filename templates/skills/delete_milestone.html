@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Delete Milestone - SkillForge
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-6 delete-milestone-page">
+
+        <div class="card delete-milestone-card">
+
+            <div class="card-body text-center p-4">
+
+                <h3 class="mb-3">
+                    Delete Milestone?
+                </h3>
+
+                <p class="text-muted">
+                    Are you sure you want to delete:
+                </p>
+
+                <h5 class="mb-4">
+                    "{{ milestone.title }}"
+                </h5>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="delete-milestone-actions">
+
+                        <button
+                            type="submit"
+                            class="delete-milestone-btn">
+
+                            <i class="bi bi-trash3"></i>
+                            Yes, Delete
+
+                        </button>
+
+                        <a
+                            href="{% url 'project_detail' project.id %}"
+                            class="delete-milestone-cancel">
+
+                            <i class="bi bi-arrow-left"></i>
+                            Cancel
+
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

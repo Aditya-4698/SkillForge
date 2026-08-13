@@ -1,0 +1,575 @@
+/* =====================================================
+   SKILLFORGE — CREATE PROJECT
+   PREMIUM FORM THEME
+===================================================== */
+
+.project-form-wrapper {
+    max-width: 900px;
+}
+
+
+/* =====================================================
+   MAIN FORM CARD
+===================================================== */
+
+.project-form-wrapper .card {
+
+    position: relative;
+
+    border: 1px solid rgba(99, 102, 241, 0.12);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fcfcff 55%,
+            #f8f7ff 100%
+        );
+
+    box-shadow:
+        0 20px 55px rgba(15, 23, 42, 0.07),
+        0 5px 18px rgba(99, 102, 241, 0.05);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Top gradient line */
+
+.project-form-wrapper .card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #6366f1,
+            #7c3aed,
+            #a855f7
+        );
+}
+
+
+/* Subtle glow */
+
+.project-form-wrapper .card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    top: -120px;
+    right: -100px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(99, 102, 241, 0.10),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   CARD BODY
+===================================================== */
+
+.project-form-wrapper .card-body {
+
+    position: relative;
+
+    z-index: 1;
+
+    padding: 38px !important;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.project-form-wrapper h2 {
+
+    color: #0f172a;
+
+    font-size: 29px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.7px;
+
+    margin-bottom: 6px;
+}
+
+
+.project-form-wrapper .mb-4 > p {
+
+    color: #64748b !important;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   HEADER DECORATION
+===================================================== */
+
+.project-form-wrapper h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 42px;
+    height: 4px;
+
+    margin-top: 10px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6366f1,
+            #8b5cf6
+        );
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.project-form-wrapper form p {
+
+    position: relative;
+
+    margin-bottom: 24px;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.project-form-wrapper form label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #334155;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.15px;
+}
+
+
+/* Required indicator */
+
+.project-form-wrapper form label.requiredField::after {
+
+    content: " *";
+
+    color: #ef4444;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   INPUT / SELECT / TEXTAREA
+===================================================== */
+
+.project-form-wrapper form input,
+.project-form-wrapper form textarea,
+.project-form-wrapper form select {
+
+    width: 100%;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fafc
+        );
+
+    color: #1e293b;
+
+    padding: 12px 14px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        transform 0.2s ease;
+}
+
+
+/* =====================================================
+   TEXTAREA
+===================================================== */
+
+.project-form-wrapper textarea {
+
+    min-height: 125px;
+
+    resize: vertical;
+
+    line-height: 1.65;
+}
+
+
+/* =====================================================
+   SELECT
+===================================================== */
+
+.project-form-wrapper select {
+
+    cursor: pointer;
+
+    min-height: 47px;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.project-form-wrapper form input:hover,
+.project-form-wrapper form textarea:hover,
+.project-form-wrapper form select:hover {
+
+    border-color: #c7d2fe;
+
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   FOCUS
+===================================================== */
+
+.project-form-wrapper form input:focus,
+.project-form-wrapper form textarea:focus,
+.project-form-wrapper form select:focus {
+
+    border-color: #6366f1;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.09),
+        0 8px 20px rgba(99, 102, 241, 0.06);
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
+
+.project-form-wrapper input::placeholder,
+.project-form-wrapper textarea::placeholder {
+
+    color: #a1aabd;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   PROGRESS INPUT
+===================================================== */
+
+.project-form-wrapper input[name="progress"] {
+
+    font-weight: 700;
+
+    color: #4f46e5;
+}
+
+
+/* =====================================================
+   HELP TEXT
+===================================================== */
+
+.project-form-wrapper .helptext {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   DJANGO ERROR
+===================================================== */
+
+.project-form-wrapper .errorlist {
+
+    list-style: none;
+
+    padding: 8px 12px;
+
+    margin: 7px 0 0;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 9px;
+
+    background: #fef2f2;
+
+    color: #dc2626;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   BUTTON SECTION
+===================================================== */
+
+.project-form-wrapper form .mt-4 {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-top: 30px !important;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #eef2f7;
+}
+
+
+/* =====================================================
+   CREATE PROJECT BUTTON
+===================================================== */
+
+.project-form-wrapper .btn-primary {
+
+    position: relative;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 11px 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5 0%,
+            #6366f1 45%,
+            #7c3aed 100%
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1px;
+
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.24);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.project-form-wrapper .btn-primary:hover {
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 13px 28px rgba(99, 102, 241, 0.34);
+}
+
+
+.project-form-wrapper .btn-primary:active {
+
+    transform: translateY(0);
+
+}
+
+
+/* =====================================================
+   CANCEL BUTTON
+===================================================== */
+
+.project-form-wrapper .btn-outline-secondary {
+
+    border: 1px solid #dbe2ec;
+
+    border-radius: 12px;
+
+    padding: 10px 20px;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.project-form-wrapper .btn-outline-secondary:hover {
+
+    background: #f8fafc;
+
+    border-color: #cbd5e1;
+
+    color: #1e293b;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =====================================================
+   FORM INPUT ICON-LIKE LEFT SPACE
+===================================================== */
+
+.project-form-wrapper input,
+.project-form-wrapper textarea,
+.project-form-wrapper select {
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   FORM DIVIDER
+===================================================== */
+
+.project-form-wrapper form {
+
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .project-form-wrapper {
+
+        max-width: 100%;
+    }
+
+    .project-form-wrapper .card-body {
+
+        padding: 28px !important;
+    }
+
+    .project-form-wrapper h2 {
+
+        font-size: 25px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 576px) {
+
+    .project-form-wrapper .card {
+
+        border-radius: 18px;
+    }
+
+    .project-form-wrapper .card-body {
+
+        padding: 22px !important;
+    }
+
+    .project-form-wrapper h2 {
+
+        font-size: 23px;
+    }
+
+    .project-form-wrapper form .mt-4 {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .project-form-wrapper form .mt-4 .btn {
+
+        width: 100%;
+
+        margin-left: 0 !important;
+
+        text-align: center;
+    }
+
+}

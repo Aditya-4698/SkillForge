@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Challenge - SkillForge
+{% endblock %}
+
+{% block content %}
+
+<div class="challenge-form-page">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="challenge-form-card">
+
+                <div class="challenge-form-body">
+
+                    <!-- HEADER -->
+
+                    <div class="challenge-form-header">
+
+                        <div class="challenge-form-icon">
+                            <i class="bi bi-pencil-square"></i>
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Edit Challenge
+                            </h2>
+
+                            <p>
+                                Update your challenge details.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FORM -->
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <!-- NON FIELD ERRORS -->
+
+                        {% if form.non_field_errors %}
+
+                            <div class="challenge-field-error mb-3">
+                                {{ form.non_field_errors }}
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- SKILL -->
+
+                        <div class="challenge-form-field">
+
+                            <label for="{{ form.skill.id_for_label }}">
+                                Skill
+                            </label>
+
+                            {{ form.skill }}
+
+                            {% if form.skill.errors %}
+
+                                <div class="challenge-field-error">
+                                    {{ form.skill.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- TITLE -->
+
+                        <div class="challenge-form-field">
+
+                            <label for="{{ form.title.id_for_label }}">
+                                Challenge Title
+                            </label>
+
+                            {{ form.title }}
+
+                            {% if form.title.errors %}
+
+                                <div class="challenge-field-error">
+                                    {{ form.title.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="challenge-form-field">
+
+                            <label for="{{ form.description.id_for_label }}">
+                                Description
+                            </label>
+
+                            {{ form.description }}
+
+                            {% if form.description.errors %}
+
+                                <div class="challenge-field-error">
+                                    {{ form.description.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- DIFFICULTY -->
+
+                        <div class="challenge-form-field">
+
+                            <label for="{{ form.difficulty.id_for_label }}">
+                                Difficulty
+                            </label>
+
+                            {{ form.difficulty }}
+
+                            {% if form.difficulty.errors %}
+
+                                <div class="challenge-field-error">
+                                    {{ form.difficulty.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- TARGET -->
+
+                        <div class="challenge-form-field">
+
+                            <label for="{{ form.target.id_for_label }}">
+                                Target
+                            </label>
+
+                            {{ form.target }}
+
+                            {% if form.target.errors %}
+
+                                <div class="challenge-field-error">
+                                    {{ form.target.errors }}
+                                </div>
+
+                            {% endif %}
+
+                            <small class="text-muted">
+                                Set the target you want to achieve.
+                            </small>
+
+                        </div>
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="challenge-form-actions">
+
+                            <button
+                                type="submit"
+                                class="challenge-save-btn"
+                            >
+
+                                <i class="bi bi-check-circle"></i>
+
+                                Update Challenge
+
+                            </button>
+
+
+                            <a
+                                href="{% url 'challenge_detail' challenge.id %}"
+                                class="challenge-cancel-btn"
+                            >
+
+                                <i class="bi bi-x-lg"></i>
+
+                                Cancel
+
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
