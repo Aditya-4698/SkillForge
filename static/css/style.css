@@ -1474,3 +1474,92 @@ select {
         padding: 15px 11px;
     }
 }
+
+/* =====================================================
+   FINAL MOBILE NAVBAR FIX
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 64px;
+    }
+
+    .navbar-container {
+        width: 100%;
+        height: 64px;
+
+        padding: 0 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 8px;
+    }
+
+    .logo {
+        flex-shrink: 0;
+    }
+
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        gap: 6px;
+
+        min-width: 0;
+        flex-shrink: 1;
+    }
+
+    .sf-nav-profile {
+        flex-shrink: 0;
+    }
+
+    .sf-nav-profile-image,
+    .sf-nav-profile-placeholder {
+        width: 36px;
+        height: 36px;
+    }
+
+    .sf-nav-welcome {
+        display: none !important;
+    }
+
+    .sf-nav-btn {
+        height: 36px;
+
+        width: 36px;
+
+        padding: 0;
+
+        flex-shrink: 0;
+
+        border-radius: 9px;
+    }
+
+    .sf-nav-btn i {
+        font-size: 15px;
+    }
+
+    .sf-nav-btn:not(:has(i)) {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        width: 36px;
+        height: 36px;
+
+        flex-shrink: 0;
+    }
+}
