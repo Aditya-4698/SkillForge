@@ -1,4 +1,9 @@
 /* =====================================================
+   SKILLFORGE - GLOBAL STYLE
+===================================================== */
+
+
+/* =====================================================
    RESET
 ===================================================== */
 
@@ -8,12 +13,39 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    font-family: "Inter", Arial, sans-serif;
+    background: #f6f8fc;
+    color: #1e293b;
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
 
 /* =====================================================
-   ROOT
+   ROOT VARIABLES
 ===================================================== */
 
 :root {
+
     --primary: #6366f1;
     --primary-dark: #4f46e5;
     --secondary: #8b5cf6;
@@ -28,40 +60,13 @@
     --white: #ffffff;
 
     --border: #e7ebf2;
-}
 
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #f59e0b;
 
-/* =====================================================
-   HTML / BODY
-===================================================== */
-
-html {
-    height: 100%;
-    overflow: hidden;
-}
-
-
-body {
-    height: 100%;
-    font-family: "Inter", Arial, sans-serif;
-
-    background: var(--background);
-    color: var(--text);
-
-    line-height: 1.5;
-
-    -webkit-font-smoothing: antialiased;
-
-    overflow: hidden;
-}
-
-
-/* =====================================================
-   LINKS
-===================================================== */
-
-a {
-    text-decoration: none;
+    --sidebar-width: 245px;
+    --navbar-height: 70px;
 }
 
 
@@ -71,7 +76,7 @@ a {
 
 .navbar {
     width: 100%;
-    height: 70px;
+    height: var(--navbar-height);
 
     padding: 0;
 
@@ -86,7 +91,6 @@ a {
         1px solid rgba(255, 255, 255, 0.08);
 
     position: fixed;
-
     top: 0;
     left: 0;
 
@@ -110,6 +114,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    gap: 20px;
 }
 
 
@@ -120,16 +126,19 @@ a {
 .logo {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
-    color: white;
+    flex-shrink: 0;
+
+    color: #ffffff;
     text-decoration: none;
 
     transition: 0.25s ease;
 }
 
 .logo:hover {
-    color: white;
+    color: #ffffff;
     transform: translateY(-1px);
 }
 
@@ -141,6 +150,8 @@ a {
 .logo-icon {
     width: 39px;
     height: 39px;
+
+    flex-shrink: 0;
 
     display: flex;
     align-items: center;
@@ -155,7 +166,7 @@ a {
             var(--secondary)
         );
 
-    color: white;
+    color: #ffffff;
 
     font-size: 18px;
 
@@ -175,7 +186,9 @@ a {
 
     letter-spacing: -0.5px;
 
-    color: white;
+    color: #ffffff;
+
+    white-space: nowrap;
 }
 
 .logo-text span {
@@ -198,134 +211,248 @@ a {
 .nav-right {
     display: flex;
     align-items: center;
+
     gap: 10px;
+
+    min-width: 0;
 }
 
 
 /* =====================================================
-   NOTIFICATION
+   NAV PROFILE
 ===================================================== */
 
-.notification-btn {
-    width: 39px;
-    height: 39px;
+.sf-nav-profile {
+    display: flex;
+    align-items: center;
 
-    border:
-        1px solid rgba(255, 255, 255, 0.08);
+    gap: 10px;
 
-    border-radius: 10px;
+    min-width: 0;
 
-    background:
-        rgba(255, 255, 255, 0.06);
+    color: inherit;
+    text-decoration: none;
 
-    color: #cbd5e1;
+    transition: opacity 0.2s ease;
+}
+
+.sf-nav-profile:hover {
+    opacity: 0.9;
+}
+
+
+/* =====================================================
+   NAV PROFILE IMAGE
+===================================================== */
+
+.sf-nav-profile-image {
+    width: 44px;
+    height: 44px;
+
+    min-width: 44px;
+    min-height: 44px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    display: block;
+
+    border: 2px solid #ffffff;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =====================================================
+   NAV PROFILE PLACEHOLDER
+===================================================== */
+
+.sf-nav-profile-placeholder {
+    width: 44px;
+    height: 44px;
+
+    min-width: 44px;
+    min-height: 44px;
+
+    border-radius: 50%;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    position: relative;
+    background: #f1f3f5;
 
-    cursor: pointer;
+    color: #495057;
 
-    transition: 0.25s ease;
+    border: 2px solid #ffffff;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.18);
+
+    font-size: 22px;
 }
 
-.notification-btn:hover {
-    color: white;
 
-    background:
-        rgba(255, 255, 255, 0.12);
+/* =====================================================
+   NAV WELCOME
+===================================================== */
+
+.sf-nav-welcome {
+    display: inline-flex;
+    align-items: center;
+
+    max-width: 180px;
+
+    overflow: hidden;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   COMMON NAV BUTTON
+===================================================== */
+
+.sf-nav-btn {
+    height: 40px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0 16px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    white-space: nowrap;
+
+    text-decoration: none !important;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        color 0.25s ease;
+}
+
+.sf-nav-btn i {
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.sf-nav-login {
+    border: 1px solid #c7d2fe;
+
+    background: #f8f9ff;
+
+    color: #4f46e5;
+}
+
+.sf-nav-login:hover {
+    background: #eef2ff;
+
+    border-color: #6366f1;
+
+    color: #4338ca;
 
     transform: translateY(-1px);
 }
 
-.notification-btn i {
-    font-size: 17px;
-}
-
 
 /* =====================================================
-   NOTIFICATION DOT
+   SIGN UP
 ===================================================== */
 
-.notification-dot {
-    position: absolute;
-
-    top: 8px;
-    right: 8px;
-
-    width: 6px;
-    height: 6px;
-
-    border-radius: 50%;
-
-    background: #818cf8;
-
-    border:
-        1px solid var(--dark);
-}
-
-
-/* =====================================================
-   PROFILE
-===================================================== */
-
-.profile-user {
-    display: flex;
-    align-items: center;
-
-    gap: 9px;
-
+.sf-nav-signup {
     border: none;
-
-    background: transparent;
-
-    color: white;
-
-    cursor: pointer;
-
-    padding: 4px 8px;
-
-    border-radius: 10px;
-
-    transition: 0.25s ease;
-}
-
-.profile-user:hover {
-    background:
-        rgba(255, 255, 255, 0.07);
-}
-
-
-.profile-user-icon {
-    width: 35px;
-    height: 35px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
 
     background:
         linear-gradient(
             135deg,
-            var(--primary),
-            var(--secondary)
+            #4f46e5,
+            #6366f1,
+            #7c3aed
         );
 
-    color: white;
+    color: #ffffff;
 
-    font-size: 15px;
+    box-shadow:
+        0 7px 20px
+        rgba(79, 70, 229, 0.25);
+}
+
+.sf-nav-signup:hover {
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 11px 26px
+        rgba(79, 70, 229, 0.35);
 }
 
 
-.profile-user-name {
-    font-size: 13px;
-    font-weight: 600;
+/* =====================================================
+   DASHBOARD
+===================================================== */
 
-    color: #e2e8f0;
+.sf-nav-dashboard {
+    border: 1px solid #dbe1ea;
+
+    background: #ffffff;
+
+    color: #475569;
+}
+
+.sf-nav-dashboard:hover {
+    background: #f8f9ff;
+
+    border-color: #c7d2fe;
+
+    color: #4f46e5;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+.sf-nav-logout {
+    border: 1px solid #fecaca;
+
+    background: #fffafa;
+
+    color: #dc2626;
+}
+
+.sf-nav-logout:hover {
+    background: #fef2f2;
+
+    border-color: #fca5a5;
+
+    color: #b91c1c;
+
+    transform: translateY(-1px);
 }
 
 
@@ -337,9 +464,10 @@ a {
     display: flex;
 
     width: 100%;
-    height: calc(100vh - 70px);
 
-    margin-top: 70px;
+    height: calc(100vh - var(--navbar-height));
+
+    margin-top: var(--navbar-height);
 
     overflow: hidden;
 }
@@ -350,11 +478,11 @@ a {
 ===================================================== */
 
 .sidebar {
-    width: 245px;
+    width: var(--sidebar-width);
 
-    flex: 0 0 245px;
+    flex: 0 0 var(--sidebar-width);
 
-    height: calc(100vh - 70px);
+    height: calc(100vh - var(--navbar-height));
 
     background:
         rgba(255, 255, 255, 0.97);
@@ -421,7 +549,6 @@ a {
     letter-spacing: 0.6px;
 }
 
-
 .sidebar-heading i {
     color: var(--primary);
 
@@ -478,6 +605,10 @@ a {
         transform 0.2s ease;
 }
 
+.sidebar-link:last-child {
+    margin-bottom: 0;
+}
+
 
 /* =====================================================
    SIDEBAR ICON
@@ -506,7 +637,7 @@ a {
 
 
 /* =====================================================
-   HOVER
+   SIDEBAR HOVER
 ===================================================== */
 
 .sidebar-link:hover {
@@ -523,7 +654,7 @@ a {
 
 
 /* =====================================================
-   ACTIVE
+   SIDEBAR ACTIVE
 ===================================================== */
 
 .sidebar-link.active {
@@ -538,11 +669,6 @@ a {
 
     transform: none;
 }
-
-
-/* =====================================================
-   ACTIVE ICON
-===================================================== */
 
 .sidebar-link.active .sidebar-icon {
     background: #e5e7ff;
@@ -586,7 +712,7 @@ a {
     min-width: 0;
     min-height: 0;
 
-    height: calc(100vh - 70px);
+    height: calc(100vh - var(--navbar-height));
 
     padding: 35px;
 
@@ -648,6 +774,16 @@ a {
 
 
 /* =====================================================
+   BOOTSTRAP CARD IMPROVEMENT
+===================================================== */
+
+.card,
+.sf-card {
+    overflow: hidden;
+}
+
+
+/* =====================================================
    PROGRESS
 ===================================================== */
 
@@ -674,7 +810,7 @@ a {
 
 
 /* =====================================================
-   BUTTON
+   PRIMARY BUTTON
 ===================================================== */
 
 .btn-primary {
@@ -691,7 +827,9 @@ a {
 
     font-weight: 600;
 
-    transition: 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .btn-primary:hover {
@@ -700,30 +838,6 @@ a {
     box-shadow:
         0 7px 18px
         rgba(99, 102, 241, 0.25);
-}
-
-
-/* =====================================================
-   GLOBAL SCROLLBAR
-===================================================== */
-
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-
-    border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
 }
 
 
@@ -790,154 +904,78 @@ a {
 }
 
 
-/* =========================================================
-   AUTH NAVBAR
-========================================================= */
+/* =====================================================
+   GLOBAL SCROLLBAR
+===================================================== */
 
-.sf-nav-welcome {
-    display: inline-flex;
-    align-items: center;
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
 
-    margin-right: 5px;
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
 
-    color: #64748b;
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
 
-    font-size: 13px;
-    font-weight: 600;
+    border-radius: 20px;
+}
 
-    white-space: nowrap;
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }
 
 
-/* =========================================================
-   COMMON NAV BUTTON
-========================================================= */
+/* =====================================================
+   FORM ELEMENTS - GLOBAL
+===================================================== */
 
-.sf-nav-btn {
-    height: 40px;
+.form-control,
+.form-select {
+    border-color: #dfe4ec;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 7px;
-
-    padding: 0 16px;
-
-    border-radius: 10px;
-
-    font-size: 13px;
-    font-weight: 650;
-
-    text-decoration: none !important;
-
-    transition: all 0.25s ease;
+    border-radius: 9px;
 }
 
-.sf-nav-btn i {
-    font-size: 14px;
-}
-
-
-/* =========================================================
-   LOGIN
-========================================================= */
-
-.sf-nav-login {
-    border: 1px solid #c7d2fe;
-
-    background: #f8f9ff;
-
-    color: #4f46e5;
-}
-
-.sf-nav-login:hover {
-    background: #eef2ff;
-
-    border-color: #6366f1;
-
-    color: #4338ca;
-
-    transform: translateY(-1px);
-}
-
-
-/* =========================================================
-   SIGN UP
-========================================================= */
-
-.sf-nav-signup {
-    border: none;
-
-    background:
-        linear-gradient(
-            135deg,
-            #4f46e5,
-            #6366f1,
-            #7c3aed
-        );
-
-    color: #ffffff;
+.form-control:focus,
+.form-select:focus {
+    border-color: #818cf8;
 
     box-shadow:
-        0 7px 20px
-        rgba(79, 70, 229, 0.25);
-}
-
-.sf-nav-signup:hover {
-    color: #ffffff;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 11px 26px
-        rgba(79, 70, 229, 0.35);
+        0 0 0 3px
+        rgba(99, 102, 241, 0.12);
 }
 
 
-/* =========================================================
-   DASHBOARD
-========================================================= */
+/* =====================================================
+   SWEETALERT
+===================================================== */
 
-.sf-nav-dashboard {
-    border: 1px solid #dbe1ea;
-
-    background: #ffffff;
-
-    color: #475569;
+.swal2-popup {
+    border-radius: 16px !important;
+    font-family: "Inter", Arial, sans-serif !important;
 }
 
-.sf-nav-dashboard:hover {
-    background: #f8f9ff;
-
-    border-color: #c7d2fe;
-
-    color: #4f46e5;
-
-    transform: translateY(-1px);
+.swal2-title {
+    font-weight: 700 !important;
 }
 
 
-/* =========================================================
-   LOGOUT
-========================================================= */
+/* =====================================================
+   TABLET
+===================================================== */
 
-.sf-nav-logout {
-    border: 1px solid #fecaca;
+@media (max-width: 1100px) {
 
-    background: #fffafa;
+    .navbar-container {
+        padding: 0 24px;
+    }
 
-    color: #dc2626;
-}
-
-.sf-nav-logout:hover {
-    background: #fef2f2;
-
-    border-color: #fca5a5;
-
-    color: #b91c1c;
-
-    transform: translateY(-1px);
+    .page-content {
+        padding: 30px;
+    }
 }
 
 
@@ -947,35 +985,187 @@ a {
 
 @media (max-width: 900px) {
 
+    :root {
+        --sidebar-width: 210px;
+    }
+
     .navbar-container {
         padding: 0 20px;
     }
 
     .sidebar {
-        width: 210px;
-        flex-basis: 210px;
+        padding: 22px 12px;
+    }
+
+    .sidebar-link {
+        font-size: 14px;
+
+        gap: 10px;
     }
 
     .page-content {
         padding: 25px;
     }
+
+    .sf-nav-welcome {
+        max-width: 130px;
+    }
 }
 
 
 /* =====================================================
-   MOBILE / TABLET
+   MOBILE - 768px
 ===================================================== */
 
 @media (max-width: 768px) {
+
+    :root {
+        --navbar-height: 64px;
+    }
+
+
+    /* ==============================
+       BODY
+    ============================== */
 
     html,
     body {
         overflow: auto;
     }
 
+
+    /* ==============================
+       NAVBAR
+    ============================== */
+
     .navbar {
         height: 64px;
     }
+
+    .navbar-container {
+        height: 64px;
+
+        padding: 0 14px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 8px;
+    }
+
+
+    /* ==============================
+       LOGO
+    ============================== */
+
+    .logo {
+        gap: 7px;
+
+        flex-shrink: 0;
+    }
+
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+
+        border-radius: 9px;
+
+        font-size: 16px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+
+
+    /* ==============================
+       NAV RIGHT
+    ============================== */
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+
+        gap: 6px;
+
+        min-width: 0;
+
+        flex-shrink: 0;
+    }
+
+
+    /* ==============================
+       PROFILE
+    ============================== */
+
+    .sf-nav-profile {
+        display: flex;
+        align-items: center;
+
+        gap: 6px;
+
+        min-width: 0;
+
+        flex-shrink: 0;
+    }
+
+    .sf-nav-profile-image,
+    .sf-nav-profile-placeholder {
+        width: 36px;
+        height: 36px;
+
+        min-width: 36px;
+        min-height: 36px;
+    }
+
+    .sf-nav-profile-placeholder {
+        font-size: 17px;
+    }
+
+
+    /* ==============================
+       WELCOME
+    ============================== */
+
+    .sf-nav-welcome {
+        display: none !important;
+    }
+
+
+    /* ==============================
+       NAV BUTTONS
+    ============================== */
+
+    .sf-nav-btn {
+        width: 36px;
+        height: 36px;
+
+        min-width: 36px;
+
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 0;
+
+        border-radius: 9px;
+
+        font-size: 0;
+    }
+
+    .sf-nav-btn i {
+        margin: 0;
+
+        font-size: 15px;
+    }
+
+
+    /* ==============================
+       MAIN LAYOUT
+    ============================== */
 
     .layout {
         display: block;
@@ -987,15 +1177,16 @@ a {
         overflow: visible;
     }
 
+
+    /* ==============================
+       SIDEBAR
+    ============================== */
+
     .sidebar {
         width: 100%;
         height: auto;
 
         min-height: auto;
-
-        position: relative;
-
-        top: 0;
 
         border-right: none;
 
@@ -1013,11 +1204,13 @@ a {
         overflow: visible;
     }
 
+
     .sidebar-heading {
         width: 100%;
 
         margin-bottom: 3px;
     }
+
 
     .sidebar-divider {
         width: 100%;
@@ -1025,13 +1218,21 @@ a {
         margin: 5px 8px 10px;
     }
 
+
     .sidebar-link {
         width: auto;
 
         margin-bottom: 0;
     }
 
+
+    /* ==============================
+       PAGE CONTENT
+    ============================== */
+
     .page-content {
+        width: 100%;
+
         height: auto;
 
         min-height: calc(100vh - 64px);
@@ -1040,54 +1241,84 @@ a {
 
         overflow: visible;
     }
-
-    .sf-nav-welcome {
-        display: none;
-    }
-
-    .sf-nav-btn {
-        height: 38px;
-
-        padding: 0 12px;
-
-        font-size: 12px;
-    }
 }
 
 
 /* =====================================================
-   MOBILE
+   SMALL MOBILE - 600px
 ===================================================== */
 
 @media (max-width: 600px) {
 
     .navbar-container {
-        padding: 0 15px;
+        padding: 0 12px;
     }
 
-    .logo-icon {
-        width: 35px;
-        height: 35px;
 
-        font-size: 16px;
+    /* ==============================
+       LOGO
+    ============================== */
+
+    .logo-icon {
+        width: 34px;
+        height: 34px;
+
+        font-size: 15px;
     }
 
     .logo-text {
-        font-size: 18px;
+        font-size: 17px;
     }
 
-    .profile-user-name {
-        display: none;
+
+    /* ==============================
+       NAV RIGHT
+    ============================== */
+
+    .nav-right {
+        gap: 5px;
     }
 
-    .profile-user {
-        padding: 0;
+
+    /* ==============================
+       PROFILE
+    ============================== */
+
+    .sf-nav-profile-image,
+    .sf-nav-profile-placeholder {
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+        min-height: 34px;
     }
 
-    .notification-btn {
-        width: 35px;
-        height: 35px;
+    .sf-nav-profile-placeholder {
+        font-size: 16px;
     }
+
+
+    /* ==============================
+       NAV BUTTONS
+    ============================== */
+
+    .sf-nav-btn {
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+
+        border-radius: 8px;
+    }
+
+    .sf-nav-btn i {
+        font-size: 14px;
+    }
+
+
+    /* ==============================
+       SIDEBAR
+    ============================== */
 
     .sidebar {
         padding: 12px;
@@ -1106,6 +1337,11 @@ a {
         font-size: 14px;
     }
 
+
+    /* ==============================
+       CONTENT
+    ============================== */
+
     .page-content {
         padding: 18px 14px;
     }
@@ -1113,23 +1349,59 @@ a {
 
 
 /* =====================================================
-   SMALL MOBILE
+   VERY SMALL MOBILE - 450px
 ===================================================== */
 
 @media (max-width: 450px) {
+
+    /* ==============================
+       NAVBAR
+    ============================== */
+
+    .navbar-container {
+        padding: 0 10px;
+    }
+
 
     .logo-text {
         display: none;
     }
 
-    .sidebar-link {
-        flex: 1 1 calc(50% - 5px);
 
-        justify-content: flex-start;
+    .logo-icon {
+        width: 35px;
+        height: 35px;
     }
 
+
+    .nav-right {
+        gap: 5px;
+    }
+
+
+    /* ==============================
+       PROFILE
+    ============================== */
+
+    .sf-nav-profile-image,
+    .sf-nav-profile-placeholder {
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+        min-height: 34px;
+    }
+
+
+    /* ==============================
+       NAV BUTTONS
+    ============================== */
+
     .sf-nav-btn {
-        width: 40px;
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
 
         padding: 0;
     }
@@ -1139,74 +1411,66 @@ a {
     }
 
     .sf-nav-btn i {
-        font-size: 16px;
+        display: block;
+
+        font-size: 14px;
+    }
+
+
+    /* ==============================
+       SIDEBAR
+    ============================== */
+
+    .sidebar-link {
+        flex: 1 1 calc(50% - 5px);
+
+        justify-content: flex-start;
     }
 }
 
+
 /* =====================================================
-   NAVBAR PROFILE
+   EXTRA SMALL - 360px
 ===================================================== */
 
-.sf-nav-profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+@media (max-width: 360px) {
 
-    text-decoration: none;
-    color: inherit;
+    .navbar-container {
+        padding: 0 8px;
+    }
 
-    transition: opacity 0.2s ease;
-}
+    .logo-icon {
+        width: 33px;
+        height: 33px;
 
-.sf-nav-profile:hover {
-    opacity: 0.9;
-}
+        font-size: 14px;
+    }
 
+    .nav-right {
+        gap: 4px;
+    }
 
-/* Profile Image */
+    .sf-nav-profile-image,
+    .sf-nav-profile-placeholder {
+        width: 32px;
+        height: 32px;
 
-.sf-nav-profile-image {
-    width: 44px;
-    height: 44px;
+        min-width: 32px;
+        min-height: 32px;
+    }
 
-    border-radius: 50%;
+    .sf-nav-btn {
+        width: 32px;
+        height: 32px;
 
-    object-fit: cover;
+        min-width: 32px;
+    }
 
-    display: block;
+    .sf-nav-btn i {
+        font-size: 13px;
+    }
 
-    border: 2px solid #ffffff;
-
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.18);
-}
-
-
-/* Default Profile Icon */
-
-.sf-nav-profile-placeholder {
-    width: 44px;
-    height: 44px;
-
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #f1f3f5;
-
-    color: #495057;
-
-    border: 2px solid #ffffff;
-
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.18);
-
-    font-size: 22px;
-}
-
-
-.sf-nav-welcome {
-    font-weight: 600;
+    .page-content {
+        padding: 15px 11px;
+    }
 }
